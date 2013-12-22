@@ -3,10 +3,10 @@
 # ----------------------- #
 
 url: http://Utumno.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
-simple_search: https://www.google.com/search
+title: Udun's Labs
+subtitle:
+author: Utumno
+simple_search: http://google.com/search
 description:
 # sidebar: false # does not work
 sidebar: collapse
