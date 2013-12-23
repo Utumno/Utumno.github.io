@@ -1,0 +1,383 @@
+---
+layout: post
+title: "Set up Octopress in windows 7"
+date: 2013-12-21 23:32:47 +0200
+comments: true
+categories:  [Octopress, Jekyll]
+---
+Download ruby from [here](http://rubyinstaller.org/downloads/) - I downloaded `rubyinstaller-1.9.3-p448.exe`
+
+Install it, add it to path then create a folder to host octopress and your blog (in DB naturlich) and fire up git bash.
+
+	Welcome to Git (version 1.8.4-preview20130916) # how are you ?
+
+	MrD@MRSD /c/dropbox/Udun
+	$ ruby --version
+	ruby 1.9.3p448 (2013-06-27) [i386-mingw32]
+
+	MrD@MRSD /c/dropbox/Udun
+	$ git clone git://github.com/imathis/octopress.git
+	Cloning into 'octopress'...
+	remote: Counting objects: 10967, done.
+	remote: Compressing objects: 100% (5107/5107), done.
+	remote: Total 10967 (delta 5807), reused 9843 (delta 4984)
+	Receiving objects: 100% (10967/10967), 2.46 MiB | 82.00 KiB/s, done.
+	Resolving deltas: 100% (5807/5807), done.
+	Checking connectivity... done
+
+	MrD@MRSD /c/dropbox/Udun
+	$ cd octopress/
+
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ gem install bundler
+	Fetching: bundler-1.3.5.gem (100%)
+	Successfully installed bundler-1.3.5
+	1 gem installed
+	Installing ri documentation for bundler-1.3.5...
+	Installing RDoc documentation for bundler-1.3.5...
+
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ bundle install
+	Fetching gem metadata from https://rubygems.org/.......
+	Fetching gem metadata from https://rubygems.org/..
+	Resolving dependencies...
+	Using rake (0.9.2.2)
+	Installing RedCloth (4.2.9)
+	Installing chunky_png (1.2.5)
+	Installing fast-stemmer (1.0.1)
+	Gem::InstallError: The 'fast-stemmer' native gem requires installed build tools.
+
+
+	Please update your PATH to include build tools or download the DevKit
+	from 'http://rubyinstaller.org/downloads' and follow the instructions
+	at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
+	An error occurred while installing fast-stemmer (1.0.1), and Bundler cannot
+	continue.
+	Make sure that `gem install fast-stemmer -v '1.0.1'` succeeds before bundling.
+
+Oops. Install<sup>1</sup> [RubyDevKit](http://rubyinstaller.org/downloads/) - I downloaded `DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe`. Install means unzip - I unzipped into C:\\_\Ruby. Then
+<!-- more -->
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ cd C:/_/Ruby
+
+	MrD@MRSD /c/_/Ruby
+	$ ruby dk.rb init
+	[INFO] found RubyInstaller v1.9.3 at C:/_/Ruby193
+
+	Initialization complete! Please review and modify the auto-generated
+	'config.yml' file to ensure it contains the root directories to all
+	of the installed Rubies you want enhanced by the DevKit.
+
+	MrD@MRSD /c/_/Ruby
+	$ ruby dk.rb install
+	[INFO] Updating convenience notice gem override for 'C:/_/Ruby193'
+	[INFO] Installing 'C:/_/Ruby193/lib/ruby/site_ruby/devkit.rb'
+
+	MrD@MRSD /c/_/Ruby
+	$ cd /c/dropbox/Udun/octopress
+
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ bundle install
+	Fetching gem metadata from https://rubygems.org/.......
+	Fetching gem metadata from https://rubygems.org/..
+	Resolving dependencies...
+	Using rake (0.9.2.2)
+	Using RedCloth (4.2.9)
+	Using chunky_png (1.2.5)
+	Installing fast-stemmer (1.0.1)
+	Installing classifier (1.3.3)
+	Installing fssm (0.2.9)
+	Installing sass (3.2.9)
+	Installing compass (0.12.2)
+	Installing directory_watcher (1.4.1)
+	Installing haml (3.1.7)
+	Installing kramdown (0.13.8)
+	Installing liquid (2.3.0)
+	Installing syntax (1.0.0)
+	Installing maruku (0.6.1)
+	Installing posix-spawn (0.3.6)
+	Installing yajl-ruby (1.1.0)
+	Installing pygments.rb (0.3.4)
+	Installing jekyll (0.12.0)
+	Installing rack (1.5.2)
+	Installing rack-protection (1.5.0)
+	Installing rb-fsevent (0.9.1)
+	Installing rdiscount (2.0.7.3)
+	Installing rubypants (0.2.0)
+	Installing sass-globbing (1.0.0)
+	Installing tilt (1.3.7)
+	Installing sinatra (1.4.2)
+	Installing stringex (1.4.0)
+	Using bundler (1.3.5)
+	Your bundle is complete!
+	Use `bundle show [gemname]` to see where a bundled gem is installed.
+
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ rake install
+	## Copying classic theme into ./source and ./sass
+	mkdir -p source
+	cp -r .themes/classic/source/. source
+	mkdir -p sass
+	cp -r .themes/classic/sass/. sass
+	mkdir -p source/_posts
+	mkdir -p public
+
+This has created a host of untracked files in `sass/` and `source/`
+
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ git status
+	# On branch master
+	# Changes not staged for commit:
+	#   (use "git add <file>..." to update what will be committed)
+	#   (use "git checkout -- <file>..." to discard changes in working directory)
+	#
+	#       modified:   Gemfile.lock
+	#
+	# Untracked files:
+	#   (use "git add <file>..." to include in what will be committed)
+	#
+	#       sass/
+	#       source/
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+And here is the diff for `Gemfile.lock`
+
+	 GEM
+	   remote: https://rubygems.org/
+	   specs:
+		 RedCloth (4.2.9)
+	+    RedCloth (4.2.9-x86-mingw32)
+		 chunky_png (1.2.5)
+		 classifier (1.3.3)
+		   fast-stemmer (>= 1.0.0)
+		 compass (0.12.2)
+		   chunky_png (~> 1.2)
+	@@ -44,13 +45,15 @@ GEM
+		   tilt (~> 1.3, >= 1.3.4)
+		 stringex (1.4.0)
+		 syntax (1.0.0)
+		 tilt (1.3.7)
+		 yajl-ruby (1.1.0)
+	+    yajl-ruby (1.1.0-x86-mingw32)
+
+	 PLATFORMS
+	   ruby
+	+  x86-mingw32
+
+	 DEPENDENCIES
+	   RedCloth (~> 4.2.9)
+	   compass (~> 0.12.2)
+	   directory_watcher (= 1.4.1)
+
+
+I know as much ruby as Sanskrit but it's up and running.
+
+###Github Pages
+
+	MrD@MRSD /c/dropbox/Udun/octopress (master)
+	$ rake setup_github_pages
+	Enter the read/write url for your repository
+	(For example, 'git@github.com:your_username/your_username.github.io.git)
+			   or 'https://github.com/your_username/your_username.github.io')
+	Repository url: https://github.com/Utumno/Utumno.github.io
+	Added remote https://github.com/Utumno/Utumno.github.io as origin
+	Set origin as default remote
+	Master branch renamed to 'source' for committing your blog source files
+	rm -rf _deploy
+	mkdir _deploy
+	cd _deploy
+	Initialized empty Git repository in c:/dropbox/Udun/octopress/_deploy/.git/
+	'My Octopress Page is coming soon
+	'hellip' is not recognized as an internal or external command,
+	operable program or batch file.
+	[master (root-commit) 792f51e] Octopress init
+	 1 file changed, 0 insertions(+), 0 deletions(-)
+	 create mode 100644 index.html
+	cd -
+
+	---
+	## Now you can deploy to https://github.com/Utumno/Utumno.github.io with `rake d
+	eploy` ##
+
+	MrD@MRSD /c/dropbox/Udun/octopress (source)
+	$ git status
+	# On branch source
+	# Changes not staged for commit:
+	#   (use "git add <file>..." to update what will be committed)
+	#   (use "git checkout -- <file>..." to discard changes in working directory)
+	#
+	#       modified:   Gemfile.lock
+	#       modified:   Rakefile
+	#       modified:   _config.yml
+	#
+	# Untracked files:
+	#   (use "git add <file>..." to include in what will be committed)
+	#
+	#       sass/
+	#       source/
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Diffs - Rakefile:
+
+	@@ -7,14 +7,14 @@ require "stringex"
+	 ssh_user       = "user@domain.com"
+	 ssh_port       = "22"
+	 document_root  = "~/website.com/"
+	 rsync_delete   = false
+	 rsync_args     = ""  # Any extra arguments to pass to rsync
+	-deploy_default = "rsync"
+	+deploy_default = "push"
+
+	 # This will be configured for you when you run config_deploy
+	-deploy_branch  = "gh-pages"
+	+deploy_branch  = "master"
+
+_config.yml:
+
+	 ## -- Misc Configs -- ##
+
+	 public_dir      = "public"    # compiled site directory
+	 source_dir      = "source"    # source file directory
+
+	@@ -1,10 +1,10 @@
+	 # ----------------------- #
+	 #      Main Configs       #
+	 # ----------------------- #
+
+	-url: http://yoursite.com
+	+url: http://Utumno.github.io
+	 title: My Octopress Blog
+	 subtitle: A blogging framework for hackers.
+	 author: Your Name
+	 simple_search: http://google.com/search
+	 description:
+
+
+What all this means is that you are now on branch `source`
+
+	MrD@MRSD /c/dropbox/Udun/octopress (source)
+	$  git branch -a
+	* source
+	  remotes/octopress/2.5
+	  remotes/octopress/2.5-simplify-rakefile
+	  remotes/octopress/3.0
+	  remotes/octopress/HEAD -> octopress/master
+	  remotes/octopress/commander
+	  remotes/octopress/gh-pages
+	  remotes/octopress/guard
+	  remotes/octopress/jekyll-1-3
+	  remotes/octopress/linklog
+	  remotes/octopress/master
+	  remotes/octopress/migrator
+	  remotes/octopress/refactor_with_tests
+	  remotes/octopress/rubygemcli
+	  remotes/octopress/site
+	  remotes/octopress/site-2.
+
+Huh ? Where is master ? It's in the `_deploy` folder. You can push/pull via git but better use the supplied rake commands (see below).
+
+###Blogging
+
+First, commit all fluff so far
+
+	MrD@MRSD /c/dropbox/Udun/octopress (source)
+	$ git add .
+
+	MrD@MRSD /c/dropbox/Udun/octopress (source)
+	$ git commit -m"Octopress autogenerated files"
+	[source 8794e51] Octopress autogenerated files
+	 120 files changed, 2787 insertions(+), 3 deletions(-)
+	# yada yada
+
+Now we can start blogging finally:
+
+	MrD@MRSD /c/dropbox/Udun/octopress (source)
+	$ rake new_post["Set up octopress in windows 7"]
+	mkdir -p source/_posts
+	Creating new post: source/_posts/2013-12-21-set-up-octopress-in-windows-7.markdo
+	wn
+
+
+	MrD@MRSD /c/dropbox/Udun/octopress (source)
+	$ rake preview
+	Starting to watch source with Jekyll and Compass. Starting Rack on port 4000
+	directory source/stylesheets/
+	   create source/stylesheets/screen.css
+	Configuration from c:/dropbox/Udun/octopress/_config.yml
+	>>> Change detected at 23:44:18 to: screen.scss
+	Auto-regenerating enabled: source -> public
+	[2013-12-21 23:44:18] regeneration: 94 files changed
+	identical public/stylesheets/screen.css
+
+	Dear developers making use of FSSM in your projects,
+	FSSM is essentially dead at this point. Further development will
+	be taking place in the new shared guard/listen project. Please
+	let us know if you need help transitioning! ^_^b
+	- Travis Tilley
+
+I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your post, change things in the layout (more of this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should got to `source/_includes/custom`. When ready do :
+
+	MrD@MRSD /c/Dropbox/Udun/octopress (source)
+	$ rake generate
+	## Generating Site with Jekyll
+	identical source/stylesheets/screen.css
+	Configuration from C:/Dropbox/Udun/octopress/_config.yml
+	Building site: source -> public
+	Successfully generated site: source -> public
+
+	MrD@MRSD /c/Dropbox/Udun/octopress (source)
+	$ rake deploy
+	## Found posts in preview mode, regenerating files ...
+	## Generating Site with Jekyll
+	identical source/stylesheets/screen.css
+	Configuration from C:/Dropbox/Udun/octopress/_config.yml
+	Building site: source -> public
+	Successfully generated site: source -> public
+	## Deploying branch to Github Pages
+	## Pulling any updates from Github Pages
+	cd _deploy
+	There is no tracking information for the current branch.
+	Please specify which branch you want to merge with.
+	See git-pull(1) for details
+
+		git pull <remote> <branch>
+
+	If you wish to set tracking information for this branch you can do so with:
+
+		git branch --set-upstream-to=origin/<branch> master
+
+	cd -
+	rm -rf _deploy/index.html
+
+	## Copying public to _deploy
+	cp -r public/. _deploy
+	cd _deploy
+
+	## Committing: Site updated at 2013-12-23 21:04:31 UTC
+	[master 9857750] Site updated at 2013-12-23 21:04:31 UTC
+	 69 files changed, 3044 insertions(+)
+	 # yada yada
+
+	## Pushing generated _deploy website
+	Username for 'https://github.com':
+	## Github Pages deploy complete
+	cd -
+
+
+Then (and only then) commit your source (only then for github to have your default branch as master)
+
+
+
+If you want to update octopress itself [you should run](http://octopress.org/docs/updating/) :
+
+	git pull octopress master # Get the latest Octopress
+	bundle install # Keep gems updated
+	rake update_source # update the template's source
+	rake update_style # update the template's style
+
+(but read the link above)
+
+
+
+<sup>1</sup>: got the commands from [here](http://stb.techelex.com/setup-octopress-on-windows7/). I don't have a clue what they do - but will come back to it.
