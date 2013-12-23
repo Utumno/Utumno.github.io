@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2013-12-23T23:04:22+02:00</updated>
+  <updated>2013-12-23T23:10:02+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -340,6 +340,69 @@ let us know if you need help transitioning! ^_^b
 </code></pre>
 
 <p>I dunno what this last piece of laurem ipsum is. Anyway &ndash; go ahead, edit your post, change things in the layout (more of this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should got to <code>source/_includes/custom</code>. When ready do :</p>
+
+<p>MrD@MRSD /c/Dropbox/Udun/octopress (source)
+$ rake generate</p>
+
+<h2>Generating Site with Jekyll</h2>
+
+<p>identical source/stylesheets/screen.css
+Configuration from C:/Dropbox/Udun/octopress/_config.yml
+Building site: source &ndash;> public
+Successfully generated site: source &ndash;> public</p>
+
+<p>MrD@MRSD /c/Dropbox/Udun/octopress (source)
+$ rake deploy</p>
+
+<h2>Found posts in preview mode, regenerating files &hellip;</h2>
+
+<h2>Generating Site with Jekyll</h2>
+
+<p>identical source/stylesheets/screen.css
+Configuration from C:/Dropbox/Udun/octopress/_config.yml
+Building site: source &ndash;> public
+Successfully generated site: source &ndash;> public</p>
+
+<h2>Deploying branch to Github Pages</h2>
+
+<h2>Pulling any updates from Github Pages</h2>
+
+<p>cd _deploy
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details</p>
+
+<pre><code>git pull &lt;remote&gt; &lt;branch&gt;
+</code></pre>
+
+<p>If you wish to set tracking information for this branch you can do so with:</p>
+
+<pre><code>git branch --set-upstream-to=origin/&lt;branch&gt; master
+</code></pre>
+
+<p>cd &ndash;
+rm -rf _deploy/index.html</p>
+
+<h2>Copying public to _deploy</h2>
+
+<p>cp -r public/. <em>deploy
+cd </em>deploy</p>
+
+<h2>Committing: Site updated at 2013-12-23 21:04:31 UTC</h2>
+
+<p>[master 9857750] Site updated at 2013-12-23 21:04:31 UTC
+ 69 files changed, 3044 insertions(+)
+ # yada yada</p>
+
+<h2>Pushing generated _deploy website</h2>
+
+<p>Username for &lsquo;<a href="https://github.com">https://github.com</a>&rsquo;:</p>
+
+<h2>Github Pages deploy complete</h2>
+
+<p>cd &ndash;</p>
+
+<p>Then (and only then) commit your source</p>
 
 <p>If you want to update octopress itself <a href="http://octopress.org/docs/updating/">you should run</a> :</p>
 
