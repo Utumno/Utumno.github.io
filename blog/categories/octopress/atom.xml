@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2013-12-23T23:10:02+02:00</updated>
+  <updated>2013-12-23T23:18:51+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -341,68 +341,54 @@ let us know if you need help transitioning! ^_^b
 
 <p>I dunno what this last piece of laurem ipsum is. Anyway &ndash; go ahead, edit your post, change things in the layout (more of this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should got to <code>source/_includes/custom</code>. When ready do :</p>
 
-<p>MrD@MRSD /c/Dropbox/Udun/octopress (source)
-$ rake generate</p>
-
-<h2>Generating Site with Jekyll</h2>
-
-<p>identical source/stylesheets/screen.css
+<pre><code>MrD@MRSD /c/Dropbox/Udun/octopress (source)
+$ rake generate
+## Generating Site with Jekyll
+identical source/stylesheets/screen.css
 Configuration from C:/Dropbox/Udun/octopress/_config.yml
-Building site: source &ndash;> public
-Successfully generated site: source &ndash;> public</p>
+Building site: source -&gt; public
+Successfully generated site: source -&gt; public
 
-<p>MrD@MRSD /c/Dropbox/Udun/octopress (source)
-$ rake deploy</p>
-
-<h2>Found posts in preview mode, regenerating files &hellip;</h2>
-
-<h2>Generating Site with Jekyll</h2>
-
-<p>identical source/stylesheets/screen.css
+MrD@MRSD /c/Dropbox/Udun/octopress (source)
+$ rake deploy
+## Found posts in preview mode, regenerating files ...
+## Generating Site with Jekyll
+identical source/stylesheets/screen.css
 Configuration from C:/Dropbox/Udun/octopress/_config.yml
-Building site: source &ndash;> public
-Successfully generated site: source &ndash;> public</p>
-
-<h2>Deploying branch to Github Pages</h2>
-
-<h2>Pulling any updates from Github Pages</h2>
-
-<p>cd _deploy
+Building site: source -&gt; public
+Successfully generated site: source -&gt; public
+## Deploying branch to Github Pages
+## Pulling any updates from Github Pages
+cd _deploy
 There is no tracking information for the current branch.
 Please specify which branch you want to merge with.
-See git-pull(1) for details</p>
+See git-pull(1) for details
 
-<pre><code>git pull &lt;remote&gt; &lt;branch&gt;
-</code></pre>
+    git pull &lt;remote&gt; &lt;branch&gt;
 
-<p>If you wish to set tracking information for this branch you can do so with:</p>
+If you wish to set tracking information for this branch you can do so with:
 
-<pre><code>git branch --set-upstream-to=origin/&lt;branch&gt; master
-</code></pre>
+    git branch --set-upstream-to=origin/&lt;branch&gt; master
 
-<p>cd &ndash;
-rm -rf _deploy/index.html</p>
+cd -
+rm -rf _deploy/index.html
 
-<h2>Copying public to _deploy</h2>
+## Copying public to _deploy
+cp -r public/. _deploy
+cd _deploy
 
-<p>cp -r public/. <em>deploy
-cd </em>deploy</p>
-
-<h2>Committing: Site updated at 2013-12-23 21:04:31 UTC</h2>
-
-<p>[master 9857750] Site updated at 2013-12-23 21:04:31 UTC
+## Committing: Site updated at 2013-12-23 21:04:31 UTC
+[master 9857750] Site updated at 2013-12-23 21:04:31 UTC
  69 files changed, 3044 insertions(+)
- # yada yada</p>
+ # yada yada
 
-<h2>Pushing generated _deploy website</h2>
+## Pushing generated _deploy website
+Username for 'https://github.com':
+## Github Pages deploy complete
+cd -
+</code></pre>
 
-<p>Username for &lsquo;<a href="https://github.com">https://github.com</a>&rsquo;:</p>
-
-<h2>Github Pages deploy complete</h2>
-
-<p>cd &ndash;</p>
-
-<p>Then (and only then) commit your source</p>
+<p>Then (and only then) commit your source (only then for github to have your default branch as master)</p>
 
 <p>If you want to update octopress itself <a href="http://octopress.org/docs/updating/">you should run</a> :</p>
 
