@@ -367,7 +367,17 @@ I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your po
 
 Then (and only then) commit your source (only then for github to have your default branch as master)
 
-
+	MrD@MRSD /c/Dropbox/Udun/octopress (source)
+	$ git push origin source
+	Username for 'https://github.com': Utumno
+	Password for 'https://Utumno@github.com':
+	Counting objects: 4752, done.
+	Delta compression using up to 8 threads.
+	Compressing objects: 100% (2056/2056), done.
+	Writing objects: 100% (4752/4752), 1.20 MiB | 1.14 MiB/s, done.
+	Total 4752 (delta 2476), reused 4520 (delta 2320)
+	To https://github.com/Utumno/Utumno.github.io
+	* [new branch]      source -> source
 
 If you want to update octopress itself [you should run](http://octopress.org/docs/updating/) :
 
