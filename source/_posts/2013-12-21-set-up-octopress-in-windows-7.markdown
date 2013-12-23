@@ -316,7 +316,7 @@ Now we can start blogging finally:
 	let us know if you need help transitioning! ^_^b
 	- Travis Tilley
 
-I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your post, change things in the layout (more of this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should got to `source/_includes/custom`. When ready do :
+I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your post, change things in the layout (more on this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should got to `source/_includes/custom`. When ready do :
 
 	MrD@MRSD /c/Dropbox/Udun/octopress (source)
 	$ rake generate
@@ -365,7 +365,7 @@ I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your po
 	cd -
 
 
-Then (and only then) commit your source (only then for github to have your default branch as master)
+Then (and only then) commit your source (only then for github to set your default branch as master)
 
 	MrD@MRSD /c/Dropbox/Udun/octopress (source)
 	$ git push origin source
