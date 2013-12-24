@@ -408,7 +408,7 @@ let us know if you need help transitioning! ^_^b
 - Travis Tilley
 </code></pre>
 
-<p>I dunno what this last piece of laurem ipsum is. Anyway &ndash; go ahead, edit your post, change things in the layout (more on this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should got to <code>source/_includes/custom</code>. When ready do :</p>
+<p>I dunno what this last piece of laurem ipsum is. Anyway &ndash; go ahead, edit your post, change things in the layout (more on this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should go to <code>source/_includes/custom</code>. When ready do :</p>
 
 <pre><code>MrD@MRSD /c/Dropbox/Udun/octopress (source)
 $ rake generate
@@ -533,6 +533,12 @@ rake update_style # update the template's style
   </footer>
 </article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
 </div>
 
 <aside class="sidebar">
@@ -551,6 +557,22 @@ rake update_style # update the template's style
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'udunslabs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/';
+        var disqus_url = 'http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
