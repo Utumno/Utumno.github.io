@@ -2,15 +2,19 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/</loc>
-        <lastmod>2013-12-24T17:57:57+02:00</lastmod>
+        <lastmod>2014-01-05T20:51:55+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Utumno.github.io/blog/2014/01/05/pythons-super/</loc>
+        <lastmod>2014-01-05T20:51:55+02:00</lastmod>
     </url>
     <url>
         <loc>http://Utumno.github.io/blog/archives/</loc>
-        <lastmod>2013-12-24T17:57:57+02:00</lastmod>
+        <lastmod>2014-01-05T19:22:12+02:00</lastmod>
     </url>
     <url>
         <loc>http://Utumno.github.io/</loc>
-        <lastmod>2013-12-24T17:57:57+02:00</lastmod>
+        <lastmod>2014-01-05T19:22:12+02:00</lastmod>
     </url>
     <url>
         <loc>http://Utumno.github.io/robots.txt</loc>

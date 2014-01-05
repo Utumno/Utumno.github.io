@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | Udun's Labs]]></title>
+  <link href="http://Utumno.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://Utumno.github.io/"/>
+  <updated>2014-01-05T23:21:59+02:00</updated>
+  <id>http://Utumno.github.io/</id>
+  <author>
+    <name><![CDATA[Utumno]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Python's Super]]></title>
+    <link href="http://Utumno.github.io/blog/2014/01/05/pythons-super/"/>
+    <updated>2014-01-05T16:45:20+02:00</updated>
+    <id>http://Utumno.github.io/blog/2014/01/05/pythons-super</id>
+    <content type="html"><![CDATA[<p>First thing that comes to mind : why do I need to name the superclass explicitly, instead of passing in <code>self.__class__</code> (or better still, <code>type(self)</code>)  ?
+<a href="http://stackoverflow.com/questions/18208683/when-calling-super-in-a-derived-class-can-i-pass-in-self-class/18208725#18208725">Because</a>:</p>
+
+<!--``` linenos:false-->
+
+
+<pre><code>class Base(object):
+    def method(self):
+        print 'original'
+
+class Derived(Base):
+    def method(self):
+        print 'derived'
+        super(type(self), self).method()
+
+class Subclass(Derived):
+    def method(self):
+        print 'subclass of derived'
+        super(Subclass, self).method()
+</code></pre>
+
+<!-- ``` -->
+
+
+<p>leads to:</p>
+
+<pre><code>&gt;&gt;&gt; Subclass().method()
+subclass of derived
+derived
+derived
+derived
+&lt;...&gt;
+  File "&lt;stdin&gt;", line 4, in method
+  File "&lt;stdin&gt;", line 4, in method
+  File "&lt;stdin&gt;", line 4, in method
+RuntimeError: maximum recursion depth exceeded while calling a Python object
+</code></pre>
+
+<p>And this pretty much explains the second question I had. In <a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
+(Previously: Python&rsquo;s Super Considered Harmful) it says</p>
+
+<blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;, as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very incorrect. Doing so will cause other classes' <code>__init__</code> methods to not be called.</p></blockquote>
+
+<p>But it does not say why (insert rant here). Btw <a href="http://stackoverflow.com/questions/8972866/correct-way-to-use-super-argument-passing">not all of his examples compile</a> (see this link also for a nice hack when you need to have arguments passed in the init method, and can&rsquo;t pop them one by one).</p>
+
+<p>Well that&rsquo;s a pile of gibberish <em>if there were only single inheritance</em>. Calling <code>super(...).__init__</code> in a class whose only superclass is &lsquo;object&rsquo; is then as useless as a used chewing gum. But the catch is that there is no such thing as single inheritance in python. So when we have MI, and our &ldquo;penultimate&rdquo; base class (that is the one that inherits directly from object) is used as a superclass in an unrelated MI class the call <code>super(...).__init__</code> will not delegate to object  init but in the next class in the MRO. <a href="">Example</a>:</p>
+
+<pre><code>class Service(object):
+    def __init__(self, host, binary, topic, manager, report_interval=None,
+             periodic_interval=None, *args, **kwargs):
+        print 'Initializing Service'
+        super(Service, self).__init__(*args, **kwargs)
+
+class Color(object):
+    def __init__(self, color='red', **kwargs):
+        print 'Initializing Color'
+        self.color = color
+        super(Color, self).__init__(**kwargs)
+
+class ColoredService(Service, Color):
+    def __init__(self, *args, **kwds):
+        print 'Initializing Colored Service'
+        super(ColoredService, self).__init__(*args, **kwds)
+
+c = ColoredService('host', 'bin', 'top', 'mgr', 'ivl', color='blue')
+</code></pre>
+
+<p>gives:</p>
+
+<pre><code>Initializing Colored Service
+Initializing Service
+Initializing Color
+</code></pre>
+
+<p>Why ? The call <code>super(Service, self).__init__(*args, **kwargs)</code> calls the next method in <em>self</em>&rsquo;s MRO &ndash; <em>self</em> being an instance of ColoredService. So the MRO is derived from the instance passed into super&rsquo;s <em>second argument</em> (you may also pass a type, haven&rsquo;t gone into this) while <em>the starting point in the MRO</em> is derived from super&rsquo;s first argument.</p>
+
+<pre><code>super(startFromThisType, getTheMROFromThisInstance)
+</code></pre>
+
+<p>And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.</p>
+
+<p>Btw for Java people &ndash; <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>. You must call <code>super.__init__</code> manually and that&rsquo;s where this post started from.</p>
+
+<p>References:</p>
+
+<ul>
+<li>Things to Know About Python Super <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=236275">[1 of 3]</a>, <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=236278">[2 of 3]</a>, <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=237121">[3 of 3]</a></li>
+<li><a href="http://www.python.org/download/releases/2.3/mro/">The Python 2.3 Method Resolution Order</a></li>
+<li><a href="http://docs.python.org/2/library/functions.html#super">super(type[, object-or-type])</a></li>
+<li><a href="http://users.rcn.com/python/download/Descriptor.htm">Descriptors</a> (in my toread)</li>
+<li><a href="http://rhettinger.wordpress.com/2011/05/26/super-considered-super/">Python&rsquo;s super() considered super!</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
