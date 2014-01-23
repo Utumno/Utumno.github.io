@@ -37,8 +37,8 @@ leads to:
       File "<stdin>", line 4, in method
     RuntimeError: maximum recursion depth exceeded while calling a Python object
 
-And this pretty much explains the second question I had. In [Python's Super is nifty, but you can't use it](https://fuhm.net/super-harmful/)
-(Previously: Python's Super Considered Harmful) it says
+And this pretty much explains the second question I had. <!-- more --> In [Python's Super is nifty, but you can't use it](https://fuhm.net/super-harmful/)
+(Previously: Python's Super Considered Harmful) we read:
 
 > People omit calls to `super(...).__init__` if the only superclass is 'object', as, after all, `object.__init__` doesn't do anything! However, this is very incorrect. Doing so will cause other classes' `__init__` methods to not be called.
 
@@ -77,7 +77,7 @@ Why ? The call `super(Service, self).__init__(*args, **kwargs)` calls the next m
 
 And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.
 
-Btw for Java people - [there is no automatic constructor call in  Python](http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332). You must call `super.__init__` manually and that's where this post started from.
+Btw for Java people - [there is no automatic constructor call in  Python](http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332). You must call `super.__init__` manually and that's where this post comes from.
 
 References:
 
