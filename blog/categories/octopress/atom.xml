@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-01-05T23:21:59+02:00</updated>
+  <updated>2014-01-23T21:24:50+00:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,9 +16,9 @@
   <entry>
     <title type="html"><![CDATA[Set Up Octopress in Windows 7]]></title>
     <link href="http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/"/>
-    <updated>2013-12-21T23:32:47+02:00</updated>
+    <updated>2013-12-21T21:32:47+00:00</updated>
     <id>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7</id>
-    <content type="html"><![CDATA[<p>Download ruby from <a href="http://rubyinstaller.org/downloads/">here</a> &ndash; I downloaded <code>rubyinstaller-1.9.3-p448.exe</code></p>
+    <content type="html"><![CDATA[<p>Download ruby from <a href="http://rubyinstaller.org/downloads/">here</a> - I downloaded <code>rubyinstaller-1.9.3-p448.exe</code></p>
 
 <p>Install it, add it to path then create a folder to host octopress and your blog (in DB naturlich) and fire up git bash.</p>
 
@@ -69,7 +69,7 @@ continue.
 Make sure that `gem install fast-stemmer -v '1.0.1'` succeeds before bundling.
 </code></pre>
 
-<p>Oops. Install<sup>1</sup> <a href="http://rubyinstaller.org/downloads/">RubyDevKit</a> &ndash; I downloaded <code>DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe</code>. Install means unzip &ndash; I unzipped into C:\_\Ruby. Then</p>
+<p>Oops. Install<sup>1</sup> <a href="http://rubyinstaller.org/downloads/">RubyDevKit</a> - I downloaded <code>DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe</code>. Install means unzip - I unzipped into C:\_\Ruby. Then</p>
 
 <!-- more -->
 
@@ -237,7 +237,7 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </code></pre>
 
-<p>Diffs &ndash; Rakefile:</p>
+<p>Diffs - Rakefile:</p>
 
 <pre><code>@@ -7,14 +7,14 @@ require "stringex"
  ssh_user       = "user@domain.com"
@@ -339,7 +339,7 @@ let us know if you need help transitioning! ^_^b
 - Travis Tilley
 </code></pre>
 
-<p>I dunno what this last piece of laurem ipsum is. Anyway &ndash; go ahead, edit your post, change things in the layout (more on this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should go to <code>source/_includes/custom</code>. When ready do :</p>
+<p>I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your post, change things in the layout (more on this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should go to <code>source/_includes/custom</code>. When ready do :</p>
 
 <pre><code>MrD@MRSD /c/Dropbox/Udun/octopress (source)
 $ rake generate
@@ -413,7 +413,7 @@ rake update_style # update the template's style
 
 <p>(but read the link above)</p>
 
-<p><sup>1</sup>: got the commands from <a href="http://stb.techelex.com/setup-octopress-on-windows7/">here</a>. I don&rsquo;t have a clue what they do &ndash; but will come back to it.</p>
+<p><sup>1</sup>: got the commands from <a href="http://stb.techelex.com/setup-octopress-on-windows7/">here</a>. I don&rsquo;t have a clue what they do - but will come back to it.</p>
 ]]></content>
   </entry>
   

@@ -80,7 +80,7 @@
   
 
 
-<time datetime="2014-01-05T16:45:20+02:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+<time datetime="2014-01-05T14:45:20+00:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
         
       </p>
     
@@ -125,8 +125,8 @@ derived
 RuntimeError: maximum recursion depth exceeded while calling a Python object
 </code></pre>
 
-<p>And this pretty much explains the second question I had. In <a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
-(Previously: Python&rsquo;s Super Considered Harmful) it says</p>
+<p>And this pretty much explains the second question I had. <!-- more --> In <a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
+(Previously: Python&rsquo;s Super Considered Harmful) we read:</p>
 
 <blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;, as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very incorrect. Doing so will cause other classes&#8217; <code>__init__</code> methods to not be called.</p></blockquote>
 
@@ -161,14 +161,14 @@ Initializing Service
 Initializing Color
 </code></pre>
 
-<p>Why ? The call <code>super(Service, self).__init__(*args, **kwargs)</code> calls the next method in <em>self</em>&rsquo;s MRO &ndash; <em>self</em> being an instance of ColoredService. So the MRO is derived from the instance passed into super&rsquo;s <em>second argument</em> (you may also pass a type, haven&rsquo;t gone into this) while <em>the starting point in the MRO</em> is derived from super&rsquo;s first argument.</p>
+<p>Why ? The call <code>super(Service, self).__init__(*args, **kwargs)</code> calls the next method in <em>self</em>&rsquo;s MRO - <em>self</em> being an instance of ColoredService. So the MRO is derived from the instance passed into super&rsquo;s <em>second argument</em> (you may also pass a type, haven&rsquo;t gone into this) while <em>the starting point in the MRO</em> is derived from super&rsquo;s first argument.</p>
 
 <pre><code>super(startFromThisType, getTheMROFromThisInstance)
 </code></pre>
 
 <p>And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.</p>
 
-<p>Btw for Java people &ndash; <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>. You must call <code>super.__init__</code> manually and that&rsquo;s where this post started from.</p>
+<p>Btw for Java people - <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>. You must call <code>super.__init__</code> manually and that&rsquo;s where this post comes from.</p>
 
 <p>References:</p>
 
@@ -202,7 +202,7 @@ Initializing Color
   
 
 
-<time datetime="2014-01-05T16:45:20+02:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+<time datetime="2014-01-05T14:45:20+00:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
       
 
 <span class="categories">
@@ -232,6 +232,7 @@ Initializing Color
   </footer>
 </article>
   <section>
+        <p style="text-align:center">You might want to visit my sponsors:</p>
         <div id="ad_sense"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Test -->
 <ins class="adsbygoogle"

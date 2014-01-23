@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-01-05T23:21:59+02:00</updated>
+  <updated>2014-01-23T21:24:50+00:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Python's Super]]></title>
     <link href="http://Utumno.github.io/blog/2014/01/05/pythons-super/"/>
-    <updated>2014-01-05T16:45:20+02:00</updated>
+    <updated>2014-01-05T14:45:20+00:00</updated>
     <id>http://Utumno.github.io/blog/2014/01/05/pythons-super</id>
     <content type="html"><![CDATA[<p>First thing that comes to mind : why do I need to name the superclass explicitly, instead of passing in <code>self.__class__</code> (or better still, <code>type(self)</code>)  ?
 <a href="http://stackoverflow.com/questions/18208683/when-calling-super-in-a-derived-class-can-i-pass-in-self-class/18208725#18208725">Because</a>:</p>
@@ -56,8 +56,8 @@ derived
 RuntimeError: maximum recursion depth exceeded while calling a Python object
 </code></pre>
 
-<p>And this pretty much explains the second question I had. In <a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
-(Previously: Python&rsquo;s Super Considered Harmful) it says</p>
+<p>And this pretty much explains the second question I had. <!-- more --> In <a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
+(Previously: Python&rsquo;s Super Considered Harmful) we read:</p>
 
 <blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;, as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very incorrect. Doing so will cause other classes' <code>__init__</code> methods to not be called.</p></blockquote>
 
@@ -92,14 +92,14 @@ Initializing Service
 Initializing Color
 </code></pre>
 
-<p>Why ? The call <code>super(Service, self).__init__(*args, **kwargs)</code> calls the next method in <em>self</em>&rsquo;s MRO &ndash; <em>self</em> being an instance of ColoredService. So the MRO is derived from the instance passed into super&rsquo;s <em>second argument</em> (you may also pass a type, haven&rsquo;t gone into this) while <em>the starting point in the MRO</em> is derived from super&rsquo;s first argument.</p>
+<p>Why ? The call <code>super(Service, self).__init__(*args, **kwargs)</code> calls the next method in <em>self</em>&rsquo;s MRO - <em>self</em> being an instance of ColoredService. So the MRO is derived from the instance passed into super&rsquo;s <em>second argument</em> (you may also pass a type, haven&rsquo;t gone into this) while <em>the starting point in the MRO</em> is derived from super&rsquo;s first argument.</p>
 
 <pre><code>super(startFromThisType, getTheMROFromThisInstance)
 </code></pre>
 
 <p>And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.</p>
 
-<p>Btw for Java people &ndash; <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>. You must call <code>super.__init__</code> manually and that&rsquo;s where this post started from.</p>
+<p>Btw for Java people - <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>. You must call <code>super.__init__</code> manually and that&rsquo;s where this post comes from.</p>
 
 <p>References:</p>
 
