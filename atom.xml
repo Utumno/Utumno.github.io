@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-01-23T22:56:49+00:00</updated>
+  <updated>2014-02-03T01:18:00+00:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Glassfish MySQL Connection Pools & Resources]]></title>
+    <link href="http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/"/>
+    <updated>2014-02-02T12:39:27+00:00</updated>
+    <id>http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools</id>
+    <content type="html"><![CDATA[<p>Fire up the glassfish admin console at <a href="http://localhost:4848.">http://localhost:4848.</a> You will see something like:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard01.bmp" title="image" alt="images"></p>
+
+<p>Select the JDBC Connection Pools item and then new:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard02.bmp" title="image" alt="images"></p>
+
+<p>Enter the values below:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard05.bmp" title="image" alt="images"></p>
+
+<p>Press next and face a table with 213 additional properties, all together. Morons. Anyway:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard08.bmp" title="image" alt="images"></p>
+
+<p>and:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard07a.bmp" title="image" alt="images"></p>
+
+<p>and:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard07b.bmp" title="image" alt="images"></p>
+
+<p>and:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard09.bmp" title="image" alt="images"></p>
+
+<p>and:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard10.bmp" title="image" alt="images"></p>
+
+<p>Done!</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard11.bmp" title="image" alt="images"></p>
+
+<p>Now for the resource:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard12.bmp" title="image" alt="images"></p>
+
+<p>and:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Glassfish_Connection_Pools/Clipboard13.bmp" title="image" alt="images"></p>
+
+<p>Hit OK.</p>
+
+<p>See also:</p>
+
+<p><a href="http://stackoverflow.com/questions/18339081/java-ee-7-glassfish-4-0-restful-webservices-using-and-netbean-and-deploying-on-g/18340894#18340894">Java EE 7 GlassFish 4.0 Restful Webservices using and Netbean and deploying on Glassfish 4.0</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Python's Super]]></title>
