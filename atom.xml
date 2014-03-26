@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-03-26T16:48:39+00:00</updated>
+  <updated>2014-03-26T17:08:16+00:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Github Pages]]></title>
+    <link href="http://Utumno.github.io/blog/2014/03/26/github-pages/"/>
+    <updated>2014-03-26T16:54:20+00:00</updated>
+    <id>http://Utumno.github.io/blog/2014/03/26/github-pages</id>
+    <content type="html"><![CDATA[<p>Another 15 minutes fiddling with google so:</p>
+
+<p>Sites:</p>
+
+<pre><code>http://wrye-bash.github.io/docs/Wrye%20Bash%20General%20Readme.html
+http://msysgit.github.io/
+http://utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/
+</code></pre>
+
+<p>Code:</p>
+
+<pre><code>https://github.com/wrye-bash/wrye-bash.github.io/blob/master/docs/Wrye%20Bash%20General%20Readme.html   https://github.com/msysgit/msysgit.github.com/blob/master/index.html # com
+https://github.com/Utumno/Utumno.github.io/blob/master/index.html
+</code></pre>
+
+<p>Notice that <code>https://wrye-bash.github.io/</code> gives a 404 - there should be an <code>https://github.com/wrye-bash/wrye-bash.github.io/blob/master/index.html</code> apparently.</p>
+
+<p>I &rsquo;m sure this post will grow.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Glassfish MySQL Connection Pools & Resources]]></title>
