@@ -18,7 +18,7 @@ Code:
 
 	https://github.com/wrye-bash/wrye-bash.github.io/blob/master/docs/Wrye%20Bash%20General%20Readme.html
 	https://github.com/msysgit/msysgit.github.com/blob/master/index.html # com
-	https://github.com/Utumno/Utumno.github.io/blob/master/index.html
+	https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-octopress-in-windows-7/index.html
 
 Notice that	`https://wrye-bash.github.io/` gives a 404 - there should be an `https://github.com/wrye-bash/wrye-bash.github.io/blob/master/index.html` apparently.
 
