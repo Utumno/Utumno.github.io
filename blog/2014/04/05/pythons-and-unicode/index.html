@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Github Pages - Udun's Labs</title>
+  <title>Pythons and Unicode - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Another 15 minutes fiddling with google so: Sites: http://wrye-bash.github.io/docs/Wrye%20Bash%20General%20Readme.html
-http://msysgit.github.io/
-http &hellip;">
+  <meta name="description" content="Repeat after me: Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ http &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/2014/03/26/github-pages">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -66,7 +64,7 @@ http &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Github Pages</h1>
+      <h1 class="entry-title">Pythons and Unicode</h1>
     
     
       <p class="meta">
@@ -82,32 +80,37 @@ http &hellip;">
   
 
 
-<time datetime="2014-03-26T16:54:20+00:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
+<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Another 15 minutes fiddling with google so:</p>
+<div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)</p>
 
-<p>Sites:</p>
+<p>Types:</p>
 
-<pre><code>http://wrye-bash.github.io/docs/Wrye%20Bash%20General%20Readme.html
-http://msysgit.github.io/
-http://utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/
+<ul>
+<li>The <code>unicode</code> type stores an abstract sequence of code points. Each code point represents a grapheme.</li>
+<li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
+</ul>
+
+
+<p><a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#10288438"><code>uni.encode(encoding): Unicode string to a Python byte string
+s.decode(encoding): convert a byte string to a Unicode string
+unicode(s, encoding): convert a byte string to a Unicode string
+</code></a></p>
+
+<p>Important - <a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">Python 3</a>. Important not only for guidelines but also for <a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#comment13236781_10288016">clarity</a>. Moreover many &ldquo;solutions&rdquo; floating on the web are Python 3 (<code>open()</code> has both an encoding <em>and</em> newlines param in P3. Both. <code>open()</code>. ). Speaking of 2:</p>
+
+<pre><code>with open("file.txt", 'wb')as out:
+    out.write('\n')
+with open("file2.txt", 'w')as out:
+    out.write('\n')
+print(os.stat('file.txt').st_size)  # 1
+print(os.stat('file2.txt').st_size)  # 2
 </code></pre>
-
-<p>Code:</p>
-
-<pre><code>https://github.com/wrye-bash/wrye-bash.github.io/blob/master/docs/Wrye%20Bash%20General%20Readme.html
-https://github.com/msysgit/msysgit.github.com/blob/master/index.html # com
-https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-octopress-in-windows-7/index.html
-</code></pre>
-
-<p>Notice that <code>https://wrye-bash.github.io/</code> gives a 404 - there should be an <code>https://github.com/wrye-bash/wrye-bash.github.io/blob/master/index.html</code> apparently.</p>
-
-<p>I &rsquo;m sure this post will grow.</p>
 </div>
 
 
@@ -130,7 +133,7 @@ https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-oc
   
 
 
-<time datetime="2014-03-26T16:54:20+00:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
+<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time>
       
 
 
@@ -138,7 +141,7 @@ https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-oc
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/03/26/github-pages/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/03/26/github-pages/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/" >Tweet</a>
   
   
   
@@ -147,10 +150,8 @@ https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-oc
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/02/glassfish-connection-pools/" title="Previous Post: Glassfish MySQL Connection Pools & Resources">&laquo; Glassfish MySQL Connection Pools & Resources</a>
+        <a class="basic-alignment left" href="/blog/2014/04/01/occasional-c/" title="Previous Post: Occasional C">&laquo; Occasional C</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/01/occasional-c/" title="Next Post: Occasional C">Occasional C &raquo;</a>
       
     </p>
   </footer>
@@ -199,8 +200,8 @@ https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-oc
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Utumno.github.io/blog/2014/03/26/github-pages/';
-        var disqus_url = 'http://Utumno.github.io/blog/2014/03/26/github-pages/';
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/';
         var disqus_script = 'embed.js';
       
     (function () {

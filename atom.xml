@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-03-26T17:58:40+00:00</updated>
+  <updated>2014-04-05T14:04:24+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pythons and Unicode]]></title>
+    <link href="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/"/>
+    <updated>2014-04-05T13:25:16+01:00</updated>
+    <id>http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode</id>
+    <content type="html"><![CDATA[<p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)</p>
+
+<p>Types:</p>
+
+<ul>
+<li>The <code>unicode</code> type stores an abstract sequence of code points. Each code point represents a grapheme.</li>
+<li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
+</ul>
+
+
+<p><a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#10288438"><code>uni.encode(encoding): Unicode string to a Python byte string
+s.decode(encoding): convert a byte string to a Unicode string
+unicode(s, encoding): convert a byte string to a Unicode string
+</code></a></p>
+
+<p>Important - <a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">Python 3</a>. Important not only for guidelines but also for <a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#comment13236781_10288016">clarity</a>. Moreover many &ldquo;solutions&rdquo; floating on the web are Python 3 (<code>open()</code> has both an encoding <em>and</em> newlines param in P3. Both. <code>open()</code>. ). Speaking of 2:</p>
+
+<pre><code>with open("file.txt", 'wb')as out:
+    out.write('\n')
+with open("file2.txt", 'w')as out:
+    out.write('\n')
+print(os.stat('file.txt').st_size)  # 1
+print(os.stat('file2.txt').st_size)  # 2
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Occasional C]]></title>
+    <link href="http://Utumno.github.io/blog/2014/04/01/occasional-c/"/>
+    <updated>2014-04-01T16:30:31+01:00</updated>
+    <id>http://Utumno.github.io/blog/2014/04/01/occasional-c</id>
+    <content type="html"><![CDATA[<p>When I happen to revisit this slim dinosaur that is C I always have to look up a couple things - here they are for your convenience and mine.</p>
+
+<p>First things first - wrong:</p>
+
+<pre><code>int *ptr = malloc(10 * sizeof (int));
+</code></pre>
+
+<p>Right:</p>
+
+<pre><code>int *ptr = malloc(10 * sizeof *ptr);
+</code></pre>
+
+<p>NO exceptions. A, yes, sizeof is a <a href="http://en.wikipedia.org/wiki/Sizeof">unary operator</a>. Are parentheses needed ? Well, I always add them if nobody&rsquo;s looking.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Github Pages]]></title>

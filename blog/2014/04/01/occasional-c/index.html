@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Udun's Labs</title>
+  <title>Occasional C - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Blog Archive 2014 Pythons and Unicode
-Apr 05 2014 Occasional C
-Apr 01 2014 Github Pages
-Mar 26 2014 Glassfish MySQL Connection Pools & Resources
-Feb &hellip;">
+  <meta name="description" content="When I happen to revisit this slim dinosaur that is C I always have to look up a couple things - here they are for your convenience and mine. First &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@ Feb &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/archives">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/04/01/occasional-c">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -64,93 +60,112 @@ Feb &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Occasional C</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T16:30:31+01:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>When I happen to revisit this slim dinosaur that is C I always have to look up a couple things - here they are for your convenience and mine.</p>
 
-  
-  <h2>2014</h2>
+<p>First things first - wrong:</p>
 
-<article>
-  
-<h1><a href="/blog/2014/04/05/pythons-and-unicode/">Pythons and Unicode</a></h1>
-<time datetime="2014-04-05T13:25:16+01:00" pubdate><span class='month'>Apr</span> <span class='day'>05</span> <span class='year'>2014</span></time>
+<pre><code>int *ptr = malloc(10 * sizeof (int));
+</code></pre>
 
+<p>Right:</p>
 
-</article>
+<pre><code>int *ptr = malloc(10 * sizeof *ptr);
+</code></pre>
 
-
-
-<article>
-  
-<h1><a href="/blog/2014/04/01/occasional-c/">Occasional C</a></h1>
-<time datetime="2014-04-01T16:30:31+01:00" pubdate><span class='month'>Apr</span> <span class='day'>01</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/26/github-pages/">Github Pages</a></h1>
-<time datetime="2014-03-26T16:54:20+00:00" pubdate><span class='month'>Mar</span> <span class='day'>26</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/02/02/glassfish-connection-pools/">Glassfish MySQL Connection Pools & Resources</a></h1>
-<time datetime="2014-02-02T12:39:27+00:00" pubdate><span class='month'>Feb</span> <span class='day'>02</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/01/05/pythons-super/">Python&#8217;s Super</a></h1>
-<time datetime="2014-01-05T14:45:20+00:00" pubdate><span class='month'>Jan</span> <span class='day'>05</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/python/'>Python</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/12/21/set-up-octopress-in-windows-7/">Set Up Octopress in Windows 7</a></h1>
-<time datetime="2013-12-21T21:32:47+00:00" pubdate><span class='month'>Dec</span> <span class='day'>21</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/jekyll/'>Jekyll</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a></span>
-</footer>
-
-
-</article>
-
+<p>NO exceptions. A, yes, sizeof is a <a href="http://en.wikipedia.org/wiki/Sizeof">unary operator</a>. Are parentheses needed ? Well, I always add them if nobody&rsquo;s looking.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Utumno</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T16:30:31+01:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/04/01/occasional-c/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/04/01/occasional-c/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/26/github-pages/" title="Previous Post: Github pages">&laquo; Github pages</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/04/05/pythons-and-unicode/" title="Next Post: Pythons and unicode">Pythons and unicode &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+  <section>
+        <p style="text-align:center">You might want to visit my sponsors:</p>
+        <div id="ad_sense"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Test -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3484197006338709"
+     data-ad-slot="1348893247"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+  </section>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -175,7 +190,10 @@ Feb &hellip;">
       var disqus_shortname = 'udunslabs';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/04/01/occasional-c/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/04/01/occasional-c/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
