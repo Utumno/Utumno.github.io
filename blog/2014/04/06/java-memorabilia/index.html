@@ -5,11 +5,25 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Pythons (2) and Unicode - Udun's Labs</title>
+  <title>Java Memorabilia - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Repeat after me: Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore &hellip;">
+  <meta name="description" content="Remember erasure ? 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+import java.util.ArrayList;
+import java.util.List; public class Main { public static void main( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/04/06/java-memorabilia">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -64,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Pythons (2) and Unicode</h1>
+      <h1 class="entry-title">Java Memorabilia</h1>
     
     
       <p class="meta">
@@ -80,49 +94,45 @@
   
 
 
-<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time>
+<time datetime="2014-04-06T17:31:00+01:00" pubdate data-updated="true">Apr 6<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)</p>
+<div class="entry-content"><p>Remember erasure ?</p>
 
-<p>Types:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.util.ArrayList;
+</span><span class='line'>import java.util.List;
+</span><span class='line'>
+</span><span class='line'>public class Main {
+</span><span class='line'>
+</span><span class='line'>  public static void main(String[] args) {
+</span><span class='line'>      List&lt;String&gt; strings = new ArrayList&lt;&gt;();
+</span><span class='line'>      ((List) strings).add(42); // no problem at all
+</span><span class='line'>      // String s = strings.get(0); //  CCE - Compiler-generated cast
+</span><span class='line'>      System.out.println("strings: " + strings); // strings: [42]
+</span><span class='line'>      System.out.println(strings.contains(42)); // true
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-<ul>
-<li>The <code>unicode</code> type stores an abstract sequence of code points. Each code point represents a grapheme.</li>
-<li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
-</ul>
 
-
-<p><a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#10288438"><code>uni.encode(encoding): Unicode string to a Python byte string
-s.decode(encoding): convert a byte string to a Unicode string
-unicode(s, encoding): convert a byte string to a Unicode string
-</code></a></p>
-
-<p>Important - <a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">Python 3</a>. Important not only for guidelines but also for <a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#comment13236781_10288016">clarity</a>. Moreover many &ldquo;solutions&rdquo; floating on the web are Python 3 (<code>open()</code> has both an encoding <em>and</em> newlines param in P3. Both. <a href="https://docs.python.org/3.1/library/functions.html#open"><code>open()</code></a>. ). Speaking of 2:</p>
-
-<pre><code>with open("file.txt", 'wb')as out:
-    out.write('\n')
-with open("file2.txt", 'w')as out:
-    out.write('\n')
-print(os.stat('file.txt').st_size)  # 1
-print(os.stat('file2.txt').st_size)  # 2
-</code></pre>
-
-<p>Refs:</p>
-
-<ul>
-<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen, if you have the template comment !</li>
-<li><a href="http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842">Strip newlines</a></li>
-<li><a href="http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python">os.linesep</a></li>
-<li><code>raise MyException(u'Cannot do this while at a café')</code></li>
-<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor names in comments.</a></li>
-<li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
-</ul>
-
+<p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
+and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>
 </div>
 
 
@@ -145,7 +155,7 @@ print(os.stat('file2.txt').st_size)  # 2
   
 
 
-<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time>
+<time datetime="2014-04-06T17:31:00+01:00" pubdate data-updated="true">Apr 6<span>th</span>, 2014</time>
       
 
 
@@ -153,7 +163,7 @@ print(os.stat('file2.txt').st_size)  # 2
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/04/06/java-memorabilia/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/04/06/java-memorabilia/" >Tweet</a>
   
   
   
@@ -162,10 +172,8 @@ print(os.stat('file2.txt').st_size)  # 2
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/04/01/occasional-c/" title="Previous Post: Occasional C">&laquo; Occasional C</a>
+        <a class="basic-alignment left" href="/blog/2014/04/05/autohotkey-script-for-cmd/" title="Previous Post: Autohotkey script for cmd">&laquo; Autohotkey script for cmd</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/05/autohotkey-script-for-cmd/" title="Next Post: Autohotkey script for cmd">Autohotkey script for cmd &raquo;</a>
       
     </p>
   </footer>
@@ -214,8 +222,8 @@ print(os.stat('file2.txt').st_size)  # 2
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/';
-        var disqus_url = 'http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/';
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/04/06/java-memorabilia/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/04/06/java-memorabilia/';
         var disqus_script = 'embed.js';
       
     (function () {
