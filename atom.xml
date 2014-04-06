@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-04-06T18:27:48+01:00</updated>
+  <updated>2014-04-06T18:47:04+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -33,6 +33,13 @@ public class Main {
         System.out.println(strings.contains(42)); // true
     }
 }
+</code></pre>
+
+<p>In other words:</p>
+
+<pre><code>    final HashSet&lt;Integer&gt; hashSet = new HashSet&lt;&gt;();
+    // Set&lt;String&gt; cast = (Set&lt;String&gt;) hashSet; // error
+    Set&lt;String&gt; cast = (Set) hashSet; // warning
 </code></pre>
 
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>

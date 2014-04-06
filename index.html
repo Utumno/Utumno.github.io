@@ -108,6 +108,13 @@ public class Main {
 }
 </code></pre>
 
+<p>In other words:</p>
+
+<pre><code>    final HashSet&lt;Integer&gt; hashSet = new HashSet&lt;&gt;();
+    // Set&lt;String&gt; cast = (Set&lt;String&gt;) hashSet; // error
+    Set&lt;String&gt; cast = (Set) hashSet; // warning
+</code></pre>
+
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
 and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>
 </div>
