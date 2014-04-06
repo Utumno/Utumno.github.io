@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-04-06T18:54:18+01:00</updated>
+  <updated>2014-04-06T19:23:08+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -147,6 +147,7 @@ print(os.stat('file2.txt').st_size)  # 2
 <li><code>raise MyException(u'Cannot do this while at a café')</code></li>
 <li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor names in comments.</a></li>
 <li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
+<li><a href="http://stackoverflow.com/a/12764646/281545">Encode and decode as needed</a></li>
 </ul>
 
 ]]></content>
