@@ -9,21 +9,8 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Remember erasure ? 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-import java.util.ArrayList;
-import java.util.List; public class Main { public static void main( &hellip;">
+  <meta name="description" content="Remember erasure ? import java.util.ArrayList;
+import java.util.List; public class Main { public static void main(String[] args) { List&lt;String&gt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,33 +90,20 @@ import java.util.List; public class Main { public static void main( &hellip;">
 
 <div class="entry-content"><p>Remember erasure ?</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import java.util.ArrayList;
-</span><span class='line'>import java.util.List;
-</span><span class='line'>
-</span><span class='line'>public class Main {
-</span><span class='line'>
-</span><span class='line'>  public static void main(String[] args) {
-</span><span class='line'>      List&lt;String&gt; strings = new ArrayList&lt;&gt;();
-</span><span class='line'>      ((List) strings).add(42); // no problem at all
-</span><span class='line'>      // String s = strings.get(0); //  CCE - Compiler-generated cast
-</span><span class='line'>      System.out.println("strings: " + strings); // strings: [42]
-</span><span class='line'>      System.out.println(strings.contains(42)); // true
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<pre><code>import java.util.ArrayList;
+import java.util.List;
 
+public class Main {
+
+    public static void main(String[] args) {
+        List&lt;String&gt; strings = new ArrayList&lt;&gt;();
+        ((List) strings).add(42); // no problem at all
+        // String s = strings.get(0); //  CCE - Compiler-generated cast
+        System.out.println("strings: " + strings); // strings: [42]
+        System.out.println(strings.contains(42)); // true
+    }
+}
+</code></pre>
 
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
 and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>

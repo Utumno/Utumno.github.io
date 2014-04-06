@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-04-06T17:44:45+01:00</updated>
+  <updated>2014-04-06T18:27:48+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -20,33 +20,20 @@
     <id>http://Utumno.github.io/blog/2014/04/06/java-memorabilia</id>
     <content type="html"><![CDATA[<p>Remember erasure ?</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import java.util.ArrayList;
-</span><span class='line'>import java.util.List;
-</span><span class='line'>
-</span><span class='line'>public class Main {
-</span><span class='line'>
-</span><span class='line'>  public static void main(String[] args) {
-</span><span class='line'>      List&lt;String&gt; strings = new ArrayList&lt;&gt;();
-</span><span class='line'>      ((List) strings).add(42); // no problem at all
-</span><span class='line'>      // String s = strings.get(0); //  CCE - Compiler-generated cast
-</span><span class='line'>      System.out.println("strings: " + strings); // strings: [42]
-</span><span class='line'>      System.out.println(strings.contains(42)); // true
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<pre><code>import java.util.ArrayList;
+import java.util.List;
 
+public class Main {
+
+    public static void main(String[] args) {
+        List&lt;String&gt; strings = new ArrayList&lt;&gt;();
+        ((List) strings).add(42); // no problem at all
+        // String s = strings.get(0); //  CCE - Compiler-generated cast
+        System.out.println("strings: " + strings); // strings: [42]
+        System.out.println(strings.contains(42)); // true
+    }
+}
+</code></pre>
 
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
 and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>
@@ -62,100 +49,53 @@ and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=P
 
 <p>For instance sooner or later you will use the cmd - this makes the xp bearable:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>;-------------------------------------------------------------------------------
-</span><span class='line'>
-</span><span class='line'>; Redefine only when the active window is a console window
-</span><span class='line'>#IfWinActive ahk_class ConsoleWindowClass
-</span><span class='line'>
-</span><span class='line'>; Close Command Window with Ctrl+w
-</span><span class='line'>$^w::
-</span><span class='line'>WinGetTitle sTitle
-</span><span class='line'>If (InStr(sTitle, "-")=0) {
-</span><span class='line'>        Send EXIT{Enter}
-</span><span class='line'>} else {
-</span><span class='line'>        Send ^w
-</span><span class='line'>}
-</span><span class='line'>return
-</span><span class='line'>
-</span><span class='line'>; Ctrl+up / Down to scroll command window back and forward
-</span><span class='line'>^Up::
-</span><span class='line'>Send {WheelUp}
-</span><span class='line'>return
-</span><span class='line'>
-</span><span class='line'>^Down::
-</span><span class='line'>Send {WheelDown}
-</span><span class='line'>return
-</span><span class='line'>
-</span><span class='line'>; Paste in command window
-</span><span class='line'>^V::
-</span><span class='line'>; Spanish menu (Editar-&gt;Pegar, I suppose English version is the same, Edit-&gt;Paste)
-</span><span class='line'>Send !{Space}
-</span><span class='line'>Send {up}{up}{up}{up}{right}{down}{down}{enter}
-</span><span class='line'>return
-</span><span class='line'>
-</span><span class='line'>; Mark in command window
-</span><span class='line'>^M::
-</span><span class='line'>Send !{Space}
-</span><span class='line'>Send {up}{up}{up}{up}{right}{enter}
-</span><span class='line'>return
-</span><span class='line'>
-</span><span class='line'>; Select all in command window
-</span><span class='line'>^A::
-</span><span class='line'>Send !{Space}
-</span><span class='line'>Send {up}{up}{up}{up}{right}{down}{down}{down}{enter}
-</span><span class='line'>return
-</span><span class='line'>
-</span><span class='line'>#IfWinActive
-</span><span class='line'>
-</span><span class='line'>;-------------------------------------------------------------------------------
-</span></code></pre></td></tr></table></div></figure>
+<pre><code>;-------------------------------------------------------------------------------
 
+; Redefine only when the active window is a console window
+#IfWinActive ahk_class ConsoleWindowClass
+
+; Close Command Window with Ctrl+w
+$^w::
+WinGetTitle sTitle
+If (InStr(sTitle, "-")=0) {
+        Send EXIT{Enter}
+} else {
+        Send ^w
+}
+return
+
+; Ctrl+up / Down to scroll command window back and forward
+^Up::
+Send {WheelUp}
+return
+
+^Down::
+Send {WheelDown}
+return
+
+; Paste in command window
+^V::
+; Spanish menu (Editar-&gt;Pegar, I suppose English version is the same, Edit-&gt;Paste)
+Send !{Space}
+Send {up}{up}{up}{up}{right}{down}{down}{enter}
+return
+
+; Mark in command window
+^M::
+Send !{Space}
+Send {up}{up}{up}{up}{right}{enter}
+return
+
+; Select all in command window
+^A::
+Send !{Space}
+Send {up}{up}{up}{up}{right}{down}{down}{down}{enter}
+return
+
+#IfWinActive
+
+;-------------------------------------------------------------------------------
+</code></pre>
 
 <p>Some spanish guy holds the copyright I guess :D</p>
 ]]></content>
