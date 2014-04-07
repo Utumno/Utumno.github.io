@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-04-06T19:23:08+01:00</updated>
+  <updated>2014-04-07T23:22:40+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args) {
         List&lt;String&gt; strings = new ArrayList&lt;&gt;();
-        ((List) strings).add(42); // no problem at all
+        ((List) strings).add(42); // compiler warning - ok at runtime
         // String s = strings.get(0); //  CCE - Compiler-generated cast
         System.out.println("strings: " + strings); // strings: [42]
         System.out.println(strings.contains(42)); // true
