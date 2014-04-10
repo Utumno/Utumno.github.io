@@ -18,7 +18,7 @@ s.decode(encoding): convert a byte string to a Unicode string
 unicode(s, encoding): convert a byte string to a Unicode string
 ```][2]
 
-Important - [Python 3][3]. Important not only for guidelines but also for [clarity][4]. Moreover many "solutions" floating on the web are Python 3 (`open()` has both an encoding _and_ newlines param in P3. Both. [`open()`][3a]. ). Speaking of 2:
+Important - [Python 3][3]. Important not only for guidelines but also for [clarity][4]. Moreover many "solutions" floating on the web are Python 3 ([`open()`][3a] has __both__ an encoding _and_ newlines param in P3. ). Speaking of 2:
 
     with open("file.txt", 'wb')as out:
         out.write('\n')
@@ -36,6 +36,7 @@ Refs:
 - `raise MyException(u'Cannot do this while at a café')`
 - [the standard library remains ASCII-only with the exception of contributor names in comments.][3]
 - [Ref][8]
+- [Encode and decode as needed][9]
 
 [1]: https://pythonhosted.org/kitchen/unicode-frustrations.html
 [2]: https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#10288438
@@ -46,3 +47,4 @@ Refs:
 [6]: http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842
 [7]: http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python
 [8]: https://docs.python.org/2/howto/unicode.html
+[9]: http://stackoverflow.com/a/12764646/281545

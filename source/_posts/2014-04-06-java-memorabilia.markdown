@@ -15,7 +15,7 @@ Remember erasure ?
 
 		public static void main(String[] args) {
 			List<String> strings = new ArrayList<>();
-			((List) strings).add(42); // no problem at all
+			((List) strings).add(42); // compiler warning - ok at runtime
 			// String s = strings.get(0); //  CCE - Compiler-generated cast
 			System.out.println("strings: " + strings); // strings: [42]
 			System.out.println(strings.contains(42)); // true
