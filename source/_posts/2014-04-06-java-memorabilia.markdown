@@ -6,7 +6,9 @@ comments: true
 categories:
 ---
 
-Remember erasure ?
+->  <-
+
+##Remember erasure ?
 
 	import java.util.ArrayList;
 	import java.util.List;
@@ -31,15 +33,40 @@ In other words:
 From: [here](http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases)
 and [here](http://books.google.gr/books?id=ka2VUBqHiWkC&pg=PA144&lpg=PA144&source=bl&ots=yYKmRmr5Q3&sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&hl=en&sa=X&ei=0Pe6UunkBMavygPz64CAAw&redir_esc=y#v=onepage&q&f=false)
 
-Remember printing (and [varargs](http://stackoverflow.com/questions/2925153/can-i-pass-an-array-as-arguments-to-a-method-with-variable-arguments-in-java/2926653#2926653)) ?
+<!-- more -->
+###Remember printing (and [varargs](http://stackoverflow.com/questions/2925153/can-i-pass-an-array-as-arguments-to-a-method-with-variable-arguments-in-java/2926653#2926653)) ?
 
 [```Arrays.toString(map.entrySet().toArray());```][1]
 
 as opposed to:
 
 [```int[] a = { 1, 2, 3 };
-System.out.println(Arrays.asList(a)); // __I@70cdd2_ // _ for brackets
+System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List<int[]>
 ```][2]
+
+####Remember generics ?
+
+- [Why can't you have multiple interfaces in a bounded wildcard generic?](http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic)
+- [How to implement an interface with an enum, where the interface extends Comparable?](http://stackoverflow.com/q/7160980/281545)
+
+  ```
+  public interface Foo extends Comparable<Foo> {}
+  public enum FooImpl implements Foo {}
+  // java.lang.Comparable cannot be inherited with different arguments: <Foo> and <FooImpl>
+
+  // Solution:
+  public interface Foo<SelfType extends Foo<SelfType>> extends Comparable<SelfType> {}
+  public enum FooImpl implements Foo<FooImpl> {}
+  ```
+
+#####Trivia
+
+- [Interface and Class Naming Anti-Patterns](http://www.vertigrated.com/blog/2011/02/interface-and-class-naming-anti-patterns-java-naming-convention-tautologies/)
+- [IAE vs NPE](http://stackoverflow.com/q/3881/281545)
+- [Why cast after an instanceOf?](http://stackoverflow.com/q/4186320/281545)
+- [Should methods in a Java interface be declared with or without a public access modifier?](http://stackoverflow.com/q/161633/281545)
+- [.clone() or Arrays.copyOf()?](http://stackoverflow.com/a/12157504/281545)
+
 
 [1]: http://stackoverflow.com/a/19638956/281545
 [2]: http://stackoverflow.com/a/17520983/281545
