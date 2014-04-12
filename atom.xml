@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-04-10T17:08:47+01:00</updated>
+  <updated>2014-04-12T17:14:58+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -18,7 +18,9 @@
     <link href="http://Utumno.github.io/blog/2014/04/06/java-memorabilia/"/>
     <updated>2014-04-06T17:31:00+01:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/06/java-memorabilia</id>
-    <content type="html"><![CDATA[<p>Remember erasure ?</p>
+    <content type="html"><![CDATA[<p style="text-align:center;"></p>
+
+<h2>Remember erasure ?</h2>
 
 <pre><code>import java.util.ArrayList;
 import java.util.List;
@@ -45,15 +47,43 @@ public class Main {
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
 and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>
 
-<p>Remember printing (and <a href="http://stackoverflow.com/questions/2925153/can-i-pass-an-array-as-arguments-to-a-method-with-variable-arguments-in-java/2926653#2926653">varargs</a>) ?</p>
+<h3>Remember printing (and <a href="http://stackoverflow.com/questions/2925153/can-i-pass-an-array-as-arguments-to-a-method-with-variable-arguments-in-java/2926653#2926653">varargs</a>) ?</h3>
 
 <p><a href="http://stackoverflow.com/a/19638956/281545"><code>Arrays.toString(map.entrySet().toArray());</code></a></p>
 
 <p>as opposed to:</p>
 
 <p><a href="http://stackoverflow.com/a/17520983/281545"><code>int[] a = { 1, 2, 3 };
-System.out.println(Arrays.asList(a)); // __I@70cdd2_ // _ for brackets
+System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List&lt;int[]&gt;
 </code></a></p>
+
+<h4>Remember generics ?</h4>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic">Why can&rsquo;t you have multiple interfaces in a bounded wildcard generic?</a></li>
+<li><p><a href="http://stackoverflow.com/q/7160980/281545">How to implement an interface with an enum, where the interface extends Comparable?</a></p>
+
+<pre><code>public interface Foo extends Comparable&lt;Foo&gt; {}
+public enum FooImpl implements Foo {}
+// java.lang.Comparable cannot be inherited with different arguments: &lt;Foo&gt; and &lt;FooImpl&gt;
+
+// Solution:
+public interface Foo&lt;SelfType extends Foo&lt;SelfType&gt;&gt; extends Comparable&lt;SelfType&gt; {}
+public enum FooImpl implements Foo&lt;FooImpl&gt; {}
+</code></pre></li>
+</ul>
+
+
+<h5>Trivia</h5>
+
+<ul>
+<li><a href="http://www.vertigrated.com/blog/2011/02/interface-and-class-naming-anti-patterns-java-naming-convention-tautologies/">Interface and Class Naming Anti-Patterns</a></li>
+<li><a href="http://stackoverflow.com/q/3881/281545">IAE vs NPE</a></li>
+<li><a href="http://stackoverflow.com/q/4186320/281545">Why cast after an instanceOf?</a></li>
+<li><a href="http://stackoverflow.com/q/161633/281545">Should methods in a Java interface be declared with or without a public access modifier?</a></li>
+<li><a href="http://stackoverflow.com/a/12157504/281545">.clone() or Arrays.copyOf()?</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
