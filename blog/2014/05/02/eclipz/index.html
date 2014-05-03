@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Glassfish MySQL Connection Pools & Resources - Udun's Labs</title>
+  <title>Eclipz - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Fire up the glassfish admin console at http://localhost:4848. You will see something like: Select the JDBC Connection Pools item and then new: Enter &hellip;">
+  <meta name="description" content="Notes to zelf Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to Build &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/05/02/eclipz">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -31,7 +32,7 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="/favicon_eye_of_sauron.png?" rel="icon">
 
-	<link rel='stylesheet' type='text/css' href='/.css' />
+	<link rel='stylesheet' type='text/css' href='/udun_nobullets_list.css' />
 
 
   
@@ -67,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Glassfish MySQL Connection Pools & Resources</h1>
+      <h1 class="entry-title">Eclipz</h1>
     
     
       <p class="meta">
@@ -83,62 +84,32 @@
   
 
 
-<time datetime="2014-02-02T12:39:27+00:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
+<time datetime="2014-05-02T22:01:04+01:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Fire up the glassfish admin console at <a href="http://localhost:4848.">http://localhost:4848.</a> You will see something like:</p>
+<div class="entry-content"><h5>Notes to zelf</h5>
 
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard01.bmp" title="image" alt="images"></p>
+<ul>
+<li><p>Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to <em>Build Path > Order and Export</em> and ticked export on the JRE</p>
 
-<p>Select the JDBC Connection Pools item and then new:</p>
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;classpath&gt;
+       &lt;classpathentry excluding="gr/uoa/di/mde515/engine/HeapFile.java" kind="src" path="src"/&gt;
+   -   &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+   +   &lt;classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+       &lt;classpathentry kind="output" path="bin"/&gt;
+    &lt;/classpath&gt;
+</code></pre>
 
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard02.bmp" title="image" alt="images"></p>
+<p>Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
+Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927">Stack Overflows</a>). I then unticked the JRE and still builds ok. <a href="http://www.scottdstrader.com/blog/ether_archives/000921.html">See</a>. <a href="http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved">Clean</a> did not work and <a href="http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol">I had no missing libs</a> either.</p></li>
+</ul>
 
-<p>Enter the values below: <!-- more --></p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard05.bmp" title="image" alt="images"></p>
-
-<p>Press next and face a table with 213 additional properties, all together. Morons. Anyway:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard08.bmp" title="image" alt="images"></p>
-
-<p>and:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard07a.bmp" title="image" alt="images"></p>
-
-<p>and:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard07b.bmp" title="image" alt="images"></p>
-
-<p>and:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard09.bmp" title="image" alt="images"></p>
-
-<p>and:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard10.bmp" title="image" alt="images"></p>
-
-<p>Done!</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard11.bmp" title="image" alt="images"></p>
-
-<p>Now for the resource:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard12.bmp" title="image" alt="images"></p>
-
-<p>and:</p>
-
-<p><img class="center" src="/images/Glassfish_Connection_Pools/Clipboard13.bmp" title="image" alt="images"></p>
-
-<p>Hit OK.</p>
-
-<p>See also:</p>
-
-<p><a href="http://stackoverflow.com/questions/18339081/java-ee-7-glassfish-4-0-restful-webservices-using-and-netbean-and-deploying-on-g/18340894#18340894">Java EE 7 GlassFish 4.0 Restful Webservices using and Netbean and deploying on Glassfish 4.0</a></p>
 </div>
 
 
@@ -161,7 +132,7 @@
   
 
 
-<time datetime="2014-02-02T12:39:27+00:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
+<time datetime="2014-05-02T22:01:04+01:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
       
 
 
@@ -169,7 +140,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/05/02/eclipz/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/05/02/eclipz/" >Tweet</a>
   
   
   
@@ -178,10 +149,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/01/05/pythons-super/" title="Previous Post: Python's super">&laquo; Python's super</a>
+        <a class="basic-alignment left" href="/blog/2014/04/06/java-memorabilia/" title="Previous Post: Java memorabilia">&laquo; Java memorabilia</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/26/github-pages/" title="Next Post: Github pages">Github pages &raquo;</a>
       
     </p>
   </footer>
@@ -230,8 +199,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/';
-        var disqus_url = 'http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/';
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/05/02/eclipz/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/05/02/eclipz/';
         var disqus_script = 'embed.js';
       
     (function () {

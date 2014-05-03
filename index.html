@@ -9,8 +9,8 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Remember erasure ? import java.util.ArrayList;
-import java.util.List; public class Main { public static void main(String[] args) { List&lt;String&gt &hellip;">
+  <meta name="description" content="Notes to zelf Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to Build &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -31,6 +31,9 @@ import java.util.List; public class Main { public static void main(String[] args
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="/favicon_eye_of_sauron.png?" rel="icon">
+
+	<link rel='stylesheet' type='text/css' href='/.css' />
+
 
   
 
@@ -68,6 +71,60 @@ import java.util.List; public class Main { public static void main(String[] args
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/05/02/eclipz/">Eclipz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-02T22:01:04+01:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h5>Notes to zelf</h5>
+
+<ul>
+<li><p>Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to <em>Build Path > Order and Export</em> and ticked export on the JRE</p>
+
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;classpath&gt;
+       &lt;classpathentry excluding="gr/uoa/di/mde515/engine/HeapFile.java" kind="src" path="src"/&gt;
+   -   &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+   +   &lt;classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+       &lt;classpathentry kind="output" path="bin"/&gt;
+    &lt;/classpath&gt;
+</code></pre>
+
+<p>Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
+Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927">Stack Overflows</a>). I then unticked the JRE and still builds ok. <a href="http://www.scottdstrader.com/blog/ether_archives/000921.html">See</a>. <a href="http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved">Clean</a> did not work and <a href="http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol">I had no missing libs</a> either.</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/04/06/java-memorabilia/">Java Memorabilia</a></h1>
     
     
@@ -91,9 +148,7 @@ import java.util.List; public class Main { public static void main(String[] args
   </header>
 
 
-  <div class="entry-content"><p style="text-align:center;"></p>
-
-<h2>Remember erasure ?</h2>
+  <div class="entry-content"><h2>Remember erasure ?</h2>
 
 <pre><code>import java.util.ArrayList;
 import java.util.List;
@@ -120,45 +175,12 @@ public class Main {
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
 and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>
 
-<h3>Remember printing (and <a href="http://stackoverflow.com/questions/2925153/can-i-pass-an-array-as-arguments-to-a-method-with-variable-arguments-in-java/2926653#2926653">varargs</a>) ?</h3>
-
-<p><a href="http://stackoverflow.com/a/19638956/281545"><code>Arrays.toString(map.entrySet().toArray());</code></a></p>
-
-<p>as opposed to:</p>
-
-<p><a href="http://stackoverflow.com/a/17520983/281545"><code>int[] a = { 1, 2, 3 };
-System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List&lt;int[]&gt;
-</code></a></p>
-
-<h4>Remember generics ?</h4>
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic">Why can&rsquo;t you have multiple interfaces in a bounded wildcard generic?</a></li>
-<li><p><a href="http://stackoverflow.com/q/7160980/281545">How to implement an interface with an enum, where the interface extends Comparable?</a></p>
-
-<pre><code>public interface Foo extends Comparable&lt;Foo&gt; {}
-public enum FooImpl implements Foo {}
-// java.lang.Comparable cannot be inherited with different arguments: &lt;Foo&gt; and &lt;FooImpl&gt;
-
-// Solution:
-public interface Foo&lt;SelfType extends Foo&lt;SelfType&gt;&gt; extends Comparable&lt;SelfType&gt; {}
-public enum FooImpl implements Foo&lt;FooImpl&gt; {}
-</code></pre></li>
-</ul>
-
-
-<h5>Trivia</h5>
-
-<ul>
-<li><a href="http://www.vertigrated.com/blog/2011/02/interface-and-class-naming-anti-patterns-java-naming-convention-tautologies/">Interface and Class Naming Anti-Patterns</a></li>
-<li><a href="http://stackoverflow.com/q/3881/281545">IAE vs NPE</a></li>
-<li><a href="http://stackoverflow.com/q/4186320/281545">Why cast after an instanceOf?</a></li>
-<li><a href="http://stackoverflow.com/q/161633/281545">Should methods in a Java interface be declared with or without a public access modifier?</a></li>
-<li><a href="http://stackoverflow.com/a/12157504/281545">.clone() or Arrays.copyOf()?</a></li>
-</ul>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/06/java-memorabilia/">Read on &rarr;</a>
+    </footer>
   
 
 

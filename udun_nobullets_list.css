@@ -1,0 +1,14 @@
+li { /* .nobullets */
+	list-style: none;
+}
+/*
+li:before {
+*/
+
+	 /* content:"";*/ /*empty */
+/*
+	font-size:47px;
+	margin: 0 0em;
+	line-height:20px;
+}
+*/

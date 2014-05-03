@@ -32,6 +32,9 @@ import java.util.List; public class Main { public static void main(String[] args
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="/favicon_eye_of_sauron.png?" rel="icon">
 
+	<link rel='stylesheet' type='text/css' href='/udun_nobullets_list.css' />
+
+
   
 
 </head>
@@ -88,9 +91,7 @@ import java.util.List; public class Main { public static void main(String[] args
   </header>
 
 
-<div class="entry-content"><p style="text-align:center;"></p>
-
-<h2>Remember erasure ?</h2>
+<div class="entry-content"><h2>Remember erasure ?</h2>
 
 <pre><code>import java.util.ArrayList;
 import java.util.List;
@@ -117,6 +118,9 @@ public class Main {
 <p>From: <a href="http://stackoverflow.com/questions/19610569/android-sharedpreferences-null-keys-values-and-sets-corner-cases">here</a>
 and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=PA144&amp;source=bl&amp;ots=yYKmRmr5Q3&amp;sig=HESfg8Y3UaprOvN7GyF1XYN-DW8&amp;hl=en&amp;sa=X&amp;ei=0Pe6UunkBMavygPz64CAAw&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">here</a></p>
 
+<!-- more -->
+
+
 <h3>Remember printing (and <a href="http://stackoverflow.com/questions/2925153/can-i-pass-an-array-as-arguments-to-a-method-with-variable-arguments-in-java/2926653#2926653">varargs</a>) ?</h3>
 
 <p><a href="http://stackoverflow.com/a/19638956/281545"><code>Arrays.toString(map.entrySet().toArray());</code></a></p>
@@ -130,7 +134,6 @@ System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List&lt;int[]&gt;
 <h4>Remember generics ?</h4>
 
 <ul>
-<li><a href="http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic">Why can&rsquo;t you have multiple interfaces in a bounded wildcard generic?</a></li>
 <li><p><a href="http://stackoverflow.com/q/7160980/281545">How to implement an interface with an enum, where the interface extends Comparable?</a></p>
 
 <pre><code>public interface Foo extends Comparable&lt;Foo&gt; {}
@@ -141,6 +144,7 @@ public enum FooImpl implements Foo {}
 public interface Foo&lt;SelfType extends Foo&lt;SelfType&gt;&gt; extends Comparable&lt;SelfType&gt; {}
 public enum FooImpl implements Foo&lt;FooImpl&gt; {}
 </code></pre></li>
+<li><a href="http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic">Why can&rsquo;t you have multiple interfaces in a bounded wildcard generic?</a></li>
 </ul>
 
 
@@ -195,6 +199,8 @@ public enum FooImpl implements Foo&lt;FooImpl&gt; {}
       
         <a class="basic-alignment left" href="/blog/2014/04/05/autohotkey-script-for-cmd/" title="Previous Post: Autohotkey script for cmd">&laquo; Autohotkey script for cmd</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2014/05/02/eclipz/" title="Next Post: Eclipz">Eclipz &raquo;</a>
       
     </p>
   </footer>
