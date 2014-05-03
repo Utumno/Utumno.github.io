@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Eclipz"
+date: 2014-05-02 22:01:04 +0100
+comments: true
+categories:
+css: udun_nobullets_list
+---
+
+#####Notes to zelf
+
+- Red exclamation mark - project won't build - would not say why. Renamed the mains to main1 still no joy.
+ Finally went to _Build Path > Order and Export_ and ticked export on the JRE
+
+    	 <?xml version="1.0" encoding="UTF-8"?>
+    	 <classpath>
+    		<classpathentry excluding="gr/uoa/di/mde515/engine/HeapFile.java" kind="src" path="src"/>
+    	-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+    	+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+    		<classpathentry kind="output" path="bin"/>
+    	 </classpath>
+Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
+Maybe a bug in caching ? (noted this after the [Stack Overflows](https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927)). I then unticked the JRE and still builds ok. [See](http://www.scottdstrader.com/blog/ether_archives/000921.html). [Clean](http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved) did not work and [I had no missing libs](http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol) either.
