@@ -4,9 +4,8 @@ title: "Java memorabilia"
 date: 2014-04-06 17:31:00 +0100
 comments: true
 categories:
+css: udun_nobullets_list
 ---
-
-->  <-
 
 ##Remember erasure ?
 
@@ -46,7 +45,6 @@ System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List<int[]>
 
 ####Remember generics ?
 
-- [Why can't you have multiple interfaces in a bounded wildcard generic?](http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic)
 - [How to implement an interface with an enum, where the interface extends Comparable?](http://stackoverflow.com/q/7160980/281545)
 
   ```
@@ -58,6 +56,7 @@ System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List<int[]>
   public interface Foo<SelfType extends Foo<SelfType>> extends Comparable<SelfType> {}
   public enum FooImpl implements Foo<FooImpl> {}
   ```
+- [Why can't you have multiple interfaces in a bounded wildcard generic?](http://stackoverflow.com/questions/6643241/why-cant-you-have-multiple-interfaces-in-a-bounded-wildcard-generic)
 
 #####Trivia
 
@@ -66,7 +65,6 @@ System.out.println(Arrays.asList(a)); // \[\[I@70cdd2\] // List<int[]>
 - [Why cast after an instanceOf?](http://stackoverflow.com/q/4186320/281545)
 - [Should methods in a Java interface be declared with or without a public access modifier?](http://stackoverflow.com/q/161633/281545)
 - [.clone() or Arrays.copyOf()?](http://stackoverflow.com/a/12157504/281545)
-
 
 [1]: http://stackoverflow.com/a/19638956/281545
 [2]: http://stackoverflow.com/a/17520983/281545
