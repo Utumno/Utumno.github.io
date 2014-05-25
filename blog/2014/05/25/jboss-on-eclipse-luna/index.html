@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jboss on Eclipse Luna - Udun's Labs</title>
+  <meta name="author" content="Utumno">
+
+  
+  <meta name="description" content="Windows - the Installing and starting JBoss AS on Windows page says I must have both maven and java installed - I really do not get why maven so I &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/favicon_eye_of_sauron.png?" rel="icon">
+
+	<link rel='stylesheet' type='text/css' href='/.css' />
+
+
+  
+
+</head>
+
+<body    class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Udun's Labs</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation">
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Utumno.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Jboss on Eclipse Luna</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-25T20:12:58+01:00" pubdate data-updated="true">May 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Windows - the <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> page says I must have both maven and java installed - I really do not get why maven so I decided to proceed at my discretion.</p>
+
+<ul>
+<li>Downloaded <del>jboss-eap-6.2.0.zip</del> from <a href="http://jbossas.jboss.org/downloads.">http://jbossas.jboss.org/downloads.</a> A hell of a difficult site to locate. Btw the user friendliness of the JBoss site(s) is minimal - take a peek at the <a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a> it says &ldquo;This guide has move (sic) to <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/</a>&rdquo; - the latter link being broken. Plus the community servers are down.</li>
+<li>Realized that this download is (probably) not what I wanted. The <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> says something about jboss-7.x.x.x - scrolling further down in <a href="http://jbossas.jboss.org/downloads">http://jbossas.jboss.org/downloads</a> I located and downloaded JBoss AS 7.1.1.Final (jboss-as-7.1.1.Final.zip).</li>
+<li>Unzipped jboss-as-7.1.1.Final.zip to my c:\dev</li>
+<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
+<li>Servers > New > JBoss AS 7.1 - profile Local (&hellip;), this server requires a runtime Next</li>
+<li>JBoss 7.1 Runtime: download and install runtime, duh. let&rsquo;s see
+
+<ul>
+<li>one of the runtimes (3) it offers to download is the jboss-as-7.1.1.Final.zip - great - go to Browse</li>
+<li>c:\dev\jboss-as-7.1.1.Final, Execution environment JavaSE-1.6 (jdk 1.6.0.45) done</li>
+</ul>
+</li>
+<li>import the project, make a new branch (jbossAS7)</li>
+<li>run - oops:
+
+<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.? in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
+</ul>
+
+
+<p> yep the project was 1.7 after all</p>
+
+<ul>
+<li>deleted the server, created it anew, pointed the runtime of Jboss server to jdk 7 and <strong>it run</strong> - logging needs to be info though to print anything in eclipse&rsquo;s console.</li>
+<li>yes but I couldn&rsquo;t hit the servlet - found the solution here: <a href="http://stackoverflow.com/questions/6853409/binding-jboss-as-7-to-all-interfaces">Binding JBoss AS 7 to all interfaces</a>. In a nutshell I had to edit the server config at <code>C:\dev\jboss-as-7.1.1.Final\standalone\configuration\standalone.xml</code> - in there is the logging config too&hellip;</li>
+</ul>
+
+
+<p>That was it - so basically zero modifications. Now to open shift&hellip;</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Utumno</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-25T20:12:58+01:00" pubdate data-updated="true">May 25<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/02/eclipz/" title="Previous Post: Eclipz">&laquo; Eclipz</a>
+      
+      
+    </p>
+  </footer>
+</article>
+  <section>
+        <p style="text-align:center">You might want to visit my sponsors:</p>
+        <div id="ad_sense"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Test -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3484197006338709"
+     data-ad-slot="1348893247"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+  </section>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Utumno -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'udunslabs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

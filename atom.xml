@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-05-03T01:54:04+01:00</updated>
+  <updated>2014-05-26T00:44:34+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Jboss on Eclipse Luna]]></title>
+    <link href="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/"/>
+    <updated>2014-05-25T20:12:58+01:00</updated>
+    <id>http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna</id>
+    <content type="html"><![CDATA[<p>Windows - the <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> page says I must have both maven and java installed - I really do not get why maven so I decided to proceed at my discretion.</p>
+
+<ul>
+<li>Downloaded <del>jboss-eap-6.2.0.zip</del> from <a href="http://jbossas.jboss.org/downloads.">http://jbossas.jboss.org/downloads.</a> A hell of a difficult site to locate. Btw the user friendliness of the JBoss site(s) is minimal - take a peek at the <a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a> it says &ldquo;This guide has move (sic) to <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/</a>&rdquo; - the latter link being broken. Plus the community servers are down.</li>
+<li>Realized that this download is (probably) not what I wanted. The <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> says something about jboss-7.x.x.x - scrolling further down in <a href="http://jbossas.jboss.org/downloads">http://jbossas.jboss.org/downloads</a> I located and downloaded JBoss AS 7.1.1.Final (jboss-as-7.1.1.Final.zip).</li>
+<li>Unzipped jboss-as-7.1.1.Final.zip to my c:\dev</li>
+<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
+<li>Servers > New > JBoss AS 7.1 - profile Local (&hellip;), this server requires a runtime Next</li>
+<li>JBoss 7.1 Runtime: download and install runtime, duh. let&rsquo;s see
+
+<ul>
+<li>one of the runtimes (3) it offers to download is the jboss-as-7.1.1.Final.zip - great - go to Browse</li>
+<li>c:\dev\jboss-as-7.1.1.Final, Execution environment JavaSE-1.6 (jdk 1.6.0.45) done</li>
+</ul>
+</li>
+<li>import the project, make a new branch (jbossAS7)</li>
+<li>run - oops:
+
+<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.? in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
+</ul>
+
+
+<p> yep the project was 1.7 after all</p>
+
+<ul>
+<li>deleted the server, created it anew, pointed the runtime of Jboss server to jdk 7 and <strong>it run</strong> - logging needs to be info though to print anything in eclipse&rsquo;s console.</li>
+<li>yes but I couldn&rsquo;t hit the servlet - found the solution here: <a href="http://stackoverflow.com/questions/6853409/binding-jboss-as-7-to-all-interfaces">Binding JBoss AS 7 to all interfaces</a>. In a nutshell I had to edit the server config at <code>C:\dev\jboss-as-7.1.1.Final\standalone\configuration\standalone.xml</code> - in there is the logging config too&hellip;</li>
+</ul>
+
+
+<p>That was it - so basically zero modifications. Now to open shift&hellip;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Eclipz]]></title>
