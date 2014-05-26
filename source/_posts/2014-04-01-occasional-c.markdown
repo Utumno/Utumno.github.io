@@ -17,4 +17,4 @@ Right:
 	int *ptr = malloc(10 * sizeof *ptr);
 	
 NO exceptions. A, yes, sizeof is a [unary operator](http://en.wikipedia.org/wiki/Sizeof).
- Are parentheses needed ? Well, I always add them if nobody's looking.
+ Are parentheses needed ? Well, I always add them when nobody's looking.
