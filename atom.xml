@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-05-27T01:39:49+01:00</updated>
+  <updated>2014-05-27T17:28:56+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -53,12 +53,14 @@
 <!-- more -->
 
 
+<h3>OpenShift</h3>
+
 <ul>
 <li>Download the open shift JBoss tools from the same update site (<a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>) - JBoss OpenShift Tools (2.6.0.Beta1-v20140401-0009-B15)</li>
 <li>Hard part. New > Openshift application (use search), sign in to open shift (TODO: where does Eclipse store the passwords (bugzilla, openshift etc ?) - hope not in eclipse.core.runtime) > existing application (had created a jboss one) > Use existing project + create server for publishing + disable maven build > Use default remote name (untick, tick > openshift (?)) > Finish</li>
 <li>Scary warning about converting my project - back up original and have Beyond Compare handy</li>
 <li>Accept - cross fingers</li>
-<li>Starts downloading the repo from openshift - wish it just used github somehow&hellip; (edit: see this blog post)</li>
+<li>Starts downloading the repo from openshift - wish it just used github somehow&hellip; (edit: see [this blog post][])</li>
 <li><p>OpenShift asks to publish - answer no and fire BC. .git/config only added a remote:</p>
 
 <pre><code>  [remote "openshift"]
