@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-05-27T17:28:56+01:00</updated>
+  <updated>2014-05-28T00:50:54+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -79,8 +79,8 @@
 
 <p>still wander what will it do with build - notice .project .classpath removed - target added</p></li>
 <li>Added an <code>\.openshift\markers\</code> path containing only <code>skip_maven_build</code>, a <code>\.settings\org.jboss.tools.openshift.express.ui.prefs</code> file with deployment info and</li>
-<li>In .git it added a remote entry but also messed with HEAD and master&rsquo;s head - gitk: wow - a <code>Commit from JBoss Tools</code> - the changes detailed below + line endings diffs - noticed it reverts one previous line endings commit of mine - amending! <em>Why noone gets line endings right ?</em></li>
-<li><p>Alright - backing the commit up (tag the original Commit from JBoss Tools)  amend, take in some unstaged line endings diffs (!) which effectively undo the reverting of my commit - finally:</p>
+<li>In .git it added a remote entry but also messed with HEAD and master&rsquo;s head - gitk: wow - a <code>Commit from JBoss Tools</code> - the changes detailed below + line endings diffs - noticed it reverts one previous line endings commit of mine - amending! <em>Why noone gets line endings right ever ?</em></li>
+<li><p>Allright - backing the commit up (tag the original Commit from JBoss Tools)  amend, take in some unstaged line endings diffs (!) which effectively undo the reverting of my commit - finally:</p>
 
 <pre><code>  diff --git a/.gitignore b/.gitignore
   index 7f55666..3170c67 100644
