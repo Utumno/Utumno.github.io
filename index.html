@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/25/jboss-on-eclipse-luna/">Jboss on Eclipse Luna</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/25/jboss-on-eclipse-luna/">JBoss on Eclipse Luna</a></h1>
     
     
       <p class="meta">
@@ -99,7 +99,7 @@
 <li>Downloaded <del>jboss-eap-6.2.0.zip</del> from <a href="http://jbossas.jboss.org/downloads.">http://jbossas.jboss.org/downloads.</a> A hell of a difficult site to locate. Btw the user friendliness of the JBoss site(s) is minimal - take a peek at the <a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a> it says &ldquo;This guide has move (sic) to <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/</a>&rdquo; - the latter link being broken. Plus the community servers are down.</li>
 <li>Realized that this download is (probably) not what I wanted. The <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> says something about jboss-7.x.x.x - scrolling further down in <a href="http://jbossas.jboss.org/downloads">http://jbossas.jboss.org/downloads</a> I located and downloaded JBoss AS 7.1.1.Final (jboss-as-7.1.1.Final.zip).</li>
 <li>Unzipped jboss-as-7.1.1.Final.zip to my c:\dev</li>
-<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
+<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for Luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
 <li>Servers > New > JBoss AS 7.1 - profile Local (&hellip;), this server requires a runtime Next</li>
 <li>JBoss 7.1 Runtime: download and install runtime, duh. let&rsquo;s see
 
@@ -111,7 +111,7 @@
 <li>import the project, make a new branch (jbossAS7)</li>
 <li>run - oops:
 
-<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.? in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
+<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.Z in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
 </ul>
 
 
@@ -124,8 +124,13 @@
 
 
 <p>That was it - so basically zero modifications. Now to open shift&hellip;</p>
+
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/25/jboss-on-eclipse-luna/">Read on &rarr;</a>
+    </footer>
   
 
 

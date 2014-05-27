@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-05-26T00:44:34+01:00</updated>
+  <updated>2014-05-27T01:39:49+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Jboss on Eclipse Luna]]></title>
+    <title type="html"><![CDATA[JBoss on Eclipse Luna]]></title>
     <link href="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/"/>
     <updated>2014-05-25T20:12:58+01:00</updated>
     <id>http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna</id>
@@ -24,7 +24,7 @@
 <li>Downloaded <del>jboss-eap-6.2.0.zip</del> from <a href="http://jbossas.jboss.org/downloads.">http://jbossas.jboss.org/downloads.</a> A hell of a difficult site to locate. Btw the user friendliness of the JBoss site(s) is minimal - take a peek at the <a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a> it says &ldquo;This guide has move (sic) to <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/</a>&rdquo; - the latter link being broken. Plus the community servers are down.</li>
 <li>Realized that this download is (probably) not what I wanted. The <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> says something about jboss-7.x.x.x - scrolling further down in <a href="http://jbossas.jboss.org/downloads">http://jbossas.jboss.org/downloads</a> I located and downloaded JBoss AS 7.1.1.Final (jboss-as-7.1.1.Final.zip).</li>
 <li>Unzipped jboss-as-7.1.1.Final.zip to my c:\dev</li>
-<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
+<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for Luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
 <li>Servers > New > JBoss AS 7.1 - profile Local (&hellip;), this server requires a runtime Next</li>
 <li>JBoss 7.1 Runtime: download and install runtime, duh. let&rsquo;s see
 
@@ -36,7 +36,7 @@
 <li>import the project, make a new branch (jbossAS7)</li>
 <li>run - oops:
 
-<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.? in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
+<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.Z in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
 </ul>
 
 
@@ -49,6 +49,147 @@
 
 
 <p>That was it - so basically zero modifications. Now to open shift&hellip;</p>
+
+<!-- more -->
+
+
+<ul>
+<li>Download the open shift JBoss tools from the same update site (<a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>) - JBoss OpenShift Tools (2.6.0.Beta1-v20140401-0009-B15)</li>
+<li>Hard part. New > Openshift application (use search), sign in to open shift (TODO: where does Eclipse store the passwords (bugzilla, openshift etc ?) - hope not in eclipse.core.runtime) > existing application (had created a jboss one) > Use existing project + create server for publishing + disable maven build > Use default remote name (untick, tick > openshift (?)) > Finish</li>
+<li>Scary warning about converting my project - back up original and have Beyond Compare handy</li>
+<li>Accept - cross fingers</li>
+<li>Starts downloading the repo from openshift - wish it just used github somehow&hellip; (edit: see this blog post)</li>
+<li><p>OpenShift asks to publish - answer no and fire BC. .git/config only added a remote:</p>
+
+<pre><code>  [remote "openshift"]
+      url = ssh://SHA@APP-DOMAIN.rhcloud.com/~/git/jbossas.git/
+</code></pre>
+
+<p>good (<code>SHA</code> above stands for an hexadecimal number, the app&rsquo;s UUID apparently)</p></li>
+<li><p>.gitignore added</p>
+
+<pre><code>  target
+  .settings/*
+  !.settings/.jsdtscope
+  .project
+  .classpath
+</code></pre>
+
+<p>still wander what will it do with build - notice .project .classpath removed - target added</p></li>
+<li>Added an <code>\.openshift\markers\</code> path containing only <code>skip_maven_build</code>, a <code>\.settings\org.jboss.tools.openshift.express.ui.prefs</code> file with deployment info and</li>
+<li>In .git it added a remote entry but also messed with HEAD and master&rsquo;s head - gitk: wow - a <code>Commit from JBoss Tools</code> - the changes detailed below + line endings diffs - noticed it reverts one previous line endings commit of mine - amending! <em>Why noone gets line endings right ?</em></li>
+<li><p>Alright - backing the commit up (tag the original Commit from JBoss Tools)  amend, take in some unstaged line endings diffs (!) which effectively undo the reverting of my commit - finally:</p>
+
+<pre><code>  diff --git a/.gitignore b/.gitignore
+  index 7f55666..3170c67 100644
+  --- a/.gitignore
+  +++ b/.gitignore
+  // blah blah
+  +target
+  +.settings/*
+  +!.settings/.jsdtscope
+  +.project
+  +.classpath
+  diff --git a/.openshift/markers/skip_maven_build b/.openshift/markers/skip_maven
+  new file mode 100644
+  index 0000000..e69de29
+</code></pre>
+
+<p>commit additional line endings diffs in a new branch to examine never</p></li>
+<li><p>more rebases etc and push (from git gui - allows forced updates) - <del>done</del> ! Well, not done - git reported success but the remote refs seen in gitk stayed put. I had to push from eclipse: Servers > APP at Openshift > Publish - &ldquo;no local changes - publish by pushing ?&rdquo; -> this now asks you if you want a forced update - yes:</p>
+
+<pre><code>  Stopping jbossas cartridge
+  Sending SIGTERM to jboss:301473 ...
+  Building git ref 'master', commit e48bedf
+  Skipping Maven build due to absence of pom.xml
+  Preparing build for deployment
+  Deployment id is 72c749b6
+  Activating deployment
+  Deploying JBoss
+  Starting jbossas cartridge
+  Found 127.2.148.129:8080 listening port
+  Found 127.2.148.129:9999 listening port
+  /var/lib/openshift/538267574382ece7950004a4/jbossas/standalone/deployments /var/lib/openshift/538267574382ece7950004a4/jbossas
+  /var/lib/openshift/538267574382ece7950004a4/jbossas
+  Artifacts deployed: ./ROOT.war
+  -------------------------
+  Git Post-Receive Result: success
+  Activation status: success
+  Deployment completed with status: success
+</code></pre>
+
+<p>Wow - but where is my app ? Hmmm: <a href="http://stackoverflow.com/questions/23873296/openshift-root-war-deployed-but-no-app">http://stackoverflow.com/questions/23873296/openshift-root-war-deployed-but-no-app</a></p></li>
+</ul>
+
+
+<p>Producing manually the war (right click on the project then export as war) and then scp&#8217;ing straight from git Bash (msysgit, mingwin):</p>
+
+<pre><code>$ scp "~/ROOT.war" SHA@APP-DOMAIN.rhcloud.com:/var/lib/\
+openshift/SHA/app-root/dependencies/jbossas/deployments
+</code></pre>
+
+<p>as detailed <a href="https://www.openshift.com/kb/kb-e1088-how-to-deploy-pre-compiled-java-applications-war-and-ear-files-onto-your-openshift-gear">here</a> (detailed is an euphemism) solved it.</p>
+
+<p>But now I am getting a class not found at my app&rsquo;s url (better than the default OpenShift page but still&hellip;):</p>
+
+<blockquote><p>root cause</p>
+
+<p>java.lang.ClassNotFoundException: gr.uoa.di.monitoring.server.servlets.DataCollectionServlet from [Module &ldquo;deployment.ROOT.war:main&rdquo; from Service Module Loader]
+    org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:190)
+    org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:468)
+    org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:456)
+    org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+    org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:120)
+    org.jboss.as.web.deployment.WebInjectionContainer.newInstance(WebInjectionContainer.java:72)
+    org.jboss.as.web.security.SecurityContextAssociationValve.invoke(SecurityContextAssociationValve.java:153)
+    org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+    org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:368)
+    org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:877)
+    org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:671)
+    org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:930)
+    java.lang.Thread.run(Thread.java:701)</p>
+
+<p>note The full stack trace of the root cause is available in the JBoss Web/7.0.13.Final logs.
+JBoss Web/7.0.13.Final</p></blockquote>
+
+<p>Let&rsquo;s see the logs</p>
+
+<pre><code>$ ssh SHA@jbossas-DOMAIN.rhcloud.com
+[jbossas-DOMAIN.rhcloud.com SHA]\&gt; cd $OPENSHIFT_LOG_DIR
+[jbossas-DOMAIN.rhcloud.com logs]\&gt; pwd
+/var/lib/openshift/SHA/app-root/logs
+$ scp  SHA@jbossas-DOMAIN.rhcloud.com:/var/lib/openshift/53
+8267574382ece7950004a4/app-root/logs/jbossas.log "~/upstream.jbossas.log"
+jbossas.log                                   100%  249KB 124.3KB/s   00:02
+$ npp "~/upstream.jbossas.log"
+</code></pre>
+
+<p>&hellip;</p>
+
+<blockquote><p>2014/05/26 15:57:26,679 WARN  [org.jboss.modules] (http-127.2.148.129-127.2.148.129-8080-1) Failed to define class\
+gr.uoa.di.monitoring.server.servlets.DataCollectionServlet in Module &ldquo;deployment.ROOT.war:main&rdquo; from Service Module Loader:\
+java.lang.UnsupportedClassVersionError: gr/uoa/di/monitoring/server/servlets/DataCollectionServlet : Unsupported major.minor version 51.0</p></blockquote>
+
+<p>oh well I have to enable java7 for the project - unfortunately this is done via a &ldquo;marker&rdquo; and trying to do it via rhc did not really help:</p>
+
+<pre><code>$ rhc ssh jbossas
+[jbossas-DOMAIN.rhcloud.com SHA]\&gt; export
+# ...
+declare -x JAVA_HOME="/etc/alternatives/java_sdk_1.6.0"
+# ...
+[jbossas-DOMAIN.rhcloud.com SHA]\&gt; export JAVA_HOME=/etc/al
+ternatives/java_sdk_1.7.0
+[jbossas-DOMAIN.rhcloud.com SHA]\&gt; ctl_app restart
+Cart to restart?
+1. jbossas-7
+?  1
+</code></pre>
+
+<p>Did not have an effect (found <a href="http://blog.anthavio.net/2014/01/openshift-system-properties-and.html">this blog post</a> which explains some). I managed though - via the eclipse tools - OpenSHift Explorer > Right click on your app > Edit environmental variables:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/OpenShift/setting_up_java7.jpg" title="image" alt="images"></p>
+
+<p>And that was it !</p>
 ]]></content>
   </entry>
   
