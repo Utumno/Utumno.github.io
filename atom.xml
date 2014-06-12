@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-05-28T00:50:54+01:00</updated>
+  <updated>2014-06-12T02:28:23+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,221 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mavenize an Eclipse Project]]></title>
+    <link href="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/"/>
+    <updated>2014-06-11T18:13:15+01:00</updated>
+    <id>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project</id>
+    <content type="html"><![CDATA[<p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
+
+<ul>
+<li><p>RClick on the project > Configure > Convert to Maven project</p></li>
+<li><p><strong>Maven Pom dialogue</strong>: I had to choose group id, artifact id etc. Had a look at <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId and version</a>, <a href="http://stackoverflow.com/questions/3724415/maven-artifact-and-groupid-naming">Maven artifact and groupId naming</a>, <a href="http://stackoverflow.com/questions/23172586/maven-artifact-and-group-naming-conventions?lq=1">Maven artifact and group naming conventions</a>. Ok - pick a groupId (should be unique), an artifact Id (will be the name of your jar minus the version) and a version (have to decide on a scheme for this - must read: <a href="http://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm">Understanding Maven Version Numbers</a>. Have also a look at <a href="http://stackoverflow.com/q/30571/281545">How do I tell Maven to use the latest version of a dependency?</a>). Enter a name and description for your project.</p></li>
+<li><p><strong>Maven dependencies dialogue</strong>: Identify existing project references as Maven dependencies:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/Maven_and_eclipse/Clipboard01.jpg" title="image" alt="images"></p>
+
+<p>well at a loss here&hellip; Glad it found Junit. I left the &ldquo;Delete original references from project&rdquo; unticked. It went on to create the POM. Now I cheated a bit here.
+<!-- more --></p>
+
+<ul>
+<li><p>I had already tried once and saw the Unidentified dependencies pictured above. Well - hamcrest was resolved but jgrapht not - resulting in build errors. What I had to do was <a href="https://www.google.com/search?q=maven%20jgrapht%200.9.0&amp;safe=off">google &ldquo;maven jgrapht 0.9.0&rdquo;</a> and at long last end up <a href="http://mvnrepository.com/artifact/org.jgrapht/jgrapht-core/0.9.0">here</a>. Copied:</p>
+
+<pre><code class="`">&lt;dependency&gt;
+    &lt;groupId&gt;org.jgrapht&lt;/groupId&gt;
+    &lt;artifactId&gt;jgrapht-core&lt;/artifactId&gt;
+    &lt;version&gt;0.9.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>in the pom and was good to go.</p></li>
+<li><p>Now the second time I followed the same procedure (after <code>--hard</code> reseting the branch) apparently m2e kept the jgrapht jar in its cache. So despite the fact the jars showed as unidentified the second time round I had no built errors. Actually I don&rsquo;t know what the reason was but the diff from the first time up to the second was:</p>
+
+<pre><code class="`"> $ git diff 1stTry 2ndTry
+ diff --git a/.classpath b/.classpath
+ index a92a607..c5171d8 100644
+ --- a/.classpath
+ +++ b/.classpath
+ @@ -11,6 +11,8 @@
+            &lt;attribute name="maven.pomderived" value="true"/&gt;
+        &lt;/attributes&gt;
+    &lt;/classpathentry&gt;
+ +  &lt;classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jgraph"/&gt;
+ +  &lt;classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/&gt;
+    &lt;classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"&gt;
+        &lt;attributes&gt;
+            &lt;attribute name="maven.pomderived" value="true"/&gt;
+ diff --git a/.settings/CCM_RUN.launch b/.settings/CCM_RUN.launch
+ index 3cc26b2..632106d 100644
+ --- a/.settings/CCM_RUN.launch
+ +++ b/.settings/CCM_RUN.launch
+ @@ -6,8 +6,6 @@
+ &lt;listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES"&gt;
+ &lt;listEntry value="1"/&gt;
+ &lt;/listAttribute&gt;
+ -&lt;stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/&gt;
+ &lt;stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="gr.uoa.di.mde515.Main"/&gt;
+ &lt;stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="project"/&gt;
+ -&lt;stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/&gt;
+ &lt;/launchConfiguration&gt;
+ diff --git a/pom.xml b/pom.xml
+ index 0f9e725..dffb4a5 100644
+ --- a/pom.xml
+ +++ b/pom.xml
+ @@ -1,20 +1,17 @@
+ &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    #### UNIMPORTANT ###
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.11&lt;/version&gt;
+        &lt;/dependency&gt;
+ -      &lt;dependency&gt;
+ -          &lt;groupId&gt;org.jgrapht&lt;/groupId&gt;
+ -          &lt;artifactId&gt;jgrapht-core&lt;/artifactId&gt;
+ -          &lt;version&gt;0.9.0&lt;/version&gt;
+ -      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;build&gt;
+        &lt;sourceDirectory&gt;src&lt;/sourceDirectory&gt;
+</code></pre>
+
+<p>It seems the second time it kept <code>jgrapht</code> as an eclipse lib. Dunno. Runs fine.</p></li>
+</ul>
+</li>
+<li><p>I added the jgrapht as a maven dependency - as well as logging:</p>
+
+<pre><code class="```">  +       &lt;dependency&gt;
+  +           &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+  +           &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+  +           &lt;version&gt;1.1.2&lt;/version&gt;
+  +       &lt;/dependency&gt;
+  +       &lt;dependency&gt;
+  +           &lt;groupId&gt;org.jgrapht&lt;/groupId&gt;
+  +           &lt;artifactId&gt;jgrapht-core&lt;/artifactId&gt;
+  +           &lt;version&gt;0.9.0&lt;/version&gt;
+  +       &lt;/dependency&gt;
+</code></pre>
+
+<p>yep - that&rsquo;s all (see <a href="http://stackoverflow.com/questions/16660749/dependency-management-for-slf4j-and-logback/16661493#16661493">Dependency management for SLF4J and Logback</a>). Wow !</p></li>
+<li><p>But now I wanted to add the logging configuration (must read:  <a href="https://wiki.base22.com/display/btg/How+to+setup+SLF4J+and+LOGBack+in+a+web+app+-+fast">How to setup SLF4J and LOGBack in a web app - fast</a>). In this article (from where I downloaded the <code>logback[-test].xml</code>) it is said that these files belong in the <code>src/[main|test]/resources</code> folder. Great. I went ahead and manually moved the <code>src</code> to <code>src/main/java</code>, deleted <code>src</code> in Build path > source folders and added <code>src/main/java</code>. Classpath:</p>
+
+<pre><code class="```">  -   &lt;classpathentry kind="src" output="target/classes" path="src"&gt;
+  -       &lt;attributes&gt;
+  -           &lt;attribute name="optional" value="true"/&gt;
+  -           &lt;attribute name="maven.pomderived" value="true"/&gt;
+  -       &lt;/attributes&gt;
+  -   &lt;/classpathentry&gt;
+  +   &lt;classpathentry kind="src" path="src/main/java"/&gt;
+</code></pre>
+
+<p>Then tried to Alt+F5 (RClick > Maven > Update Project&hellip;) but I had the &ldquo;nesting errors&rdquo;:</p></li>
+</ul>
+
+
+<blockquote><p>MESSAGE Cannot nest &lsquo;project/src/main/java&rsquo; inside &lsquo;project/src&rsquo;. To enable the nesting exclude &lsquo;main/&rsquo; from &lsquo;project/src&rsquo;</p></blockquote>
+
+<p>  Gibberish. Solved in <a href="http://stackoverflow.com/questions/10838109/eclipse-build-path-nesting-errors/15411137#15411137">Eclipse Build Path Nesting Errors</a>. Basically there was a line in the pom that caused the problem - hitting then Alt+F5 modified the classpath:</p>
+
+<pre><code>---------------------------------- .classpath ----------------------------------
+index 37a3013..982ad3d 100644
+@@ -1,6 +1,11 @@
+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;classpath&gt;
+-   &lt;classpathentry kind="src" path="src/main/java"/&gt;
++   &lt;classpathentry kind="src" output="target/classes" path="src/main/java"&gt;
++       &lt;attributes&gt;
++           &lt;attribute name="optional" value="true"/&gt;
++           &lt;attribute name="maven.pomderived" value="true"/&gt;
++       &lt;/attributes&gt;
++   &lt;/classpathentry&gt;
+    &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"&gt;
+        &lt;attributes&gt;
+            &lt;attribute name="maven.pomderived" value="true"/&gt;
+@@ -12,5 +17,11 @@
+            &lt;attribute name="maven.pomderived" value="true"/&gt;
+        &lt;/attributes&gt;
+    &lt;/classpathentry&gt;
++   &lt;classpathentry kind="src" output="target/test-classes" path="src/test/java"&gt;
++       &lt;attributes&gt;
++           &lt;attribute name="optional" value="true"/&gt;
++           &lt;attribute name="maven.pomderived" value="true"/&gt;
++       &lt;/attributes&gt;
++   &lt;/classpathentry&gt;
+    &lt;classpathentry kind="output" path="target/classes"/&gt;
+ &lt;/classpath&gt;
+
+----------------------------------- pom.xml -----------------------------------
+index 6b5f4af..8f37398 100644
+@@ -24,7 +24,6 @@
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;build&gt;
+-       &lt;sourceDirectory&gt;src&lt;/sourceDirectory&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+</code></pre>
+
+<p> So m2e actually automatically added a test folder (which was not created resulting in an error in the build path - but not on the markers view - you need to open the build path to see it). So what about the resources folders ? Well just create two new <strong>folders</strong> (<strong>NOT</strong> source folders) and hit Alt+F5. Boom:</p>
+
+<pre><code>6/12/14, 12:57:19 AM GMT+1: [INFO] Update started
+6/12/14, 12:57:19 AM GMT+1: [INFO] Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: gr.uoa.di.mde515.ccm:ccm:0.0.1-SNAPSHOT @ C:\Dropbox\eclipse_workspaces\javaSE\hw2_db\pom.xml.
+6/12/14, 12:57:19 AM GMT+1: [INFO] Adding source folder /hw2_db/src/main/java
+6/12/14, 12:57:19 AM GMT+1: [INFO] Adding resource folder /hw2_db/src/main/resources
+6/12/14, 12:57:19 AM GMT+1: [INFO] Adding source folder /hw2_db/src/test/java
+6/12/14, 12:57:19 AM GMT+1: [INFO] Adding resource folder /hw2_db/src/test/resources
+6/12/14, 12:57:19 AM GMT+1: [ERROR] The resource tree is locked for modifications.
+6/12/14, 12:57:19 AM GMT+1: [INFO] Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: gr.uoa.di.mde515.ccm:ccm:0.0.1-SNAPSHOT @ C:\Dropbox\eclipse_workspaces\javaSE\hw2_db\pom.xml.
+6/12/14, 12:57:19 AM GMT+1: [INFO] Update completed: 0 sec
+6/12/14, 12:57:20 AM GMT+1: [WARN] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+6/12/14, 12:57:20 AM GMT+1: [INFO] Copying 0 resource
+6/12/14, 12:57:20 AM GMT+1: [WARN] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+6/12/14, 12:57:20 AM GMT+1: [INFO] Copying 0 resource
+</code></pre>
+
+<p>  Dunno if I should worry about <code>[ERROR] The resource tree is locked for modifications.</code> Alt+F5 produces:</p>
+
+<pre><code>---------------------------------- .classpath ----------------------------------
+index 982ad3d..8e85ec6 100644
+@@ -23,5 +23,15 @@
+            &lt;attribute name="maven.pomderived" value="true"/&gt;
+        &lt;/attributes&gt;
+    &lt;/classpathentry&gt;
++   &lt;classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"&gt;
++       &lt;attributes&gt;
++           &lt;attribute name="maven.pomderived" value="true"/&gt;
++       &lt;/attributes&gt;
++   &lt;/classpathentry&gt;
++   &lt;classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources"&gt;
++       &lt;attributes&gt;
++           &lt;attribute name="maven.pomderived" value="true"/&gt;
++       &lt;/attributes&gt;
++   &lt;/classpathentry&gt;
+    &lt;classpathentry kind="output" path="target/classes"/&gt;
+ &lt;/classpath&gt;
+</code></pre>
+
+<p> Great. Now that I seem to get the hang of it I will turn to WTP project mavenizing.</p>
+
+<p>Related:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/2449461/convert-existing-eclipse-project-to-maven-project">Convert Existing Eclipse Project to Maven Project</a>: interesting links to m2e TODOs - yes it is still primitive&hellip;
+
+<ul>
+<li><a href="https://wiki.eclipse.org/M2E_project_conversion_enhancements">M2E project conversion enhancements</a>, dreary eclipse wiki, the wiki of the dead roads etc</li>
+<li><a href="https://github.com/vashishthask/eclipse-to-maven/tree/master/src/main/java">eclipse-to-maven</a>: purports to do the thing (for eclipse kepler (?))</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JBoss on Eclipse Luna]]></title>
@@ -60,7 +275,7 @@
 <li>Hard part. New > Openshift application (use search), sign in to open shift (TODO: where does Eclipse store the passwords (bugzilla, openshift etc ?) - hope not in eclipse.core.runtime) > existing application (had created a jboss one) > Use existing project + create server for publishing + disable maven build > Use default remote name (untick, tick > openshift (?)) > Finish</li>
 <li>Scary warning about converting my project - back up original and have Beyond Compare handy</li>
 <li>Accept - cross fingers</li>
-<li>Starts downloading the repo from openshift - wish it just used github somehow&hellip; (edit: see [this blog post][])</li>
+<li>Starts downloading the repo from openshift - wish it just used github somehow&hellip; (edit: see <a href="http://blog.anthavio.net/2014/01/deploy-to-openshift-from-github.html">this blog post</a>)</li>
 <li><p>OpenShift asks to publish - answer no and fire BC. .git/config only added a remote:</p>
 
 <pre><code>  [remote "openshift"]

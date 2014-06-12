@@ -1,31 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Java | Udun's Labs]]></title>
-  <link href="http://Utumno.github.io/blog/categories/java/atom.xml" rel="self"/>
-  <link href="http://Utumno.github.io/"/>
-  <updated>2014-06-12T02:28:23+01:00</updated>
-  <id>http://Utumno.github.io/</id>
-  <author>
-    <name><![CDATA[Utumno]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mavenize an Eclipse Project - Udun's Labs</title>
+  <meta name="author" content="Utumno">
 
   
-  <entry>
-    <title type="html"><![CDATA[Mavenize an Eclipse Project]]></title>
-    <link href="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/"/>
-    <updated>2014-06-11T18:13:15+01:00</updated>
-    <id>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project</id>
-    <content type="html"><![CDATA[<p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
+  <meta name="description" content="I had a simple eclipse java SE project and I wanted to start using maven (in 5 Minutes) for dependency management. What I did was (eclipse Luna, JEE &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/favicon_eye_of_sauron.png?" rel="icon">
+
+	<link rel='stylesheet' type='text/css' href='/.css' />
+
+
+  
+
+</head>
+
+<body    class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Udun's Labs</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation">
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Utumno.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mavenize an Eclipse Project</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-11T18:13:15+01:00" pubdate data-updated="true">Jun 11<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
 
 <ul>
 <li><p>RClick on the project > Configure > Convert to Maven project</p></li>
 <li><p><strong>Maven Pom dialogue</strong>: I had to choose group id, artifact id etc. Had a look at <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId and version</a>, <a href="http://stackoverflow.com/questions/3724415/maven-artifact-and-groupid-naming">Maven artifact and groupId naming</a>, <a href="http://stackoverflow.com/questions/23172586/maven-artifact-and-group-naming-conventions?lq=1">Maven artifact and group naming conventions</a>. Ok - pick a groupId (should be unique), an artifact Id (will be the name of your jar minus the version) and a version (have to decide on a scheme for this - must read: <a href="http://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm">Understanding Maven Version Numbers</a>. Have also a look at <a href="http://stackoverflow.com/q/30571/281545">How do I tell Maven to use the latest version of a dependency?</a>). Enter a name and description for your project.</p></li>
 <li><p><strong>Maven dependencies dialogue</strong>: Identify existing project references as Maven dependencies:</p>
 
-<p><img class="center" src="/images/Maven_and_eclipse/Clipboard01.jpg" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
+<p><img class="center" src="/images/Maven_and_eclipse/Clipboard01.jpg" title="image" alt="images"></p>
 
 <p>well at a loss here&hellip; Glad it found Junit. I left the &ldquo;Delete original references from project&rdquo; unticked. It went on to create the POM. Now I cheated a bit here.
 <!-- more --></p>
@@ -225,7 +297,131 @@ index 982ad3d..8e85ec6 100644
 </li>
 </ul>
 
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-</feed>
+
+<span class="byline author vcard">Posted by <span class="fn">Utumno</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-11T18:13:15+01:00" pubdate data-updated="true">Jun 11<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/eclipse/'>eclipse</a>, <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/maven/'>maven</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/25/jboss-on-eclipse-luna/" title="Previous Post: JBoss on eclipse Luna">&laquo; JBoss on eclipse Luna</a>
+      
+      
+    </p>
+  </footer>
+</article>
+  <section>
+        <p style="text-align:center">You might want to visit my sponsors:</p>
+        <div id="ad_sense"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Test -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3484197006338709"
+     data-ad-slot="1348893247"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+  </section>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Utumno -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'udunslabs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
