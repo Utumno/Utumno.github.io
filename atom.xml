@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-06-12T02:28:23+01:00</updated>
+  <updated>2014-06-18T04:46:16+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -326,8 +326,8 @@ index 982ad3d..8e85ec6 100644
   Starting jbossas cartridge
   Found 127.2.148.129:8080 listening port
   Found 127.2.148.129:9999 listening port
-  /var/lib/openshift/538267574382ece7950004a4/jbossas/standalone/deployments /var/lib/openshift/538267574382ece7950004a4/jbossas
-  /var/lib/openshift/538267574382ece7950004a4/jbossas
+  /var/lib/openshift/SHA/jbossas/standalone/deployments /var/lib/openshift/SHA/jbossas
+  /var/lib/openshift/SHA/jbossas
   Artifacts deployed: ./ROOT.war
   -------------------------
   Git Post-Receive Result: success
@@ -371,12 +371,11 @@ JBoss Web/7.0.13.Final</p></blockquote>
 
 <p>Let&rsquo;s see the logs</p>
 
-<pre><code>$ ssh SHA@jbossas-DOMAIN.rhcloud.com
-[jbossas-DOMAIN.rhcloud.com SHA]\&gt; cd $OPENSHIFT_LOG_DIR
-[jbossas-DOMAIN.rhcloud.com logs]\&gt; pwd
+<pre><code>$ ssh SHA@APP-DOMAIN.rhcloud.com
+[APP-DOMAIN.rhcloud.com SHA]\&gt; cd $OPENSHIFT_LOG_DIR
+[APP-DOMAIN.rhcloud.com logs]\&gt; pwd
 /var/lib/openshift/SHA/app-root/logs
-$ scp  SHA@jbossas-DOMAIN.rhcloud.com:/var/lib/openshift/53
-8267574382ece7950004a4/app-root/logs/jbossas.log "~/upstream.jbossas.log"
+$ scp  SHA@APP-DOMAIN.rhcloud.com:/var/lib/openshift/SHA/app-root/logs/jbossas.log "~/upstream.jbossas.log"
 jbossas.log                                   100%  249KB 124.3KB/s   00:02
 $ npp "~/upstream.jbossas.log"
 </code></pre>
@@ -390,13 +389,13 @@ java.lang.UnsupportedClassVersionError: gr/uoa/di/monitoring/server/servlets/Dat
 <p>oh well I have to enable java7 for the project - unfortunately this is done via a &ldquo;marker&rdquo; and trying to do it via rhc did not really help:</p>
 
 <pre><code>$ rhc ssh jbossas
-[jbossas-DOMAIN.rhcloud.com SHA]\&gt; export
+[APP-DOMAIN.rhcloud.com SHA]\&gt; export
 # ...
 declare -x JAVA_HOME="/etc/alternatives/java_sdk_1.6.0"
 # ...
-[jbossas-DOMAIN.rhcloud.com SHA]\&gt; export JAVA_HOME=/etc/al
+[APP-DOMAIN.rhcloud.com SHA]\&gt; export JAVA_HOME=/etc/al
 ternatives/java_sdk_1.7.0
-[jbossas-DOMAIN.rhcloud.com SHA]\&gt; ctl_app restart
+[APP-DOMAIN.rhcloud.com SHA]\&gt; ctl_app restart
 Cart to restart?
 1. jbossas-7
 ?  1
@@ -636,7 +635,7 @@ print(os.stat('file2.txt').st_size)  # 2
 </code></pre>
 
 <p>NO exceptions. A, yes, sizeof is a <a href="http://en.wikipedia.org/wiki/Sizeof">unary operator</a>.
- Are parentheses needed ? Well, I always add them if nobody&rsquo;s looking.</p>
+ Are parentheses needed ? Well, I always add them when nobody&rsquo;s looking.</p>
 ]]></content>
   </entry>
   
