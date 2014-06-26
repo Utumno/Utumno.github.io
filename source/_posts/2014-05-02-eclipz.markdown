@@ -21,3 +21,20 @@ css: udun_nobullets_list
     	 </classpath>
 Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
 Maybe a bug in caching ? (noted this after the [Stack Overflows](https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927)). I then unticked the JRE and still builds ok. [See](http://www.scottdstrader.com/blog/ether_archives/000921.html). [Clean](http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved) did not work and [I had no missing libs](http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol) either.
+
+- Server update sites:
+
+		<?xml version="1.0" encoding="UTF-8"?>
+		<bookmarks>
+		   <site url="http://download.jboss.org/jbosstools/updates/development/luna/" selected="true" name="_jboss_tools"/>
+		   <site url="http://download.oracle.com/otn_software/oepe/luna/" selected="true" name="_oracle_glassfish"/>
+		</bookmarks>
+  Unneeded are the maven ones (m2e-wtp had some uninstalled items though) :
+
+		<site url="http://download.eclipse.org/m2e-wtp/milestones/luna/1.1.0" selected="true" name="_m2e-wtp"/>
+		<site url="http://download.eclipse.org/technology/m2e/releases" selected="true" name="_m2eclipse"/>
+
+
+- Clean eclipse OSGi cache: Add `-clean` to eclipse.ini - first line, on its own - cleans mainly folder `{eclipse}\configuration\org.eclipse.osgi`. See [How to run eclipse in clean mode? and what happens if we do so?][1]
+
+  [1]: http://stackoverflow.com/questions/2030064/how-to-run-eclipse-in-clean-mode-and-what-happens-if-we-do-so
