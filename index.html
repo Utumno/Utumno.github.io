@@ -230,6 +230,21 @@ Finally went to <em>Build Path > Order and Export</em> and ticked export on the 
 
 <p>Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
 Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927">Stack Overflows</a>). I then unticked the JRE and still builds ok. <a href="http://www.scottdstrader.com/blog/ether_archives/000921.html">See</a>. <a href="http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved">Clean</a> did not work and <a href="http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol">I had no missing libs</a> either.</p></li>
+<li><p>Server update sites:</p>
+
+<pre><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;bookmarks&gt;
+     &lt;site url="http://download.jboss.org/jbosstools/updates/development/luna/" selected="true" name="_jboss_tools"/&gt;
+     &lt;site url="http://download.oracle.com/otn_software/oepe/luna/" selected="true" name="_oracle_glassfish"/&gt;
+  &lt;/bookmarks&gt;
+</code></pre>
+
+<p>Unneeded are the maven ones (m2e-wtp had some uninstalled items though) :</p>
+
+<pre><code>  &lt;site url="http://download.eclipse.org/m2e-wtp/milestones/luna/1.1.0" selected="true" name="_m2e-wtp"/&gt;
+  &lt;site url="http://download.eclipse.org/technology/m2e/releases" selected="true" name="_m2eclipse"/&gt;
+</code></pre></li>
+<li><p>Clean eclipse OSGi cache: Add <code>-clean</code> to eclipse.ini - first line, on its own - cleans mainly folder <code>{eclipse}\configuration\org.eclipse.osgi</code>. See <a href="http://stackoverflow.com/questions/2030064/how-to-run-eclipse-in-clean-mode-and-what-happens-if-we-do-so">How to run eclipse in clean mode? and what happens if we do so?</a></p></li>
 </ul>
 
 </div>
