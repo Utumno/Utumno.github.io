@@ -9,7 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Download ruby from here - I downloaded rubyinstaller-1.9.3-p448.exe Install it, add it to path then create a folder to host octopress and your blog ( &hellip;">
+  <meta name="description" content="First thing that comes to mind : why do I need to name the superclass explicitly, instead of passing in self.__class__ (or better still, type(self &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/05/pythons-super/">Python&#8217;s Super</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-05T14:45:20+00:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>First thing that comes to mind : why do I need to name the superclass explicitly, instead of passing in <code>self.__class__</code> (or better still, <code>type(self)</code>)  ?
+<a href="http://stackoverflow.com/questions/18208683/when-calling-super-in-a-derived-class-can-i-pass-in-self-class/18208725#18208725">Because</a>:</p>
+
+<!--``` linenos:false-->
+
+
+<pre><code>class Base(object):
+    def method(self):
+        print 'original'
+
+class Derived(Base):
+    def method(self):
+        print 'derived'
+        super(type(self), self).method()
+
+class Subclass(Derived):
+    def method(self):
+        print 'subclass of derived'
+        super(Subclass, self).method()
+</code></pre>
+
+<!-- ``` -->
+
+
+<p>leads to:</p>
+
+<pre><code>&gt;&gt;&gt; Subclass().method()
+subclass of derived
+derived
+derived
+derived
+&lt;...&gt;
+  File "&lt;stdin&gt;", line 4, in method
+  File "&lt;stdin&gt;", line 4, in method
+  File "&lt;stdin&gt;", line 4, in method
+RuntimeError: maximum recursion depth exceeded while calling a Python object
+</code></pre>
+
+<p>And this pretty much explains the second question I had. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/01/05/pythons-super/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
