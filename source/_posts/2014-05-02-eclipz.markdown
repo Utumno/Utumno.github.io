@@ -35,9 +35,10 @@ Maybe a bug in caching ? (noted this after the [Stack Overflows](https://bugs.ec
 		<site url="http://download.eclipse.org/technology/m2e/releases" selected="true" name="_m2eclipse"/>
 
 
-- Clean eclipse OSGi cache: Add `-clean` to eclipse.ini - first line, on its own - cleans mainly folder `{eclipse}\configuration\org.eclipse.osgi`. See [How to run eclipse in clean mode? and what happens if we do so?][1]
+- Clean eclipse OSGi cache: Add `-clean` to eclipse.ini - first line, on its own - cleans mainly folder `{eclipse}\configuration\org.eclipse.osgi`. See [How to run eclipse in clean mode? and what happens if we do so?][1]. For workspace leaning see [Clean out Eclipse workspace metadata][3] - apparently -clean cleans the workspace too (?)
 
 - [How to make xml file always be opened in text editor rather than xml editor][2]
 
   [1]: http://stackoverflow.com/questions/2030064/how-to-run-eclipse-in-clean-mode-and-what-happens-if-we-do-so
   [2]: http://stackoverflow.com/questions/6915849/eclipse-how-to-make-xml-file-always-be-opened-in-text-editor-rather-than-xml-edi
+  [3]: http://stackoverflow.com/questions/11768106/clean-out-eclipse-workspace-metadata
