@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-07-29T19:12:49+01:00</updated>
+  <updated>2014-07-29T19:34:41+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -18,8 +18,8 @@
     <link href="http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments/"/>
     <updated>2014-07-29T19:04:10+01:00</updated>
     <id>http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments</id>
-    <content type="html"><![CDATA[<p>Well hitting Ctrl+G (eclipse profile) to &ldquo;Find Usages in Project&rdquo; I got &ldquo;Non-code usages&rdquo; - how <em>very_annoying. Settings
-search box > </em>find_ - only found the keymaps page. Finally from <a href="http://www.jetbrains.com/pycharm/webhelp/finding-usages-in-project.html">Finding Usages in Project</a>
+    <content type="html"><![CDATA[<p>Well hitting Ctrl+G (eclipse profile) to &ldquo;Find Usages in Project&rdquo; I got &ldquo;Non-code usages&rdquo; - how <em>very</em> annoying. Settings
+search box > <em>find</em> - only found the keymaps page. Finally from <a href="http://www.jetbrains.com/pycharm/webhelp/finding-usages-in-project.html">Finding Usages in Project</a>
 I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences&rdquo;</p>
 ]]></content>
   </entry>
