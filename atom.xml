@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-07-29T19:34:41+01:00</updated>
+  <updated>2014-07-31T01:37:45+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -32,6 +32,20 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
     <content type="html"><![CDATA[<h5>Python launcher for windows</h5>
 
 <p>Truly, you double click on a script and opens with specified (by shebang)  python version. Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a/13297878/281545">this</a> for installer options). <a href="http://www.rmi.net/~lutz/py33-windows-launcher.html">Gentle introduction</a> and the <a href="http://legacy.python.org/dev/peps/pep-0397/">PEP</a>.</p>
+
+<h5>Links</h5>
+
+<p>Or, my attempts to learn proper python, in the LTTR</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/3394835/args-and-kwargs">*args and **kwargs</a> - pythonisms too</li>
+<li><a href="http://stackoverflow.com/questions/1455602/printing-tuple-with-string-formatting-in-python">Printing tuple with string formatting in Python</a></li>
+<li><a href="http://stackoverflow.com/questions/19112735/python-print-tuple-elements-with-no-brackets#comment38914099_19112784">Python - print tuple elements with no brackets</a> - join and map</li>
+<li><a href="http://stackoverflow.com/questions/24973284/why-calling-file-read-in-python-fills-my-file-with-garbage">Why calling file.read in python fills my file with garbage?</a> - why oh why</li>
+<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
+<li><a href="http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python">Yield</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
