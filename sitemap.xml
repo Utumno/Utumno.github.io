@@ -1,67 +1,105 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-    <url>
-        <loc>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/01/05/pythons-super/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/03/26/github-pages/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/04/01/occasional-c/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/04/05/autohotkey-script-for-cmd/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/04/06/java-memorabilia/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/05/02/eclipz/</loc>
-        <lastmod>2014-07-15T21:45:09+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/</loc>
-        <lastmod>2014-07-15T19:17:20+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/07/06/python-notes/</loc>
-        <lastmod>2014-07-31T01:37:22+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments/</loc>
-        <lastmod>2014-07-29T19:34:29+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/blog/archives/</loc>
-        <lastmod>2014-07-31T01:37:22+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/</loc>
-        <lastmod>2014-07-31T01:37:22+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://Utumno.github.io/robots.txt</loc>
-        <lastmod>2014-07-15T19:00:52+01:00</lastmod>
-    </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/08/04/git-untrack/</loc>
+    <lastmod>2014-08-04T15:06:13+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments/</loc>
+    <lastmod>2014-07-29T19:04:10+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/07/06/python-notes/</loc>
+    <lastmod>2014-07-06T17:38:03+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/</loc>
+    <lastmod>2014-06-11T18:13:15+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/</loc>
+    <lastmod>2014-05-25T20:12:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/05/02/eclipz/</loc>
+    <lastmod>2014-05-02T22:01:04+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/04/06/java-memorabilia/</loc>
+    <lastmod>2014-04-06T17:31:00+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/04/05/autohotkey-script-for-cmd/</loc>
+    <lastmod>2014-04-05T17:14:35+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/</loc>
+    <lastmod>2014-04-05T13:25:16+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/04/01/occasional-c/</loc>
+    <lastmod>2014-04-01T16:30:31+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/03/26/github-pages/</loc>
+    <lastmod>2014-03-26T16:54:20+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/</loc>
+    <lastmod>2014-02-02T12:39:27+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2014/01/05/pythons-super/</loc>
+    <lastmod>2014-01-05T14:45:20+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/</loc>
+    <lastmod>2013-12-21T21:32:47+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://Utumno.github.io/blog/archives/</loc>
+    <lastmod>2014-08-31T19:22:54+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://Utumno.github.io/</loc>
+    <lastmod>2014-08-31T19:22:54+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  
 </urlset>

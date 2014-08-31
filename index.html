@@ -9,7 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Well hitting Ctrl+G (eclipse profile) to &ldquo;Find Usages in Project&rdquo; I got &ldquo;Non-code usages&rdquo; - how very annoying. Settings &hellip;">
+  <meta name="description" content="A brief on ignoring files. I wish it was as simple as that. The biggest problem for me is when I want to ignore a file that was previously tracked - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -47,7 +47,7 @@
 </header>
   <nav role="navigation">
   
-<form action="http://google.com/search" method="get">
+<form action="https://www.google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:Utumno.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
@@ -70,6 +70,78 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/08/04/git-untrack/">Git Untrack</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-04T15:06:13+01:00" pubdate data-updated="true">Aug 4<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://help.github.com/articles/ignoring-files">A brief on ignoring files</a>. I wish it was as simple as that.</p>
+
+<p>The biggest problem for me is when I want to ignore a file that was previously tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from the remote. This is not possible unfortunately - see the comments by torek starting here</p>
+
+<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/a/6139470/281545">git assume unchanged vs skip worktree - ignoring a symbolic link</a> - see this answer for <code>core.sparseCheckout</code></li>
+<li><a href="http://stackoverflow.com/questions/13630849/git-difference-between-assume-unchanged-and-skip-worktree">Git - Difference Between &lsquo;assume-unchanged&rsquo; and &lsquo;skip-worktree&rsquo;</a></li>
+<li><a href="http://stackoverflow.com/questions/7399153/who-touched-my-git-assume-unchanged-bit">Who touched my git assume-unchanged bit?</a></li>
+<li><a href="http://stackoverflow.com/questions/9815416/preserve-git-assume-unchanged-files-between-branch-checkouts/9816844#9816844">Preserve git &ndash;assume-unchanged files between branch checkouts</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/git-users/hxxmrVr_TbA">git stash and &ndash;skip-worktree files</a></li>
+<li><a href="https://www.kernel.org/pub/software/scm/git/docs/git-update-index.html">git-update-index(1) Manual Page</a></li>
+<li>and a discussion on the mailing list with Hamano: <a href="http://thread.gmane.org/gmane.comp.version-control.git/146082">http://thread.gmane.org/gmane.comp.version-control.git/146082</a></li>
+<li>a very interesting answer explaining differences between how git expands patterns passed to it - referred to as &ldquo;pathspecs&rdquo; - as opposed to how shell would resolve them (globs): stackoverflow.com/questions/2899875/git-add-not-working-with-png-files/2902126#2902126</li>
+<li>Finally, <a href="https://gist.github.com/canton7/1423106">how to have local versions of tracked config files in git</a></li>
+</ul>
+
+
+<p>If you want to <code>--skip-worktree</code> a directory cd to the directory and issue <a href="http://stackoverflow.com/a/12288918/281545"><code>git ls-files -z | xargs -0 git update-index --assume-unchanged</code></a> - see there for a <code>find</code> alternative.</p>
+
+<p>Glob patterns to regexes:</p>
+
+<ul>
+<li>Java: <a href="http://stackoverflow.com/questions/1247772/is-there-an-equivalent-of-java-util-regex-for-glob-type-patterns">http://stackoverflow.com/questions/1247772/is-there-an-equivalent-of-java-util-regex-for-glob-type-patterns</a></li>
+<li>Python: <a href="http://stackoverflow.com/a/1555769/281545">http://stackoverflow.com/a/1555769/281545</a></li>
+</ul>
+
+
+<p>And btw <a href="http://caiustheory.com/ignore-gitignore-in-git/">adding .&ldquo;gitignore&rdquo; to .gitignore works perfectly</a>.</p>
+
+<p>And git filter branch a file out: <a href="http://stackoverflow.com/a/1274126/281545"><code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD</code></a></p>
+
+<p>Bonus:
+- squash last 3 commits: git reset &ndash;soft head~3 &amp;&amp; git add -A &amp;&amp; git commit -m &ldquo;Squashed 3 last commits&rdquo;
+- <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">git rebase &ndash;onto</a> - should be using it more
+- <a href="http://stackoverflow.com/questions/8783093/gitignore-syntax-bin-vs-bin-vs-bin-vs-bin/20391855#20391855">.gitignore Syntax: bin vs. bin/* vs. bin/** vs bin/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/07/29/pycharm-scratch-head-moments/">Pycharm Scratch Head Moments</a></h1>
     
     
@@ -86,7 +158,7 @@
   
 
 
-<time datetime="2014-07-29T19:04:10+01:00" pubdate data-updated="true">Jul 29<span>th</span>, 2014</time>
+<time datetime="2014-07-29T19:04:10+01:00" pubdate data-updated="true">Jul 29<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -124,7 +196,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-07-06T17:38:03+01:00" pubdate data-updated="true">Jul 6<span>th</span>, 2014</time>
+<time datetime="2014-07-06T17:38:03+01:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -176,7 +248,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-06-11T18:13:15+01:00" pubdate data-updated="true">Jun 11<span>th</span>, 2014</time>
+<time datetime="2014-06-11T18:13:15+01:00" pubdate data-updated="true">Jun 11<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -225,7 +297,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-05-25T20:12:58+01:00" pubdate data-updated="true">May 25<span>th</span>, 2014</time>
+<time datetime="2014-05-25T20:12:58+01:00" pubdate data-updated="true">May 25<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -296,7 +368,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-05-02T22:01:04+01:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
+<time datetime="2014-05-02T22:01:04+01:00" pubdate data-updated="true">May 2<sup>nd</sup>, 2014</time>
         
       </p>
     
@@ -366,7 +438,7 @@ Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org
   
 
 
-<time datetime="2014-04-06T17:31:00+01:00" pubdate data-updated="true">Apr 6<span>th</span>, 2014</time>
+<time datetime="2014-04-06T17:31:00+01:00" pubdate data-updated="true">Apr 6<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -432,7 +504,7 @@ and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=P
   
 
 
-<time datetime="2014-04-05T17:14:35+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time>
+<time datetime="2014-04-05T17:14:35+01:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -520,7 +592,7 @@ return
   
 
 
-<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time>
+<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -558,7 +630,7 @@ print(os.stat('file2.txt').st_size)  # 2
 <li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen, if you have the template comment !</li>
 <li><a href="http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842">Strip newlines</a></li>
 <li><a href="http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python">os.linesep</a></li>
-<li><code>raise MyException(u'Cannot do this while at a café')</code></li>
+<li><code>raise MyException(u'Cannot do this while at a cafÃ©')</code></li>
 <li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor names in comments.</a></li>
 <li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
 <li><a href="http://stackoverflow.com/a/12764646/281545">Encode and decode as needed</a></li>
@@ -592,7 +664,7 @@ print(os.stat('file2.txt').st_size)  # 2
   
 
 
-<time datetime="2014-04-01T16:30:31+01:00" pubdate data-updated="true">Apr 1<span>st</span>, 2014</time>
+<time datetime="2014-04-01T16:30:31+01:00" pubdate data-updated="true">Apr 1<sup>st</sup>, 2014</time>
         
       </p>
     
@@ -620,63 +692,9 @@ print(os.stat('file2.txt').st_size)  # 2
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/26/github-pages/">Github Pages</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-26T16:54:20+00:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Another 15 minutes fiddling with google so:</p>
-
-<p>Sites:</p>
-
-<pre><code>http://wrye-bash.github.io/docs/Wrye%20Bash%20General%20Readme.html
-http://msysgit.github.io/
-http://utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/
-</code></pre>
-
-<p>Code:</p>
-
-<pre><code>https://github.com/wrye-bash/wrye-bash.github.io/blob/master/docs/Wrye%20Bash%20General%20Readme.html
-https://github.com/msysgit/msysgit.github.com/blob/master/index.html # com
-https://github.com/Utumno/Utumno.github.io/blob/master/blog/2013/12/21/set-up-octopress-in-windows-7/index.html
-</code></pre>
-
-<p>Notice that <code>https://wrye-bash.github.io/</code> gives a 404 - there should be an <code>https://github.com/wrye-bash/wrye-bash.github.io/blob/master/index.html</code> apparently.</p>
-
-<p>I &rsquo;m sure this post will grow.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/posts/2">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     

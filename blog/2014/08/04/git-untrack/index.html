@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Git Untrack - Udun's Labs</title>
+  <meta name="author" content="Utumno">
+
+  
+  <meta name="description" content="A brief on ignoring files. I wish it was as simple as that. The biggest problem for me is when I want to ignore a file that was previously tracked - &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/08/04/git-untrack">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/favicon_eye_of_sauron.png?" rel="icon">
+
+	<link rel='stylesheet' type='text/css' href='/.css' />
+
+
+  
+
+</head>
+
+<body    class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Udun's Labs</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation">
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Utumno.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Git Untrack</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-04T15:06:13+01:00" pubdate data-updated="true">Aug 4<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://help.github.com/articles/ignoring-files">A brief on ignoring files</a>. I wish it was as simple as that.</p>
+
+<p>The biggest problem for me is when I want to ignore a file that was previously tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from the remote. This is not possible unfortunately - see the comments by torek starting here</p>
+
+<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/a/6139470/281545">git assume unchanged vs skip worktree - ignoring a symbolic link</a> - see this answer for <code>core.sparseCheckout</code></li>
+<li><a href="http://stackoverflow.com/questions/13630849/git-difference-between-assume-unchanged-and-skip-worktree">Git - Difference Between &lsquo;assume-unchanged&rsquo; and &lsquo;skip-worktree&rsquo;</a></li>
+<li><a href="http://stackoverflow.com/questions/7399153/who-touched-my-git-assume-unchanged-bit">Who touched my git assume-unchanged bit?</a></li>
+<li><a href="http://stackoverflow.com/questions/9815416/preserve-git-assume-unchanged-files-between-branch-checkouts/9816844#9816844">Preserve git &ndash;assume-unchanged files between branch checkouts</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/git-users/hxxmrVr_TbA">git stash and &ndash;skip-worktree files</a></li>
+<li><a href="https://www.kernel.org/pub/software/scm/git/docs/git-update-index.html">git-update-index(1) Manual Page</a></li>
+<li>and a discussion on the mailing list with Hamano: <a href="http://thread.gmane.org/gmane.comp.version-control.git/146082">http://thread.gmane.org/gmane.comp.version-control.git/146082</a></li>
+<li>a very interesting answer explaining differences between how git expands patterns passed to it - referred to as &ldquo;pathspecs&rdquo; - as opposed to how shell would resolve them (globs): stackoverflow.com/questions/2899875/git-add-not-working-with-png-files/2902126#2902126</li>
+<li>Finally, <a href="https://gist.github.com/canton7/1423106">how to have local versions of tracked config files in git</a></li>
+</ul>
+
+
+<p>If you want to <code>--skip-worktree</code> a directory cd to the directory and issue <a href="http://stackoverflow.com/a/12288918/281545"><code>git ls-files -z | xargs -0 git update-index --assume-unchanged</code></a> - see there for a <code>find</code> alternative.</p>
+
+<p>Glob patterns to regexes:</p>
+
+<ul>
+<li>Java: <a href="http://stackoverflow.com/questions/1247772/is-there-an-equivalent-of-java-util-regex-for-glob-type-patterns">http://stackoverflow.com/questions/1247772/is-there-an-equivalent-of-java-util-regex-for-glob-type-patterns</a></li>
+<li>Python: <a href="http://stackoverflow.com/a/1555769/281545">http://stackoverflow.com/a/1555769/281545</a></li>
+</ul>
+
+
+<p>And btw <a href="http://caiustheory.com/ignore-gitignore-in-git/">adding .&ldquo;gitignore&rdquo; to .gitignore works perfectly</a>.</p>
+
+<p>And git filter branch a file out: <a href="http://stackoverflow.com/a/1274126/281545"><code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD</code></a></p>
+
+<p>Bonus:
+- squash last 3 commits: git reset &ndash;soft head~3 &amp;&amp; git add -A &amp;&amp; git commit -m &ldquo;Squashed 3 last commits&rdquo;
+- <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">git rebase &ndash;onto</a> - should be using it more
+- <a href="http://stackoverflow.com/questions/8783093/gitignore-syntax-bin-vs-bin-vs-bin-vs-bin/20391855#20391855">.gitignore Syntax: bin vs. bin/* vs. bin/** vs bin/</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Utumno</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-04T15:06:13+01:00" pubdate data-updated="true">Aug 4<sup>th</sup>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/08/04/git-untrack/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/08/04/git-untrack/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/29/pycharm-scratch-head-moments/" title="Previous Post: Pycharm scratch head moments">&laquo; Pycharm scratch head moments</a>
+      
+      
+    </p>
+  </footer>
+</article>
+  <section>
+        <p style="text-align:center">You might want to visit my sponsors:</p>
+        <div id="ad_sense"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Test -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3484197006338709"
+     data-ad-slot="1348893247"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+  </section>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Utumno -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'udunslabs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/08/04/git-untrack/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/08/04/git-untrack/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
