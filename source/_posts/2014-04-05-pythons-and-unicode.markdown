@@ -33,7 +33,7 @@ Refs:
 - [Unicode In Python, Completely Demystified][5] - best slides I've seen, if you have the template comment !
 - [Strip newlines][6]
 - [os.linesep][7]
-- `raise MyException(u'Cannot do this while at a café')`
+- `raise MyException(u'Cannot do this while at a cafÃ©')`
 - [the standard library remains ASCII-only with the exception of contributor names in comments.][3]
 - [Ref][8]
 - [Encode and decode as needed][9]

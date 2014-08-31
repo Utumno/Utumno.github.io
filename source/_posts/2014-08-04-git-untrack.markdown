@@ -29,7 +29,7 @@ Glob patterns to regexes:
 - Java: http://stackoverflow.com/questions/1247772/is-there-an-equivalent-of-java-util-regex-for-glob-type-patterns
 - Python: http://stackoverflow.com/a/1555769/281545
 
-And btw [adding “.gitignore” to .gitignore works perfectly][11].
+And btw [adding ."gitignore" to .gitignore works perfectly][11].
 
 And git filter branch a file out: [`git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD`][12]
 
