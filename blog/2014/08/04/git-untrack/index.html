@@ -104,12 +104,14 @@
 <li><a href="https://groups.google.com/forum/#!topic/git-users/hxxmrVr_TbA">git stash and &ndash;skip-worktree files</a></li>
 <li><a href="https://www.kernel.org/pub/software/scm/git/docs/git-update-index.html">git-update-index(1) Manual Page</a></li>
 <li>and a discussion on the mailing list with Hamano: <a href="http://thread.gmane.org/gmane.comp.version-control.git/146082">http://thread.gmane.org/gmane.comp.version-control.git/146082</a></li>
-<li>a very interesting answer explaining differences between how git expands patterns passed to it - referred to as &ldquo;pathspecs&rdquo; - as opposed to how shell would resolve them (globs): stackoverflow.com/questions/2899875/git-add-not-working-with-png-files/2902126#2902126</li>
+<li>a very interesting answer explaining differences between how git expands patterns passed to it - referred to as &ldquo;pathspecs&rdquo; - as opposed to how shell would resolve them (globs):  <a href="http://stackoverflow.com/questions/2899875/git-add-not-working-with-png-files/2902126#2902126">Git add not working with .png files?</a></li>
 <li>Finally, <a href="https://gist.github.com/canton7/1423106">how to have local versions of tracked config files in git</a></li>
 </ul>
 
 
 <p>If you want to <code>--skip-worktree</code> a directory cd to the directory and issue <a href="http://stackoverflow.com/a/12288918/281545"><code>git ls-files -z | xargs -0 git update-index --assume-unchanged</code></a> - see there for a <code>find</code> alternative.</p>
+
+<p>To see the files that are skipped: <a href="http://stackoverflow.com/a/2363495/281545"><code>git ls-files -v</code></a>.</p>
 
 <p>Glob patterns to regexes:</p>
 
