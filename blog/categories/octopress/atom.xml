@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-09-13T20:40:11+01:00</updated>
+  <updated>2014-09-16T22:20:43+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -413,7 +413,7 @@ rake update_style # update the template's style
 
 <p>(but read the link above)</p>
 
-<p><sup>1</sup>: got the commands from <a href="http://stb.techelex.com/setup-octopress-on-windows7/">here</a>. I don&rsquo;t have a clue what they do - but will come back to it.</p>
+<p><sup>1</sup>: got the commands from <a href="http://www.techelex.org/setup-octopress-on-windows7/">here</a>. I don&rsquo;t have a clue what they do - but will come back to it.</p>
 ]]></content>
   </entry>
   
