@@ -6,11 +6,16 @@ comments: true
 categories:
 ---
 
-[Repeat after me][1]:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)
+[Repeat after me][1]:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc)
+ maps different sequences of bytes to the unicode code points (therefore might
+ as well map same sequences of bytes to different unicode code points). A
+ code point is [a number that maps to a particular abstract character](
+https://pythonhosted.org/kitchen/glossary.html#term-code-point)
+ ([grapheme](https://pythonhosted.org/kitchen/glossary.html#term-grapheme)).
 
 Types:
 
-- The `unicode` type stores an abstract sequence of code points. Each code point represents a grapheme.
+- The `unicode` type stores an abstract sequence of code points.
 - `str` is for strings of bytes. These are very similar in nature to how strings are handled in C.
 
 [```uni.encode(encoding): Unicode string to a Python byte string
@@ -30,11 +35,13 @@ Important - [Python 3][3]. Important not only for guidelines but also for [clari
 
 Refs:
 
-- [Unicode In Python, Completely Demystified][5] - best slides I've seen, if you have the template comment !
+- [Unicode In Python, Completely Demystified][5] - best slides I've seen,
+I wish I had the template.
 - [Strip newlines][6]
 - [os.linesep][7]
 - `raise MyException(u'Cannot do this while at a café')`
-- [the standard library remains ASCII-only with the exception of contributor names in comments.][3]
+- [the standard library remains ASCII-only with the exception of contributor
+ names in comments.][3]
 - [Ref][8]
 - [Encode and decode as needed][9]
 

@@ -5,7 +5,9 @@ date: 2014-01-05 16:45:20 +0200
 comments: true
 categories: [Python, Java]
 ---
-First thing that comes to mind : why do I need to name the superclass explicitly, instead of passing in `self.__class__` (or better still, `type(self)`)  ?
+First thing that comes to mind : why do I need to name the superclass
+explicitly, instead of passing in `self.__class__` (or better still,
+`type(self)`)  ?
 [Because](http://stackoverflow.com/questions/18208683/when-calling-super-in-a-derived-class-can-i-pass-in-self-class/18208725#18208725):
 
 <!--``` linenos:false-->
@@ -37,14 +39,28 @@ leads to:
       File "<stdin>", line 4, in method
     RuntimeError: maximum recursion depth exceeded while calling a Python object
 
-And this pretty much explains the second question I had. <!-- more --> In [Python's Super is nifty, but you can't use it](https://fuhm.net/super-harmful/)
+And this pretty much explains the second question I had. <!-- more --> In
+[Python's Super is nifty, but you can't use it](https://fuhm.net/super-harmful/)
 (Previously: Python's Super Considered Harmful) we read:
 
-> People omit calls to `super(...).__init__` if the only superclass is 'object', as, after all, `object.__init__` doesn't do anything! However, this is very incorrect. Doing so will cause other classes' `__init__` methods to not be called.
+> People omit calls to `super(...).__init__` if the only superclass is 'object',
+ as, after all, `object.__init__` doesn't do anything! However, this is very
+ incorrect. Doing so will cause other classes' `__init__` methods to not be
+ called.
 
-But it does not say why (insert rant here). Btw [not all of his examples compile](http://stackoverflow.com/questions/8972866/correct-way-to-use-super-argument-passing) (see this link also for a nice hack when you need to have arguments passed in the init method, and can't pop them one by one).
+But it does not say why (btw
+[not all of the examples compile](
+http://stackoverflow.com/questions/8972866/correct-way-to-use-super-argument-passing) -
+see this link also for a nice hack when you need to have arguments passed
+in the init method, and can't pop them one by one).
 
-Well that's a pile of gibberish _if there were only single inheritance_. Calling `super(...).__init__` in a class whose only superclass is 'object' is then as useless as a used chewing gum. But the catch is that there is no such thing as single inheritance in python. So when we have MI, and our "penultimate" base class (that is the one that inherits directly from object) is used as a superclass in an unrelated MI class the call `super(...).__init__` will not delegate to object  init but in the next class in the MRO. [Example]():
+The why _is multiple inheritance_.
+Calling `super(...).__init__` in a class whose only superclass is 'object' is
+useless. But when we have a MI hierarchy, and our "penultimate" base class
+(that is the one that inherits directly from object)
+is used as a superclass in an unrelated MI class the call `super(...).__init__`
+will not delegate to object init but in the next class in the MRO.
+[Example](http://stackoverflow.com/a/8613067/281545):
 
     class Service(object):
         def __init__(self, host, binary, topic, manager, report_interval=None,
@@ -77,7 +93,9 @@ Why ? The call `super(Service, self).__init__(*args, **kwargs)` calls the next m
 
 And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.
 
-Btw for Java people - [there is no automatic constructor call in  Python](http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332). You must call `super.__init__` manually and that's where this post comes from.
+Btw for Java people - [there is no automatic constructor call in  Python](
+http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332).
+ You must call `super.__init__` manually and that's where this post comes from.
 
 References:
 
