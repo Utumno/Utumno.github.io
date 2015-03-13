@@ -390,4 +390,4 @@ If you want to update octopress itself [you should run](http://octopress.org/doc
 
 
 
-<sup>1</sup>: got the commands from [here](http://stb.techelex.com/setup-octopress-on-windows7/). I don't have a clue what they do - but will come back to it.
+<sup>1</sup>: got the commands from [here](http://www.techelex.org/setup-octopress-on-windows7/). I don't have a clue what they do - but will come back to it.
