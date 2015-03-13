@@ -9,7 +9,8 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="A brief on ignoring files. I wish it was as simple as that. The biggest problem for me is when I want to ignore a file that was previously tracked - &hellip;">
+  <meta name="description" content="A brief on ignoring files. I wish it was as simple as that. The biggest problem for me is when I want to ignore a file that was previously
+tracked - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,7 +87,7 @@
   
 
 
-<time datetime="2014-08-04T15:06:13+01:00" pubdate data-updated="true">Aug 4<sup>th</sup>, 2014</time>
+<time datetime="2014-08-04T16:06:13+02:00" pubdate data-updated="true">Aug 4<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -95,9 +96,13 @@
 
   <div class="entry-content"><p><a href="https://help.github.com/articles/ignoring-files">A brief on ignoring files</a>. I wish it was as simple as that.</p>
 
-<p>The biggest problem for me is when I want to ignore a file that was previously tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from the remote. This is not possible unfortunately - see the comments by torek starting here</p>
+<p>The biggest problem for me is when I want to ignore a file that was previously
+tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from
+the remote. This is not possible unfortunately -
+see the comments by torek starting <a href="http://stackoverflow.com/questions/25123374/stop-tracking-a-file-in-git-without-having-it-deleted-either-locally-or-on-pul#comment39102558_25123571">here</a>.</p>
 
-<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
+<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens
+to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
 
 <ul>
 <li><a href="http://stackoverflow.com/a/6139470/281545">git assume unchanged vs skip worktree - ignoring a symbolic link</a> - see this answer for <code>core.sparseCheckout</code></li>
@@ -160,7 +165,7 @@
   
 
 
-<time datetime="2014-07-29T19:04:10+01:00" pubdate data-updated="true">Jul 29<sup>th</sup>, 2014</time>
+<time datetime="2014-07-29T20:04:10+02:00" pubdate data-updated="true">Jul 29<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -198,7 +203,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-07-06T17:38:03+01:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
+<time datetime="2014-07-06T18:38:03+02:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -211,17 +216,54 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
 
 <h5>Links</h5>
 
-<p>Or, my attempts to learn proper python, in the LTTR</p>
+<p>Basics:</p>
 
 <ul>
 <li><a href="http://stackoverflow.com/questions/3394835/args-and-kwargs">*args and **kwargs</a> - pythonisms too</li>
 <li><a href="http://stackoverflow.com/questions/1455602/printing-tuple-with-string-formatting-in-python">Printing tuple with string formatting in Python</a></li>
 <li><a href="http://stackoverflow.com/questions/19112735/python-print-tuple-elements-with-no-brackets#comment38914099_19112784">Python - print tuple elements with no brackets</a> - join and map</li>
 <li><a href="http://stackoverflow.com/questions/24973284/why-calling-file-read-in-python-fills-my-file-with-garbage">Why calling file.read in python fills my file with garbage?</a> - why oh why</li>
-<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
 <li><a href="http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python">Yield</a></li>
 </ul>
 
+
+<p>argparse:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
+</ul>
+
+
+<p>Import never ceases to surprise me. For instance in the code I have:</p>
+
+<pre><code>try:
+    from win32com.shell import shell, shellcon
+</code></pre>
+
+<p>In <code>Python27\Lib\site-packages\win32com</code> there was no shell to be seen - then I
+noticed in <code>Python27\Lib\site-packages\win32com\__init__.py</code>:</p>
+
+<pre><code>__path__.append( win32api.GetFullPathName( __path__[0] + "\\..\\win32comext") )
+</code></pre>
+
+<p>And <code>Python27\Lib\site-packages\win32comext\shell\__init__.py</code>:</p>
+
+<pre><code>import win32com
+win32com.__PackageSupportBuildPath__(__path__)
+</code></pre>
+
+<p>And sure enough <code>C:\_\Python27\Lib\site-packages\win32comext\shell\shell.pyd</code>.
+What&rsquo;s in there ? Centipydes probably.
+There&rsquo;s shecllcon.py too. One can read there:</p>
+
+<pre><code>FO_MOVE = 1
+FO_COPY = 2
+FO_DELETE = 3
+FO_RENAME = 4
+</code></pre>
+
+<p><a href="https://github.com/wrye-bash/wrye-bash/blob/aaa90f4f14f1879bb1c1bcb3c4e59bfe1424ea9f/Mopy/bash/balt.py#L912-L915">as</a>
+ in the program I am maintaining.</p>
 </div>
   
   
@@ -250,7 +292,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-06-11T18:13:15+01:00" pubdate data-updated="true">Jun 11<sup>th</sup>, 2014</time>
+<time datetime="2014-06-11T19:13:15+02:00" pubdate data-updated="true">Jun 11<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -299,7 +341,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-05-25T20:12:58+01:00" pubdate data-updated="true">May 25<sup>th</sup>, 2014</time>
+<time datetime="2014-05-25T21:12:58+02:00" pubdate data-updated="true">May 25<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -370,7 +412,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   
 
 
-<time datetime="2014-05-02T22:01:04+01:00" pubdate data-updated="true">May 2<sup>nd</sup>, 2014</time>
+<time datetime="2014-05-02T23:01:04+02:00" pubdate data-updated="true">May 2<sup>nd</sup>, 2014</time>
         
       </p>
     
@@ -440,7 +482,7 @@ Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org
   
 
 
-<time datetime="2014-04-06T17:31:00+01:00" pubdate data-updated="true">Apr 6<sup>th</sup>, 2014</time>
+<time datetime="2014-04-06T18:31:00+02:00" pubdate data-updated="true">Apr 6<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -506,7 +548,7 @@ and <a href="http://books.google.gr/books?id=ka2VUBqHiWkC&amp;pg=PA144&amp;lpg=P
   
 
 
-<time datetime="2014-04-05T17:14:35+01:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
+<time datetime="2014-04-05T18:14:35+02:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -594,19 +636,23 @@ return
   
 
 
-<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
+<time datetime="2014-04-05T14:25:16+02:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)</p>
+  <div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc)
+ maps different sequences of bytes to the unicode code points (therefore might
+ as well map same sequences of bytes to different unicode code points). A
+ code point is <a href="https://pythonhosted.org/kitchen/glossary.html#term-code-point">a number that maps to a particular abstract character</a>
+ (<a href="https://pythonhosted.org/kitchen/glossary.html#term-grapheme">grapheme</a>).</p>
 
 <p>Types:</p>
 
 <ul>
-<li>The <code>unicode</code> type stores an abstract sequence of code points. Each code point represents a grapheme.</li>
+<li>The <code>unicode</code> type stores an abstract sequence of code points.</li>
 <li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
 </ul>
 
@@ -629,11 +675,13 @@ print(os.stat('file2.txt').st_size)  # 2
 <p>Refs:</p>
 
 <ul>
-<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen, if you have the template comment !</li>
+<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen,
+I wish I had the template.</li>
 <li><a href="http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842">Strip newlines</a></li>
 <li><a href="http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python">os.linesep</a></li>
 <li><code>raise MyException(u'Cannot do this while at a café')</code></li>
-<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor names in comments.</a></li>
+<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor
+names in comments.</a></li>
 <li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
 <li><a href="http://stackoverflow.com/a/12764646/281545">Encode and decode as needed</a></li>
 </ul>
@@ -666,7 +714,7 @@ print(os.stat('file2.txt').st_size)  # 2
   
 
 
-<time datetime="2014-04-01T16:30:31+01:00" pubdate data-updated="true">Apr 1<sup>st</sup>, 2014</time>
+<time datetime="2014-04-01T17:30:31+02:00" pubdate data-updated="true">Apr 1<sup>st</sup>, 2014</time>
         
       </p>
     
@@ -711,7 +759,7 @@ print(os.stat('file2.txt').st_size)  # 2
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Utumno -
+  Copyright &copy; 2015 - Utumno -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

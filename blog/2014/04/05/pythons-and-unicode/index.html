@@ -83,19 +83,23 @@
   
 
 
-<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
+<time datetime="2014-04-05T14:25:16+02:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)</p>
+<div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc)
+ maps different sequences of bytes to the unicode code points (therefore might
+ as well map same sequences of bytes to different unicode code points). A
+ code point is <a href="https://pythonhosted.org/kitchen/glossary.html#term-code-point">a number that maps to a particular abstract character</a>
+ (<a href="https://pythonhosted.org/kitchen/glossary.html#term-grapheme">grapheme</a>).</p>
 
 <p>Types:</p>
 
 <ul>
-<li>The <code>unicode</code> type stores an abstract sequence of code points. Each code point represents a grapheme.</li>
+<li>The <code>unicode</code> type stores an abstract sequence of code points.</li>
 <li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
 </ul>
 
@@ -118,11 +122,13 @@ print(os.stat('file2.txt').st_size)  # 2
 <p>Refs:</p>
 
 <ul>
-<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen, if you have the template comment !</li>
+<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen,
+I wish I had the template.</li>
 <li><a href="http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842">Strip newlines</a></li>
 <li><a href="http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python">os.linesep</a></li>
 <li><code>raise MyException(u'Cannot do this while at a café')</code></li>
-<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor names in comments.</a></li>
+<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor
+names in comments.</a></li>
 <li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
 <li><a href="http://stackoverflow.com/a/12764646/281545">Encode and decode as needed</a></li>
 </ul>
@@ -149,7 +155,7 @@ print(os.stat('file2.txt').st_size)  # 2
   
 
 
-<time datetime="2014-04-05T13:25:16+01:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
+<time datetime="2014-04-05T14:25:16+02:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
       
 
 
@@ -206,7 +212,7 @@ print(os.stat('file2.txt').st_size)  # 2
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Utumno -
+  Copyright &copy; 2015 - Utumno -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

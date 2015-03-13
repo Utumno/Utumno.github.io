@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-09-16T22:20:43+01:00</updated>
+  <updated>2015-03-13T20:12:03+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,13 +16,17 @@
   <entry>
     <title type="html"><![CDATA[Git Untrack]]></title>
     <link href="http://Utumno.github.io/blog/2014/08/04/git-untrack/"/>
-    <updated>2014-08-04T15:06:13+01:00</updated>
+    <updated>2014-08-04T16:06:13+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/08/04/git-untrack</id>
     <content type="html"><![CDATA[<p><a href="https://help.github.com/articles/ignoring-files">A brief on ignoring files</a>. I wish it was as simple as that.</p>
 
-<p>The biggest problem for me is when I want to ignore a file that was previously tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from the remote. This is not possible unfortunately - see the comments by torek starting here</p>
+<p>The biggest problem for me is when I want to ignore a file that was previously
+tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from
+the remote. This is not possible unfortunately -
+see the comments by torek starting <a href="http://stackoverflow.com/questions/25123374/stop-tracking-a-file-in-git-without-having-it-deleted-either-locally-or-on-pul#comment39102558_25123571">here</a>.</p>
 
-<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
+<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens
+to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
 
 <ul>
 <li><a href="http://stackoverflow.com/a/6139470/281545">git assume unchanged vs skip worktree - ignoring a symbolic link</a> - see this answer for <code>core.sparseCheckout</code></li>

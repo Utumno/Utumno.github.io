@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-09-16T22:20:43+01:00</updated>
+  <updated>2015-03-13T20:12:03+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Mavenize an Eclipse Project]]></title>
     <link href="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/"/>
-    <updated>2014-06-11T18:13:15+01:00</updated>
+    <updated>2014-06-11T19:13:15+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project</id>
     <content type="html"><![CDATA[<p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
 

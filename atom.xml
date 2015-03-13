@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2014-09-16T22:20:43+01:00</updated>
+  <updated>2015-03-13T20:12:03+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,13 +16,17 @@
   <entry>
     <title type="html"><![CDATA[Git Untrack]]></title>
     <link href="http://Utumno.github.io/blog/2014/08/04/git-untrack/"/>
-    <updated>2014-08-04T15:06:13+01:00</updated>
+    <updated>2014-08-04T16:06:13+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/08/04/git-untrack</id>
     <content type="html"><![CDATA[<p><a href="https://help.github.com/articles/ignoring-files">A brief on ignoring files</a>. I wish it was as simple as that.</p>
 
-<p>The biggest problem for me is when I want to ignore a file that was previously tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from the remote. This is not possible unfortunately - see the comments by torek starting here</p>
+<p>The biggest problem for me is when I want to ignore a file that was previously
+tracked - ignore it forever but have it <em>not</em> deleted when someone pulls from
+the remote. This is not possible unfortunately -
+see the comments by torek starting <a href="http://stackoverflow.com/questions/25123374/stop-tracking-a-file-in-git-without-having-it-deleted-either-locally-or-on-pul#comment39102558_25123571">here</a>.</p>
 
-<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
+<p>And a <a href="http://fallengamer.livejournal.com/93321.html">git assume-unchanged vs skip-worktree</a> post that details what happens
+to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
 
 <ul>
 <li><a href="http://stackoverflow.com/a/6139470/281545">git assume unchanged vs skip worktree - ignoring a symbolic link</a> - see this answer for <code>core.sparseCheckout</code></li>
@@ -63,7 +67,7 @@
   <entry>
     <title type="html"><![CDATA[Pycharm Scratch Head Moments]]></title>
     <link href="http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments/"/>
-    <updated>2014-07-29T19:04:10+01:00</updated>
+    <updated>2014-07-29T20:04:10+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments</id>
     <content type="html"><![CDATA[<p>Well hitting Ctrl+G (eclipse profile) to &ldquo;Find Usages in Project&rdquo; I got &ldquo;Non-code usages&rdquo; - how <em>very</em> annoying. Settings
 search box > <em>find</em> - only found the keymaps page. Finally from <a href="http://www.jetbrains.com/pycharm/webhelp/finding-usages-in-project.html">Finding Usages in Project</a>
@@ -74,7 +78,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
   <entry>
     <title type="html"><![CDATA[Python Notes]]></title>
     <link href="http://Utumno.github.io/blog/2014/07/06/python-notes/"/>
-    <updated>2014-07-06T17:38:03+01:00</updated>
+    <updated>2014-07-06T18:38:03+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/07/06/python-notes</id>
     <content type="html"><![CDATA[<h5>Python launcher for windows</h5>
 
@@ -82,24 +86,61 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
 
 <h5>Links</h5>
 
-<p>Or, my attempts to learn proper python, in the LTTR</p>
+<p>Basics:</p>
 
 <ul>
 <li><a href="http://stackoverflow.com/questions/3394835/args-and-kwargs">*args and **kwargs</a> - pythonisms too</li>
 <li><a href="http://stackoverflow.com/questions/1455602/printing-tuple-with-string-formatting-in-python">Printing tuple with string formatting in Python</a></li>
 <li><a href="http://stackoverflow.com/questions/19112735/python-print-tuple-elements-with-no-brackets#comment38914099_19112784">Python - print tuple elements with no brackets</a> - join and map</li>
 <li><a href="http://stackoverflow.com/questions/24973284/why-calling-file-read-in-python-fills-my-file-with-garbage">Why calling file.read in python fills my file with garbage?</a> - why oh why</li>
-<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
 <li><a href="http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python">Yield</a></li>
 </ul>
 
+
+<p>argparse:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
+</ul>
+
+
+<p>Import never ceases to surprise me. For instance in the code I have:</p>
+
+<pre><code>try:
+    from win32com.shell import shell, shellcon
+</code></pre>
+
+<p>In <code>Python27\Lib\site-packages\win32com</code> there was no shell to be seen - then I
+noticed in <code>Python27\Lib\site-packages\win32com\__init__.py</code>:</p>
+
+<pre><code>__path__.append( win32api.GetFullPathName( __path__[0] + "\\..\\win32comext") )
+</code></pre>
+
+<p>And <code>Python27\Lib\site-packages\win32comext\shell\__init__.py</code>:</p>
+
+<pre><code>import win32com
+win32com.__PackageSupportBuildPath__(__path__)
+</code></pre>
+
+<p>And sure enough <code>C:\_\Python27\Lib\site-packages\win32comext\shell\shell.pyd</code>.
+What&rsquo;s in there ? Centipydes probably.
+There&rsquo;s shecllcon.py too. One can read there:</p>
+
+<pre><code>FO_MOVE = 1
+FO_COPY = 2
+FO_DELETE = 3
+FO_RENAME = 4
+</code></pre>
+
+<p><a href="https://github.com/wrye-bash/wrye-bash/blob/aaa90f4f14f1879bb1c1bcb3c4e59bfe1424ea9f/Mopy/bash/balt.py#L912-L915">as</a>
+ in the program I am maintaining.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Mavenize an Eclipse Project]]></title>
     <link href="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/"/>
-    <updated>2014-06-11T18:13:15+01:00</updated>
+    <updated>2014-06-11T19:13:15+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project</id>
     <content type="html"><![CDATA[<p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
 
@@ -314,7 +355,7 @@ index 982ad3d..8e85ec6 100644
   <entry>
     <title type="html"><![CDATA[JBoss on Eclipse Luna]]></title>
     <link href="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/"/>
-    <updated>2014-05-25T20:12:58+01:00</updated>
+    <updated>2014-05-25T21:12:58+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna</id>
     <content type="html"><![CDATA[<p>Windows - the <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> page says I must have both maven and java installed - I really do not get why maven so I decided to proceed at my discretion.</p>
 
@@ -495,7 +536,7 @@ Cart to restart?
   <entry>
     <title type="html"><![CDATA[Eclipz]]></title>
     <link href="http://Utumno.github.io/blog/2014/05/02/eclipz/"/>
-    <updated>2014-05-02T22:01:04+01:00</updated>
+    <updated>2014-05-02T23:01:04+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/05/02/eclipz</id>
     <content type="html"><![CDATA[<h5>Notes to zelf</h5>
 
@@ -538,7 +579,7 @@ Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org
   <entry>
     <title type="html"><![CDATA[Java Memorabilia]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/06/java-memorabilia/"/>
-    <updated>2014-04-06T17:31:00+01:00</updated>
+    <updated>2014-04-06T18:31:00+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/06/java-memorabilia</id>
     <content type="html"><![CDATA[<h2>Remember erasure ?</h2>
 
@@ -613,7 +654,7 @@ public enum FooImpl implements Foo&lt;FooImpl&gt; {}
   <entry>
     <title type="html"><![CDATA[Autohotkey Script for Cmd]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/05/autohotkey-script-for-cmd/"/>
-    <updated>2014-04-05T17:14:35+01:00</updated>
+    <updated>2014-04-05T18:14:35+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/05/autohotkey-script-for-cmd</id>
     <content type="html"><![CDATA[<p>Using windows without Autohotkey is using linux with no shell. No - I mean it.</p>
 
@@ -674,14 +715,18 @@ return
   <entry>
     <title type="html"><![CDATA[Pythons (2) and Unicode]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/"/>
-    <updated>2014-04-05T13:25:16+01:00</updated>
+    <updated>2014-04-05T14:25:16+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode</id>
-    <content type="html"><![CDATA[<p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore might as well map same sequences of bytes to different unicode code points)</p>
+    <content type="html"><![CDATA[<p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc)
+ maps different sequences of bytes to the unicode code points (therefore might
+ as well map same sequences of bytes to different unicode code points). A
+ code point is <a href="https://pythonhosted.org/kitchen/glossary.html#term-code-point">a number that maps to a particular abstract character</a>
+ (<a href="https://pythonhosted.org/kitchen/glossary.html#term-grapheme">grapheme</a>).</p>
 
 <p>Types:</p>
 
 <ul>
-<li>The <code>unicode</code> type stores an abstract sequence of code points. Each code point represents a grapheme.</li>
+<li>The <code>unicode</code> type stores an abstract sequence of code points.</li>
 <li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
 </ul>
 
@@ -704,11 +749,13 @@ print(os.stat('file2.txt').st_size)  # 2
 <p>Refs:</p>
 
 <ul>
-<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen, if you have the template comment !</li>
+<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen,
+I wish I had the template.</li>
 <li><a href="http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842">Strip newlines</a></li>
 <li><a href="http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python">os.linesep</a></li>
 <li><code>raise MyException(u'Cannot do this while at a café')</code></li>
-<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor names in comments.</a></li>
+<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor
+names in comments.</a></li>
 <li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
 <li><a href="http://stackoverflow.com/a/12764646/281545">Encode and decode as needed</a></li>
 </ul>
@@ -719,7 +766,7 @@ print(os.stat('file2.txt').st_size)  # 2
   <entry>
     <title type="html"><![CDATA[Occasional C]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/01/occasional-c/"/>
-    <updated>2014-04-01T16:30:31+01:00</updated>
+    <updated>2014-04-01T17:30:31+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/01/occasional-c</id>
     <content type="html"><![CDATA[<p>When I happen to revisit this slim dinosaur that is C I always have to look up a couple things - here they are for your convenience and mine.</p>
 
@@ -741,7 +788,7 @@ print(os.stat('file2.txt').st_size)  # 2
   <entry>
     <title type="html"><![CDATA[Github Pages]]></title>
     <link href="http://Utumno.github.io/blog/2014/03/26/github-pages/"/>
-    <updated>2014-03-26T16:54:20+00:00</updated>
+    <updated>2014-03-26T17:54:20+01:00</updated>
     <id>http://Utumno.github.io/blog/2014/03/26/github-pages</id>
     <content type="html"><![CDATA[<p>Another 15 minutes fiddling with google so:</p>
 
@@ -774,7 +821,7 @@ and <code>git clone git@github.com:myusername/foobar.wiki.git</code> would be th
   <entry>
     <title type="html"><![CDATA[Glassfish MySQL Connection Pools & Resources]]></title>
     <link href="http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/"/>
-    <updated>2014-02-02T12:39:27+00:00</updated>
+    <updated>2014-02-02T13:39:27+01:00</updated>
     <id>http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools</id>
     <content type="html"><![CDATA[<p>Fire up the glassfish admin console at <a href="http://localhost:4848.">http://localhost:4848.</a> You will see something like:</p>
 
@@ -831,9 +878,11 @@ and <code>git clone git@github.com:myusername/foobar.wiki.git</code> would be th
   <entry>
     <title type="html"><![CDATA[Python's Super]]></title>
     <link href="http://Utumno.github.io/blog/2014/01/05/pythons-super/"/>
-    <updated>2014-01-05T14:45:20+00:00</updated>
+    <updated>2014-01-05T15:45:20+01:00</updated>
     <id>http://Utumno.github.io/blog/2014/01/05/pythons-super</id>
-    <content type="html"><![CDATA[<p>First thing that comes to mind : why do I need to name the superclass explicitly, instead of passing in <code>self.__class__</code> (or better still, <code>type(self)</code>)  ?
+    <content type="html"><![CDATA[<p>First thing that comes to mind : why do I need to name the superclass
+explicitly, instead of passing in <code>self.__class__</code> (or better still,
+<code>type(self)</code>)  ?
 <a href="http://stackoverflow.com/questions/18208683/when-calling-super-in-a-derived-class-can-i-pass-in-self-class/18208725#18208725">Because</a>:</p>
 
 <!--``` linenos:false-->
@@ -871,14 +920,27 @@ derived
 RuntimeError: maximum recursion depth exceeded while calling a Python object
 </code></pre>
 
-<p>And this pretty much explains the second question I had. <!-- more --> In <a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
+<p>And this pretty much explains the second question I had. <!-- more --> In
+<a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
 (Previously: Python&rsquo;s Super Considered Harmful) we read:</p>
 
-<blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;, as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very incorrect. Doing so will cause other classes&#8217; <code>__init__</code> methods to not be called.</p></blockquote>
+<blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;,
+ as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very
+ incorrect. Doing so will cause other classes&#8217; <code>__init__</code> methods to not be
+ called.</p></blockquote>
 
-<p>But it does not say why (insert rant here). Btw <a href="http://stackoverflow.com/questions/8972866/correct-way-to-use-super-argument-passing">not all of his examples compile</a> (see this link also for a nice hack when you need to have arguments passed in the init method, and can&rsquo;t pop them one by one).</p>
+<p>But it does not say why (btw
+<a href="http://stackoverflow.com/questions/8972866/correct-way-to-use-super-argument-passing">not all of the examples compile</a> -
+see this link also for a nice hack when you need to have arguments passed
+in the init method, and can&rsquo;t pop them one by one).</p>
 
-<p>Well that&rsquo;s a pile of gibberish <em>if there were only single inheritance</em>. Calling <code>super(...).__init__</code> in a class whose only superclass is &lsquo;object&rsquo; is then as useless as a used chewing gum. But the catch is that there is no such thing as single inheritance in python. So when we have MI, and our &ldquo;penultimate&rdquo; base class (that is the one that inherits directly from object) is used as a superclass in an unrelated MI class the call <code>super(...).__init__</code> will not delegate to object  init but in the next class in the MRO. <a href="">Example</a>:</p>
+<p>The why <em>is multiple inheritance</em>.
+Calling <code>super(...).__init__</code> in a class whose only superclass is &lsquo;object&rsquo; is
+useless. But when we have a MI hierarchy, and our &ldquo;penultimate&rdquo; base class
+(that is the one that inherits directly from object)
+is used as a superclass in an unrelated MI class the call <code>super(...).__init__</code>
+will not delegate to object init but in the next class in the MRO.
+<a href="http://stackoverflow.com/a/8613067/281545">Example</a>:</p>
 
 <pre><code>class Service(object):
     def __init__(self, host, binary, topic, manager, report_interval=None,
@@ -914,7 +976,8 @@ Initializing Color
 
 <p>And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.</p>
 
-<p>Btw for Java people - <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>. You must call <code>super.__init__</code> manually and that&rsquo;s where this post comes from.</p>
+<p>Btw for Java people - <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>.
+ You must call <code>super.__init__</code> manually and that&rsquo;s where this post comes from.</p>
 
 <p>References:</p>
 
@@ -932,7 +995,7 @@ Initializing Color
   <entry>
     <title type="html"><![CDATA[Set Up Octopress in Windows 7]]></title>
     <link href="http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/"/>
-    <updated>2013-12-21T21:32:47+00:00</updated>
+    <updated>2013-12-21T22:32:47+01:00</updated>
     <id>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7</id>
     <content type="html"><![CDATA[<p>Download ruby from <a href="http://rubyinstaller.org/downloads/">here</a> - I downloaded <code>rubyinstaller-1.9.3-p448.exe</code></p>
 

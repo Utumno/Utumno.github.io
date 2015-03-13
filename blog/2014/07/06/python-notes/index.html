@@ -83,7 +83,7 @@
   
 
 
-<time datetime="2014-07-06T17:38:03+01:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
+<time datetime="2014-07-06T18:38:03+02:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -96,17 +96,54 @@
 
 <h5>Links</h5>
 
-<p>Or, my attempts to learn proper python, in the LTTR</p>
+<p>Basics:</p>
 
 <ul>
 <li><a href="http://stackoverflow.com/questions/3394835/args-and-kwargs">*args and **kwargs</a> - pythonisms too</li>
 <li><a href="http://stackoverflow.com/questions/1455602/printing-tuple-with-string-formatting-in-python">Printing tuple with string formatting in Python</a></li>
 <li><a href="http://stackoverflow.com/questions/19112735/python-print-tuple-elements-with-no-brackets#comment38914099_19112784">Python - print tuple elements with no brackets</a> - join and map</li>
 <li><a href="http://stackoverflow.com/questions/24973284/why-calling-file-read-in-python-fills-my-file-with-garbage">Why calling file.read in python fills my file with garbage?</a> - why oh why</li>
-<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
 <li><a href="http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python">Yield</a></li>
 </ul>
 
+
+<p>argparse:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
+</ul>
+
+
+<p>Import never ceases to surprise me. For instance in the code I have:</p>
+
+<pre><code>try:
+    from win32com.shell import shell, shellcon
+</code></pre>
+
+<p>In <code>Python27\Lib\site-packages\win32com</code> there was no shell to be seen - then I
+noticed in <code>Python27\Lib\site-packages\win32com\__init__.py</code>:</p>
+
+<pre><code>__path__.append( win32api.GetFullPathName( __path__[0] + "\\..\\win32comext") )
+</code></pre>
+
+<p>And <code>Python27\Lib\site-packages\win32comext\shell\__init__.py</code>:</p>
+
+<pre><code>import win32com
+win32com.__PackageSupportBuildPath__(__path__)
+</code></pre>
+
+<p>And sure enough <code>C:\_\Python27\Lib\site-packages\win32comext\shell\shell.pyd</code>.
+What&rsquo;s in there ? Centipydes probably.
+There&rsquo;s shecllcon.py too. One can read there:</p>
+
+<pre><code>FO_MOVE = 1
+FO_COPY = 2
+FO_DELETE = 3
+FO_RENAME = 4
+</code></pre>
+
+<p><a href="https://github.com/wrye-bash/wrye-bash/blob/aaa90f4f14f1879bb1c1bcb3c4e59bfe1424ea9f/Mopy/bash/balt.py#L912-L915">as</a>
+ in the program I am maintaining.</p>
 </div>
 
 
@@ -129,7 +166,7 @@
   
 
 
-<time datetime="2014-07-06T17:38:03+01:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
+<time datetime="2014-07-06T18:38:03+02:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
       
 
 
@@ -186,7 +223,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Utumno -
+  Copyright &copy; 2015 - Utumno -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
