@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-04-27T22:15:38+02:00</updated>
+  <updated>2015-05-17T16:46:13+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[If Yes and No]]></title>
+    <link href="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/"/>
+    <updated>2015-05-17T16:24:03+02:00</updated>
+    <id>http://Utumno.github.io/blog/2015/05/17/if-yes-and-no</id>
+    <content type="html"><![CDATA[<p>Bow:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/ifYesAndNo.jpg" title="image" alt="images"></p>
+
+<p>Extra sortings:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/_SortItems.jpg" title="image" alt="images"></p>
+
+<p>Raise Abstract:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/transLink.jpg" title="image" alt="images"></p>
+
+<p>Bonus:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/estimation.jpg" title="image" alt="images"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git Links]]></title>
+    <link href="http://Utumno.github.io/blog/2015/04/28/git-links/"/>
+    <updated>2015-04-28T23:09:46+02:00</updated>
+    <id>http://Utumno.github.io/blog/2015/04/28/git-links</id>
+    <content type="html"><![CDATA[<p>Mostly read later links - expect the list to grow</p>
+
+<h4>Assorted</h4>
+
+<ul>
+<li>Nice: <a href="https://www.andyjeffries.co.uk/25-tips-for-intermediate-git-users/">25 Tips for Intermediate Git Users</a></li>
+<li><a href="(http://git-scm.com/2011/07/11/reset.html">Pro Git - Reset Demystified</a></li>
+</ul>
+
+
+<h4>Blame</h4>
+
+<ul>
+<li><a href="http://jfire.io/blog/2012/03/07/code-archaeology-with-git/">Code Archaeology with Git - John Firebaugh</a></li>
+<li><a href="http://zsoltfabok.com/blog/2012/02/git-blame-line-history/">Learn More About the History of a Line with Git Blame - Zsolt Fabók</a></li>
+</ul>
+
+
+<p>Both are octopress blogs :D</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git Untrack]]></title>
@@ -82,6 +132,10 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
     <id>http://Utumno.github.io/blog/2014/07/06/python-notes</id>
     <content type="html"><![CDATA[<h5>Random</h5>
 
+<p><a href="http://stackoverflow.com/a/5445983/281545"><code>   mylist = ['x', 3, 'b']
+   print '[%s]' % ', '.join(map(str, mylist))
+</code></a></p>
+
 <p><a href="http://stackoverflow.com/a/5739258/281545">Infinite generator</a>: <code>iter(int, 1)</code> - try <code>li=filter(None, iter(int, 1))</code></p>
 
 <pre><code>&gt;&gt;&gt; def ii(): yield filter(None, iter(int, 1))
@@ -104,8 +158,7 @@ the set: <a href="http://stackoverflow.com/a/1306663/281545"><code>s |= set(li)<
 
 <p>Random refactoring puzzle:</p>
 
-<pre><code># before - indexes better be some set (although completely unimportant for
-# a graphics lib)
+<pre><code># before - indexes better be some set (although just _micro_ optimization)
 def SetChecked(self, indexes):
     for i in indexes:
         assert 0 &lt;= i &lt; self.Count, "Index (%s) out of range" % i
@@ -118,6 +171,33 @@ def SetChecked(self, indexes):
         assert 0 &lt;= i &lt; self.Count, "Index (%s) out of range" % i
         self.Check(i, True)
 </code></pre>
+
+<ul>
+<li><p>Scopes:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/1765677/python-nested-classes-scope">Python nested classes scope</a></li>
+<li><a href="http://stackoverflow.com/q/6391645/281545">Nested Python class needs to access variable in enclosing class</a></li>
+</ul>
+</li>
+</ul>
+
+
+<p> My deleted: <a href="http://stackoverflow.com/q/28685679/281545">Override python list operators dynamically</a> - see
+<a href="https://wiki.python.org/moin/FromFunctionToMethod">https://wiki.python.org/moin/FromFunctionToMethod</a> - and non deleted
+<a href="http://stackoverflow.com/q/29858405/281545">Override list&rsquo;s builtins dynamically in class scope</a> and
+<a href="http://stackoverflow.com/q/28734919/281545">Access base class attribute in derived class - in &lsquo;class scope&rsquo;</a></p>
+
+<ul>
+<li><p>Regexes:</p>
+
+<ul>
+<li><a href="https://docs.python.org/2/howto/regex.html">Regular Expression HOWTO - Python 2.7.10rc1 documentation</a></li>
+<li><a href="http://www.regular-expressions.info/python.html">Python re Module - Use Regular Expressions with Python - Regex Support</a></li>
+</ul>
+</li>
+</ul>
+
 
 <h5>Links</h5>
 

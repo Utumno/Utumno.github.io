@@ -9,9 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Another 15 minutes fiddling with google so: Sites: http://wrye-bash.github.io/docs/Wrye%20Bash%20General%20Readme.html
-http://msysgit.github.io/
-http &hellip;">
+  <meta name="description" content="Repeat after me: Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +64,133 @@ http &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/05/pythons-and-unicode/">Pythons (2) and Unicode</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-05T14:25:16+02:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc)
+ maps different sequences of bytes to the unicode code points (therefore might
+ as well map same sequences of bytes to different unicode code points). A
+ code point is <a href="https://pythonhosted.org/kitchen/glossary.html#term-code-point">a number that maps to a particular abstract character</a>
+ (<a href="https://pythonhosted.org/kitchen/glossary.html#term-grapheme">grapheme</a>).</p>
+
+<p>Types:</p>
+
+<ul>
+<li>The <code>unicode</code> type stores an abstract sequence of code points.</li>
+<li><code>str</code> is for strings of bytes. These are very similar in nature to how strings are handled in C.</li>
+</ul>
+
+
+<p><a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#10288438"><code>uni.encode(encoding): Unicode string to a Python byte string
+s.decode(encoding): convert a byte string to a Unicode string
+unicode(s, encoding): convert a byte string to a Unicode string
+</code></a></p>
+
+<p>Important - <a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">Python 3</a>. Important not only for guidelines but also for <a href="https://stackoverflow.com/questions/10288016/usage-of-unicode-and-encode-functions-in-python/10288438#comment13236781_10288016">clarity</a>. Moreover many &ldquo;solutions&rdquo; floating on the web are Python 3 (<a href="https://docs.python.org/3.1/library/functions.html#open"><code>open()</code></a> has <strong>both</strong> an encoding <em>and</em> newlines param in P3. ). Speaking of 2:</p>
+
+<pre><code>with open("file.txt", 'wb')as out:
+    out.write('\n')
+with open("file2.txt", 'w')as out:
+    out.write('\n')
+print(os.stat('file.txt').st_size)  # 1
+print(os.stat('file2.txt').st_size)  # 2
+</code></pre>
+
+<p>Refs:</p>
+
+<ul>
+<li><a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a> - best slides I&rsquo;ve seen,
+I wish I had the template.</li>
+<li><a href="http://stackoverflow.com/questions/339537/end-line-characters-from-lines-read-from-text-file-using-python/339842#339842">Strip newlines</a></li>
+<li><a href="http://stackoverflow.com/questions/1223289/how-to-write-native-newline-character-to-a-file-descriptor-in-python">os.linesep</a></li>
+<li><code>raise MyException(u'Cannot do this while at a café')</code></li>
+<li><a href="https://docs.python.org/dev/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit">the standard library remains ASCII-only with the exception of contributor
+names in comments.</a></li>
+<li><a href="https://docs.python.org/2/howto/unicode.html">Ref</a></li>
+<li><a href="http://stackoverflow.com/a/12764646/281545">Encode and decode as needed</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/01/occasional-c/">Occasional C</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-01T17:30:31+02:00" pubdate data-updated="true">Apr 1<sup>st</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I happen to revisit this slim dinosaur that is C I always have to look up a couple things - here they are for your convenience and mine.</p>
+
+<p>First things first - wrong:</p>
+
+<pre><code>int *ptr = malloc(10 * sizeof (int));
+</code></pre>
+
+<p>Right:</p>
+
+<pre><code>int *ptr = malloc(10 * sizeof *ptr);
+</code></pre>
+
+<p>NO exceptions. A, yes, sizeof is a <a href="http://en.wikipedia.org/wiki/Sizeof">unary operator</a>.
+ Are parentheses needed ? Well, I always add them when nobody&rsquo;s looking.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

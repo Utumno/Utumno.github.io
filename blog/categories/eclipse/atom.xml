@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-04-27T23:27:27+02:00</updated>
+  <updated>2015-05-17T16:46:13+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -25,7 +25,7 @@
 <li><p><strong>Maven Pom dialogue</strong>: I had to choose group id, artifact id etc. Had a look at <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId and version</a>, <a href="http://stackoverflow.com/questions/3724415/maven-artifact-and-groupid-naming">Maven artifact and groupId naming</a>, <a href="http://stackoverflow.com/questions/23172586/maven-artifact-and-group-naming-conventions?lq=1">Maven artifact and group naming conventions</a>. Ok - pick a groupId (should be unique), an artifact Id (will be the name of your jar minus the version) and a version (have to decide on a scheme for this - must read: <a href="http://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm">Understanding Maven Version Numbers</a>. Have also a look at <a href="http://stackoverflow.com/q/30571/281545">How do I tell Maven to use the latest version of a dependency?</a>). Enter a name and description for your project.</p></li>
 <li><p><strong>Maven dependencies dialogue</strong>: Identify existing project references as Maven dependencies:</p>
 
-<p>{% img center /images/Maven_and_eclipse/Clipboard01.jpg &lsquo;image&rsquo; &lsquo;images&rsquo; %}</p>
+<p><img class="center" src="/images/Maven_and_eclipse/Clipboard01.jpg" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
 
 <p>well at a loss here&hellip; Glad it found Junit. I left the &ldquo;Delete original references from project&rdquo; unticked. It went on to create the POM. Now I cheated a bit here.
 <!-- more --></p>
