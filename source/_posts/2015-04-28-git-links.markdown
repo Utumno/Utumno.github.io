@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Git Links"
+date: 2015-04-28 23:09:46 +0200
+comments: true
+categories:
+---
+
+Mostly read later links - expect the list to grow
+
+####Assorted
+
+- Nice: [25 Tips for Intermediate Git Users](
+https://www.andyjeffries.co.uk/25-tips-for-intermediate-git-users/)
+- [Pro Git - Reset Demystified]((http://git-scm.com/2011/07/11/reset.html)
+
+####Blame
+
+- [Code Archaeology with Git - John Firebaugh](
+http://jfire.io/blog/2012/03/07/code-archaeology-with-git/)
+- [Learn More About the History of a Line with Git Blame - Zsolt Fabók](
+http://zsoltfabok.com/blog/2012/02/git-blame-line-history/)
+
+Both are octopress blogs :D
