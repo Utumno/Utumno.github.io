@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-05-23T20:08:02+02:00</updated>
+  <updated>2015-05-31T18:46:03+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -30,6 +30,10 @@
 <p>Raise Abstract (mine):</p>
 
 <p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/transLink.jpg" title="image" alt="images"></p>
+
+<p>Git art:</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/gitart01.jpg" title="image" alt="images"></p>
 
 <p>Bonus:</p>
 
@@ -202,6 +206,43 @@ def SetChecked(self, indexes):
 </ul>
 
 
+<p> To be expanded:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/a/1611572/281545">Can I get to the exception from the finally block ?</a></li>
+<li><a href="http://gerg.ca/blog/post/2012/python-comparison/">Python 2: should I implement <strong>cmp</strong>() or <strong>eq</strong>()?</a></li>
+</ul>
+
+
+<h5>Interpreter facts</h5>
+
+<pre><code>&gt;&gt;&gt; class C(object):
+...     def __m(self): return 0
+...     def m(self): return self.__m()
+...
+&gt;&gt;&gt; class D(C):
+...     def __m(self): return 1
+...
+&gt;&gt;&gt; D().__m()
+Traceback (most recent call last):
+  File "&lt;input&gt;", line 1, in &lt;module&gt;
+AttributeError: 'D' object has no attribute '__m'
+&gt;&gt;&gt; D().m()
+0
+&gt;&gt;&gt; def wrap():
+...     m=0
+...     def wrapped():
+...         m+=1
+...         return m
+...     return wrapped
+...
+&gt;&gt;&gt; print wrap()()
+Traceback (most recent call last):
+  File "&lt;input&gt;", line 1, in &lt;module&gt;
+  File "&lt;input&gt;", line 4, in wrapped
+UnboundLocalError: local variable 'm' referenced before assignment
+</code></pre>
+
 <h5>Links</h5>
 
 <ul>
@@ -254,7 +295,7 @@ FO_DELETE = 3
 FO_RENAME = 4
 </code></pre>
 
-<p><a href="https://github.com/wrye-bash/wrye-bash/blob/aaa90f4f14f1879bb1c1bcb3c4e59bfe1424ea9f/Mopy/bash/balt.py#L912-L915">as</a>
+<p>almost <a href="https://github.com/wrye-bash/wrye-bash/blob/aaa90f4f14f1879bb1c1bcb3c4e59bfe1424ea9f/Mopy/bash/balt.py#L912-L915">as</a>
  in the program I am maintaining.</p>
 
 <h5>Python launcher for windows</h5>
