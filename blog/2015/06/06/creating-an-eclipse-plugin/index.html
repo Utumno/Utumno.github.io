@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>If Yes and No - Udun's Labs</title>
+  <title>Creating an Eclipse Plugin - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content=" Extra sortings (mine): Raise Abstract (mine): Git art: Bonus: ">
+  <meta name="description" content="First download the Eclipse IDE for Eclipse Committers -
+used to be called Eclipse Standard - see this bug for chit chat. Run it, New Project > Plug- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -67,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">If Yes and No</h1>
+      <h1 class="entry-title">Creating an Eclipse Plugin</h1>
     
     
       <p class="meta">
@@ -83,33 +84,64 @@
   
 
 
-<time datetime="2015-05-17T16:24:03+02:00" pubdate data-updated="true">May 17<sup>th</sup>, 2015</time>
+<time datetime="2015-06-06T00:52:00+02:00" pubdate data-updated="true">Jun 6<sup>th</sup>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img class="center" src="/images/ifYesAndNo/ifYesAndNo.jpg" title="image" alt="images"></p>
+<div class="entry-content"><p>First download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2">Eclipse IDE for Eclipse Committers</a> -
+<a href="https://wagenknecht.org/blog/archives/2014/09/looking-for-eclipse-standard-download.html">used to be called</a> <em>Eclipse Standard</em> - see <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=441957">this bug</a> for chit chat.</p>
 
-<!-- more -->
+<p>Run it, New Project > Plug-in Project. Apart from trivial choices why does it
+not have eclipse version bigger than 3.5 ?</p>
+
+<p><img class="center" src="/images/eclipsePlugin/Target_platform.jpg" title="image" alt="images"></p>
+
+<p>Question already asked and answered: <a href="http://stackoverflow.com/q/28299931/281545">Eclipse RCP Plug-in Target Platform</a>.</p>
+
+<p>Next the plugin content - <a href="http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Ftasks%2Fapi_tooling_setup.htm">official docs</a> - in particular <em>&ldquo;Adding API
+Analysis to the project will enable static analysis of API usage from the
+new project&rdquo;</em>.</p>
+
+<p>Next you get at the project templates - <a href="http://stackoverflow.com/questions/2612426/eclipse-plugin-development-for-eclipse">I had some difficulty finding them</a>.
+Choose and template and then - git (TBC)</p>
+
+<h3>Links for later:</h3>
+
+<p>Testing:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/q/246130/281545">How do I set up a test project for a Eclipse plugin project</a></li>
+<li><a href="http://stackoverflow.com/q/255370/281545">Automating unit tests (junit) for Eclipse Plugin development</a></li>
+</ul>
 
 
-<p>Extra sortings (mine):</p>
+<p>Tutorials - there are a gazillion out of date tutorials but for e4 see:</p>
 
-<p><img class="center" src="/images/ifYesAndNo/SortItems.jpg" title="image" alt="images"></p>
+<ul>
+<li><a href="http://wiki.eclipse.org/Eclipse4/Tutorials#EclipseSource_Eclipse_4_Tutorial">Eclipse4/Tutorials</a> (from the eclipse.org wiki)</li>
+<li>One recommended by VonC in his quoted answer <a href="http://stackoverflow.com/questions/2612426/eclipse-plugin-development-for-eclipse">above</a> -
+<a href="http://eclipsesource.com/blogs/2012/05/10/eclipse-4-final-sprint-part-1-the-e4-application-model/">http://eclipsesource.com/blogs/2012/05/10/eclipse-4-final-sprint-part-1-the-e4-application-model/</a></li>
+<li><a href="http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.rse.doc.isv%2Fguide%2Ftutorial%2FpdeProject.html">Creating a Plug-in Project</a> from Luna docs</li>
+<li>Another <a href="http://www.wideskills.com/eclipse-plugin-tutorial">Eclipse Plugin Tutorial</a></li>
+<li><a href="http://eclipse.dzone.com/articles/top-10-mistakes-eclipse-plugin">Top 10 Mistakes in Eclipse Plugin Development</a></li>
+</ul>
 
-<p>Raise Abstract (mine):</p>
 
-<p><img class="center" src="/images/ifYesAndNo/transLink.jpg" title="image" alt="images"></p>
+<p>And messing with eclipse code (I will be blogging on this separately soon):</p>
 
-<p>Git art:</p>
+<ul>
+<li><a href="http://eclipsesource.com/blogs/2012/07/30/patching-your-own-eclipse-ide/">Patching your own Eclipse IDE</a></li>
+<li><a href="http://blog.vogella.com/tag/papercut/">Vogella Papercuts</a></li>
+</ul>
 
-<p><img class="center" src="/images/ifYesAndNo/gitart01.jpg" title="image" alt="images"></p>
 
-<p>Bonus:</p>
+<p>Bonus: <a href="http://www.venukb.com/2006/08/20/install-eclipse-plugins-the-easy-way/">Install Eclipse Plugins - The Easy Way</a></p>
 
-<p><img class="center" src="/images/ifYesAndNo/estimation.png" title="image" alt="images"></p>
+<p>And some fun:
+<a href="http://www.slideshare.net/LarsVogel/eclipse-committerin20minutes">How to become an Eclipse committer in 20 minutes and fork the IDE</a></p>
 </div>
 
 
@@ -132,7 +164,7 @@
   
 
 
-<time datetime="2015-05-17T16:24:03+02:00" pubdate data-updated="true">May 17<sup>th</sup>, 2015</time>
+<time datetime="2015-06-06T00:52:00+02:00" pubdate data-updated="true">Jun 6<sup>th</sup>, 2015</time>
       
 
 
@@ -140,7 +172,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/" data-via="" data-counturl="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin/" data-via="" data-counturl="http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin/" >Tweet</a>
   
   
   
@@ -149,10 +181,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/04/28/git-links/" title="Previous Post: Git Links">&laquo; Git Links</a>
+        <a class="basic-alignment left" href="/blog/2015/05/17/if-yes-and-no/" title="Previous Post: If yes and no">&laquo; If yes and no</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/06/06/creating-an-eclipse-plugin/" title="Next Post: Creating an eclipse plugin">Creating an eclipse plugin &raquo;</a>
       
     </p>
   </footer>
@@ -201,8 +231,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/';
-        var disqus_url = 'http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/';
+        var disqus_identifier = 'http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin/';
+        var disqus_url = 'http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin/';
         var disqus_script = 'embed.js';
       
     (function () {

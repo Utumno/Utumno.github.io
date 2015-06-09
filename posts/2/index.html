@@ -9,7 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Repeat after me: Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc) maps different sequences of bytes to the unicode code points (therefore &hellip;">
+  <meta name="description" content="Using windows without Autohotkey is using linux with no shell. No - I mean it. For instance sooner or later you will use the cmd - this makes the xp &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,94 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/05/autohotkey-script-for-cmd/">Autohotkey Script for Cmd</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-05T18:14:35+02:00" pubdate data-updated="true">Apr 5<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Using windows without Autohotkey is using linux with no shell. No - I mean it.</p>
+
+<p>For instance sooner or later you will use the cmd - this makes the xp bearable:</p>
+
+<pre><code>;-------------------------------------------------------------------------------
+
+; Redefine only when the active window is a console window
+#IfWinActive ahk_class ConsoleWindowClass
+
+; Close Command Window with Ctrl+w
+$^w::
+WinGetTitle sTitle
+If (InStr(sTitle, "-")=0) {
+        Send EXIT{Enter}
+} else {
+        Send ^w
+}
+return
+
+; Ctrl+up / Down to scroll command window back and forward
+^Up::
+Send {WheelUp}
+return
+
+^Down::
+Send {WheelDown}
+return
+
+; Paste in command window
+^V::
+; Spanish menu (Editar-&gt;Pegar, I suppose English version is the same, Edit-&gt;Paste)
+Send !{Space}
+Send {up}{up}{up}{up}{right}{down}{down}{enter}
+return
+
+; Mark in command window
+^M::
+Send !{Space}
+Send {up}{up}{up}{up}{right}{enter}
+return
+
+; Select all in command window
+^A::
+Send !{Space}
+Send {up}{up}{up}{up}{right}{down}{down}{down}{enter}
+return
+
+#IfWinActive
+
+;-------------------------------------------------------------------------------
+</code></pre>
+
+<p>Some spanish guy holds the copyright I guess :D</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

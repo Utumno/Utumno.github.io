@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-05-31T18:46:03+02:00</updated>
+  <updated>2015-06-09T03:44:34+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Creating an Eclipse Plugin]]></title>
+    <link href="http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin/"/>
+    <updated>2015-06-06T00:52:00+02:00</updated>
+    <id>http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin</id>
+    <content type="html"><![CDATA[<p>First download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2">Eclipse IDE for Eclipse Committers</a> -
+<a href="https://wagenknecht.org/blog/archives/2014/09/looking-for-eclipse-standard-download.html">used to be called</a> <em>Eclipse Standard</em> - see <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=441957">this bug</a> for chit chat.</p>
+
+<p>Run it, New Project > Plug-in Project. Apart from trivial choices why does it
+not have eclipse version bigger than 3.5 ?</p>
+
+<p><img class="center" src="http://Utumno.github.io/images/eclipsePlugin/Target_platform.jpg" title="image" alt="images"></p>
+
+<p>Question already asked and answered: <a href="http://stackoverflow.com/q/28299931/281545">Eclipse RCP Plug-in Target Platform</a>.</p>
+
+<p>Next the plugin content - <a href="http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Ftasks%2Fapi_tooling_setup.htm">official docs</a> - in particular <em>&ldquo;Adding API
+Analysis to the project will enable static analysis of API usage from the
+new project&rdquo;</em>.</p>
+
+<p>Next you get at the project templates - <a href="http://stackoverflow.com/questions/2612426/eclipse-plugin-development-for-eclipse">I had some difficulty finding them</a>.
+Choose and template and then - git (TBC)</p>
+
+<h3>Links for later:</h3>
+
+<p>Testing:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/q/246130/281545">How do I set up a test project for a Eclipse plugin project</a></li>
+<li><a href="http://stackoverflow.com/q/255370/281545">Automating unit tests (junit) for Eclipse Plugin development</a></li>
+</ul>
+
+
+<p>Tutorials - there are a gazillion out of date tutorials but for e4 see:</p>
+
+<ul>
+<li><a href="http://wiki.eclipse.org/Eclipse4/Tutorials#EclipseSource_Eclipse_4_Tutorial">Eclipse4/Tutorials</a> (from the eclipse.org wiki)</li>
+<li>One recommended by VonC in his quoted answer <a href="http://stackoverflow.com/questions/2612426/eclipse-plugin-development-for-eclipse">above</a> -
+<a href="http://eclipsesource.com/blogs/2012/05/10/eclipse-4-final-sprint-part-1-the-e4-application-model/">http://eclipsesource.com/blogs/2012/05/10/eclipse-4-final-sprint-part-1-the-e4-application-model/</a></li>
+<li><a href="http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.rse.doc.isv%2Fguide%2Ftutorial%2FpdeProject.html">Creating a Plug-in Project</a> from Luna docs</li>
+<li>Another <a href="http://www.wideskills.com/eclipse-plugin-tutorial">Eclipse Plugin Tutorial</a></li>
+<li><a href="http://eclipse.dzone.com/articles/top-10-mistakes-eclipse-plugin">Top 10 Mistakes in Eclipse Plugin Development</a></li>
+</ul>
+
+
+<p>And messing with eclipse code (I will be blogging on this separately soon):</p>
+
+<ul>
+<li><a href="http://eclipsesource.com/blogs/2012/07/30/patching-your-own-eclipse-ide/">Patching your own Eclipse IDE</a></li>
+<li><a href="http://blog.vogella.com/tag/papercut/">Vogella Papercuts</a></li>
+</ul>
+
+
+<p>Bonus: <a href="http://www.venukb.com/2006/08/20/install-eclipse-plugins-the-easy-way/">Install Eclipse Plugins - The Easy Way</a></p>
+
+<p>And some fun:
+<a href="http://www.slideshare.net/LarsVogel/eclipse-committerin20minutes">How to become an Eclipse committer in 20 minutes and fork the IDE</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[If Yes and No]]></title>
