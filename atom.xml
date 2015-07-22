@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-06-09T03:44:34+02:00</updated>
+  <updated>2015-07-22T19:56:59+03:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Creating an Eclipse Plugin]]></title>
     <link href="http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin/"/>
-    <updated>2015-06-06T00:52:00+02:00</updated>
+    <updated>2015-06-06T01:52:00+03:00</updated>
     <id>http://Utumno.github.io/blog/2015/06/06/creating-an-eclipse-plugin</id>
     <content type="html"><![CDATA[<p>First download the <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2">Eclipse IDE for Eclipse Committers</a> -
 <a href="https://wagenknecht.org/blog/archives/2014/09/looking-for-eclipse-standard-download.html">used to be called</a> <em>Eclipse Standard</em> - see <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=441957">this bug</a> for chit chat.</p>
@@ -75,7 +75,7 @@ Choose and template and then - git (TBC)</p>
   <entry>
     <title type="html"><![CDATA[If Yes and No]]></title>
     <link href="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/"/>
-    <updated>2015-05-17T16:24:03+02:00</updated>
+    <updated>2015-05-17T17:24:03+03:00</updated>
     <id>http://Utumno.github.io/blog/2015/05/17/if-yes-and-no</id>
     <content type="html"><![CDATA[<p><img class="center" src="http://Utumno.github.io/images/ifYesAndNo/ifYesAndNo.jpg" title="image" alt="images"></p>
 
@@ -102,9 +102,9 @@ Choose and template and then - git (TBC)</p>
   
   <entry>
     <title type="html"><![CDATA[Git Links]]></title>
-    <link href="http://Utumno.github.io/blog/2015/04/28/git-links/"/>
-    <updated>2015-04-28T23:09:46+02:00</updated>
-    <id>http://Utumno.github.io/blog/2015/04/28/git-links</id>
+    <link href="http://Utumno.github.io/blog/2015/04/29/git-links/"/>
+    <updated>2015-04-29T00:09:46+03:00</updated>
+    <id>http://Utumno.github.io/blog/2015/04/29/git-links</id>
     <content type="html"><![CDATA[<p>Mostly read later links - expect the list to grow</p>
 
 <h4>Assorted</h4>
@@ -114,6 +114,7 @@ Choose and template and then - git (TBC)</p>
 <li><a href="(http://git-scm.com/2011/07/11/reset.html">Pro Git - Reset Demystified</a></li>
 <li><a href="http://stackoverflow.com/q/12192526/281545">Are merges in Git symmetric?</a> - nice links to the git mailing list too</li>
 <li><a href="http://gitster.livejournal.com/35628.html">Hamano</a> quoting <a href="http://article.gmane.org/gmane.comp.version-control.git/217">Linus</a></li>
+<li>Best explanation of detached <a href="http://stackoverflow.com/a/5772882/281545">HEAD</a></li>
 </ul>
 
 
@@ -132,7 +133,7 @@ Choose and template and then - git (TBC)</p>
   <entry>
     <title type="html"><![CDATA[Git Untrack]]></title>
     <link href="http://Utumno.github.io/blog/2014/08/04/git-untrack/"/>
-    <updated>2014-08-04T16:06:13+02:00</updated>
+    <updated>2014-08-04T17:06:13+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/08/04/git-untrack</id>
     <content type="html"><![CDATA[<p><a href="https://help.github.com/articles/ignoring-files">A brief on ignoring files</a>. I wish it was as simple as that.</p>
 
@@ -183,18 +184,26 @@ to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
   <entry>
     <title type="html"><![CDATA[Pycharm Scratch Head Moments]]></title>
     <link href="http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments/"/>
-    <updated>2014-07-29T20:04:10+02:00</updated>
+    <updated>2014-07-29T21:04:10+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/07/29/pycharm-scratch-head-moments</id>
-    <content type="html"><![CDATA[<p>Well hitting Ctrl+G (eclipse profile) to &ldquo;Find Usages in Project&rdquo; I got &ldquo;Non-code usages&rdquo; - how <em>very</em> annoying. Settings
-search box > <em>find</em> - only found the keymaps page. Finally from <a href="http://www.jetbrains.com/pycharm/webhelp/finding-usages-in-project.html">Finding Usages in Project</a>
+    <content type="html"><![CDATA[<p>Well hitting Ctrl+G (eclipse profile) to &ldquo;Find Usages in Project&rdquo; I got
+&ldquo;Non-code usages&rdquo; - how <em>very</em> annoying. Settings search box > <em>find</em> - only
+found the keymaps page. Finally from
+<a href="http://www.jetbrains.com/pycharm/webhelp/finding-usages-in-project.html">Finding Usages in Project</a>
 I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences&rdquo;</p>
+
+<p>Resetting read only status - <a href="http://stackoverflow.com/q/25108496/281545">what a huge pain</a></p>
+
+<p>Sharing settings</p>
+
+<p><a href="http://stackoverflow.com/q/14440025/281545">Interpreter</a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Python Notes]]></title>
     <link href="http://Utumno.github.io/blog/2014/07/06/python-notes/"/>
-    <updated>2014-07-06T18:38:03+02:00</updated>
+    <updated>2014-07-06T19:38:03+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/07/06/python-notes</id>
     <content type="html"><![CDATA[<h5>Random</h5>
 
@@ -238,6 +247,8 @@ def SetChecked(self, indexes):
         self.Check(i, True)
 </code></pre>
 
+<p><a href="https://unspecified.wordpress.com/2009/02/12/thou-shalt-not-modify-a-list-during-iteration/">Thou Shalt Not Modify A List During Iteration</a> - <a href="http://stackoverflow.com/q/16551334/281545">for sets just use pop</a></p>
+
 <ul>
 <li><p>Scopes:</p>
 
@@ -275,7 +286,14 @@ def SetChecked(self, indexes):
 
 <h5>Interpreter facts</h5>
 
-<pre><code>&gt;&gt;&gt; class C(object):
+<pre><code>&gt;&gt;&gt; def thatsSoUnlikeJava():
+...     try:
+...         raise Exception
+...     finally:return True
+...     
+&gt;&gt;&gt; print thatsSoUnlikeJava()
+True
+&gt;&gt;&gt; class C(object):
 ...     def __m(self): return 0
 ...     def m(self): return self.__m()
 ...
@@ -368,7 +386,7 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
   <entry>
     <title type="html"><![CDATA[Mavenize an Eclipse Project]]></title>
     <link href="http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project/"/>
-    <updated>2014-06-11T19:13:15+02:00</updated>
+    <updated>2014-06-11T20:13:15+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/06/11/mavenize-an-eclipse-project</id>
     <content type="html"><![CDATA[<p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
 
@@ -583,7 +601,7 @@ index 982ad3d..8e85ec6 100644
   <entry>
     <title type="html"><![CDATA[JBoss on Eclipse Luna]]></title>
     <link href="http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna/"/>
-    <updated>2014-05-25T21:12:58+02:00</updated>
+    <updated>2014-05-25T22:12:58+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/05/25/jboss-on-eclipse-luna</id>
     <content type="html"><![CDATA[<p>Windows - the <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> page says I must have both maven and java installed - I really do not get why maven so I decided to proceed at my discretion.</p>
 
@@ -763,9 +781,9 @@ Cart to restart?
   
   <entry>
     <title type="html"><![CDATA[Eclipz]]></title>
-    <link href="http://Utumno.github.io/blog/2014/05/02/eclipz/"/>
-    <updated>2014-05-02T23:01:04+02:00</updated>
-    <id>http://Utumno.github.io/blog/2014/05/02/eclipz</id>
+    <link href="http://Utumno.github.io/blog/2014/05/03/eclipz/"/>
+    <updated>2014-05-03T00:01:04+03:00</updated>
+    <id>http://Utumno.github.io/blog/2014/05/03/eclipz</id>
     <content type="html"><![CDATA[<h5>Notes to zelf</h5>
 
 <ul>
@@ -807,7 +825,7 @@ Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org
   <entry>
     <title type="html"><![CDATA[Java Memorabilia]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/06/java-memorabilia/"/>
-    <updated>2014-04-06T18:31:00+02:00</updated>
+    <updated>2014-04-06T19:31:00+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/06/java-memorabilia</id>
     <content type="html"><![CDATA[<h2>Remember erasure ?</h2>
 
@@ -882,7 +900,7 @@ public enum FooImpl implements Foo&lt;FooImpl&gt; {}
   <entry>
     <title type="html"><![CDATA[Autohotkey Script for Cmd]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/05/autohotkey-script-for-cmd/"/>
-    <updated>2014-04-05T18:14:35+02:00</updated>
+    <updated>2014-04-05T19:14:35+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/05/autohotkey-script-for-cmd</id>
     <content type="html"><![CDATA[<p>Using windows without Autohotkey is using linux with no shell. No - I mean it.</p>
 
@@ -943,7 +961,7 @@ return
   <entry>
     <title type="html"><![CDATA[Pythons (2) and Unicode]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode/"/>
-    <updated>2014-04-05T14:25:16+02:00</updated>
+    <updated>2014-04-05T15:25:16+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/05/pythons-and-unicode</id>
     <content type="html"><![CDATA[<p><a href="https://pythonhosted.org/kitchen/unicode-frustrations.html">Repeat after me</a>:  Each unicode encoding (UTF-8, UTF-7, UTF-16, UTF-32, etc)
  maps different sequences of bytes to the unicode code points (therefore might
@@ -994,7 +1012,7 @@ names in comments.</a></li>
   <entry>
     <title type="html"><![CDATA[Occasional C]]></title>
     <link href="http://Utumno.github.io/blog/2014/04/01/occasional-c/"/>
-    <updated>2014-04-01T17:30:31+02:00</updated>
+    <updated>2014-04-01T18:30:31+03:00</updated>
     <id>http://Utumno.github.io/blog/2014/04/01/occasional-c</id>
     <content type="html"><![CDATA[<p>When I happen to revisit this slim dinosaur that is C I always have to look up a couple things - here they are for your convenience and mine.</p>
 
@@ -1016,7 +1034,7 @@ names in comments.</a></li>
   <entry>
     <title type="html"><![CDATA[Github Pages]]></title>
     <link href="http://Utumno.github.io/blog/2014/03/26/github-pages/"/>
-    <updated>2014-03-26T17:54:20+01:00</updated>
+    <updated>2014-03-26T18:54:20+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/03/26/github-pages</id>
     <content type="html"><![CDATA[<p>Another 15 minutes fiddling with google so:</p>
 
@@ -1049,7 +1067,7 @@ and <code>git clone git@github.com:myusername/foobar.wiki.git</code> would be th
   <entry>
     <title type="html"><![CDATA[Glassfish MySQL Connection Pools & Resources]]></title>
     <link href="http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools/"/>
-    <updated>2014-02-02T13:39:27+01:00</updated>
+    <updated>2014-02-02T14:39:27+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/02/02/glassfish-connection-pools</id>
     <content type="html"><![CDATA[<p>Fire up the glassfish admin console at <a href="http://localhost:4848.">http://localhost:4848.</a> You will see something like:</p>
 
@@ -1106,7 +1124,7 @@ and <code>git clone git@github.com:myusername/foobar.wiki.git</code> would be th
   <entry>
     <title type="html"><![CDATA[Python's Super]]></title>
     <link href="http://Utumno.github.io/blog/2014/01/05/pythons-super/"/>
-    <updated>2014-01-05T15:45:20+01:00</updated>
+    <updated>2014-01-05T16:45:20+02:00</updated>
     <id>http://Utumno.github.io/blog/2014/01/05/pythons-super</id>
     <content type="html"><![CDATA[<p>First thing that comes to mind : why do I need to name the superclass
 explicitly, instead of passing in <code>self.__class__</code> (or better still,
@@ -1223,7 +1241,7 @@ Initializing Color
   <entry>
     <title type="html"><![CDATA[Set Up Octopress in Windows 7]]></title>
     <link href="http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/"/>
-    <updated>2013-12-21T22:32:47+01:00</updated>
+    <updated>2013-12-21T23:32:47+02:00</updated>
     <id>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7</id>
     <content type="html"><![CDATA[<p>Download ruby from <a href="http://rubyinstaller.org/downloads/">here</a> - I downloaded <code>rubyinstaller-1.9.3-p448.exe</code></p>
 

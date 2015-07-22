@@ -83,7 +83,7 @@
   
 
 
-<time datetime="2014-07-06T18:38:03+02:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
+<time datetime="2014-07-06T19:38:03+03:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -132,6 +132,8 @@ def SetChecked(self, indexes):
         self.Check(i, True)
 </code></pre>
 
+<p><a href="https://unspecified.wordpress.com/2009/02/12/thou-shalt-not-modify-a-list-during-iteration/">Thou Shalt Not Modify A List During Iteration</a> - <a href="http://stackoverflow.com/q/16551334/281545">for sets just use pop</a></p>
+
 <ul>
 <li><p>Scopes:</p>
 
@@ -169,7 +171,14 @@ def SetChecked(self, indexes):
 
 <h5>Interpreter facts</h5>
 
-<pre><code>&gt;&gt;&gt; class C(object):
+<pre><code>&gt;&gt;&gt; def thatsSoUnlikeJava():
+...     try:
+...         raise Exception
+...     finally:return True
+...     
+&gt;&gt;&gt; print thatsSoUnlikeJava()
+True
+&gt;&gt;&gt; class C(object):
 ...     def __m(self): return 0
 ...     def m(self): return self.__m()
 ...
@@ -278,7 +287,7 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
   
 
 
-<time datetime="2014-07-06T18:38:03+02:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
+<time datetime="2014-07-06T19:38:03+03:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2014</time>
       
 
 

@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git Links - Udun's Labs</title>
+  <title>Eclipz - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Mostly read later links - expect the list to grow Assorted Nice: 25 Tips for Intermediate Git Users
-Pro Git - Reset Demystified
-Are merges in Git &hellip;">
+  <meta name="description" content="Notes to zelf Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to Build &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ Are merges in Git &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/2015/04/28/git-links">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2014/05/03/eclipz">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -33,7 +32,7 @@ Are merges in Git &hellip;">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="/favicon_eye_of_sauron.png?" rel="icon">
 
-	<link rel='stylesheet' type='text/css' href='/.css' />
+	<link rel='stylesheet' type='text/css' href='/udun_nobullets_list.css' />
 
 
   
@@ -69,7 +68,7 @@ Are merges in Git &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Git Links</h1>
+      <h1 class="entry-title">Eclipz</h1>
     
     
       <p class="meta">
@@ -85,34 +84,48 @@ Are merges in Git &hellip;">
   
 
 
-<time datetime="2015-04-28T23:09:46+02:00" pubdate data-updated="true">Apr 28<sup>th</sup>, 2015</time>
+<time datetime="2014-05-03T00:01:04+03:00" pubdate data-updated="true">May 3<sup>rd</sup>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Mostly read later links - expect the list to grow</p>
-
-<h4>Assorted</h4>
+<div class="entry-content"><h5>Notes to zelf</h5>
 
 <ul>
-<li>Nice: <a href="https://www.andyjeffries.co.uk/25-tips-for-intermediate-git-users/">25 Tips for Intermediate Git Users</a></li>
-<li><a href="(http://git-scm.com/2011/07/11/reset.html">Pro Git - Reset Demystified</a></li>
-<li><a href="http://stackoverflow.com/q/12192526/281545">Are merges in Git symmetric?</a> - nice links to the git mailing list too</li>
-<li><a href="http://gitster.livejournal.com/35628.html">Hamano</a> quoting <a href="http://article.gmane.org/gmane.comp.version-control.git/217">Linus</a></li>
+<li><p>Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to <em>Build Path > Order and Export</em> and ticked export on the JRE</p>
+
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;classpath&gt;
+       &lt;classpathentry excluding="gr/uoa/di/mde515/engine/HeapFile.java" kind="src" path="src"/&gt;
+   -   &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+   +   &lt;classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+       &lt;classpathentry kind="output" path="bin"/&gt;
+    &lt;/classpath&gt;
+</code></pre>
+
+<p>Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
+Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927">Stack Overflows</a>). I then unticked the JRE and still builds ok. <a href="http://www.scottdstrader.com/blog/ether_archives/000921.html">See</a>. <a href="http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved">Clean</a> did not work and <a href="http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol">I had no missing libs</a> either.</p></li>
+<li><p>Server update sites:</p>
+
+<pre><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;bookmarks&gt;
+     &lt;site url="http://download.jboss.org/jbosstools/updates/development/luna/" selected="true" name="_jboss_tools"/&gt;
+     &lt;site url="http://download.oracle.com/otn_software/oepe/luna/" selected="true" name="_oracle_glassfish"/&gt;
+  &lt;/bookmarks&gt;
+</code></pre>
+
+<p>Unneeded are the maven ones (m2e-wtp had some uninstalled items though) :</p>
+
+<pre><code>  &lt;site url="http://download.eclipse.org/m2e-wtp/milestones/luna/1.1.0" selected="true" name="_m2e-wtp"/&gt;
+  &lt;site url="http://download.eclipse.org/technology/m2e/releases" selected="true" name="_m2eclipse"/&gt;
+</code></pre></li>
+<li><p>Clean eclipse OSGi cache: Add <code>-clean</code> to eclipse.ini - first line, on its own - cleans mainly folder <code>{eclipse}\configuration\org.eclipse.osgi</code>. See <a href="http://stackoverflow.com/questions/2030064/how-to-run-eclipse-in-clean-mode-and-what-happens-if-we-do-so">How to run eclipse in clean mode? and what happens if we do so?</a>. For workspace leaning see <a href="http://stackoverflow.com/questions/11768106/clean-out-eclipse-workspace-metadata">Clean out Eclipse workspace metadata</a> - apparently -clean cleans the workspace too (?)</p></li>
+<li><p><a href="http://stackoverflow.com/questions/6915849/eclipse-how-to-make-xml-file-always-be-opened-in-text-editor-rather-than-xml-edi">How to make xml file always be opened in text editor rather than xml editor</a></p></li>
 </ul>
 
-
-<h4>Blame</h4>
-
-<ul>
-<li><a href="http://jfire.io/blog/2012/03/07/code-archaeology-with-git/">Code Archaeology with Git - John Firebaugh</a></li>
-<li><a href="http://zsoltfabok.com/blog/2012/02/git-blame-line-history/">Learn More About the History of a Line with Git Blame - Zsolt Fabók</a></li>
-</ul>
-
-
-<p>Both are octopress blogs :D</p>
 </div>
 
 
@@ -135,7 +148,7 @@ Are merges in Git &hellip;">
   
 
 
-<time datetime="2015-04-28T23:09:46+02:00" pubdate data-updated="true">Apr 28<sup>th</sup>, 2015</time>
+<time datetime="2014-05-03T00:01:04+03:00" pubdate data-updated="true">May 3<sup>rd</sup>, 2014</time>
       
 
 
@@ -143,7 +156,7 @@ Are merges in Git &hellip;">
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2015/04/28/git-links/" data-via="" data-counturl="http://Utumno.github.io/blog/2015/04/28/git-links/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2014/05/03/eclipz/" data-via="" data-counturl="http://Utumno.github.io/blog/2014/05/03/eclipz/" >Tweet</a>
   
   
   
@@ -152,10 +165,10 @@ Are merges in Git &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/08/04/git-untrack/" title="Previous Post: git untrack">&laquo; git untrack</a>
+        <a class="basic-alignment left" href="/blog/2014/04/06/java-memorabilia/" title="Previous Post: Java memorabilia">&laquo; Java memorabilia</a>
       
       
-        <a class="basic-alignment right" href="/blog/2015/05/17/if-yes-and-no/" title="Next Post: If yes and no">If yes and no &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/05/25/jboss-on-eclipse-luna/" title="Next Post: JBoss on eclipse Luna">JBoss on eclipse Luna &raquo;</a>
       
     </p>
   </footer>
@@ -204,8 +217,8 @@ Are merges in Git &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Utumno.github.io/blog/2015/04/28/git-links/';
-        var disqus_url = 'http://Utumno.github.io/blog/2015/04/28/git-links/';
+        var disqus_identifier = 'http://Utumno.github.io/blog/2014/05/03/eclipz/';
+        var disqus_url = 'http://Utumno.github.io/blog/2014/05/03/eclipz/';
         var disqus_script = 'embed.js';
       
     (function () {
