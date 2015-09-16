@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-07-22T19:56:59+03:00</updated>
+  <updated>2015-09-16T20:37:17+03:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,343 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Set Up Octopress in Arch Linux]]></title>
+    <link href="http://Utumno.github.io/blog/2015/09/16/set-up-octopress-in-arch-linux/"/>
+    <updated>2015-09-16T20:22:31+03:00</updated>
+    <id>http://Utumno.github.io/blog/2015/09/16/set-up-octopress-in-arch-linux</id>
+    <content type="html"><![CDATA[<p>Disclaimer: Hack and slash</p>
+
+<p>Well I started used an ancient arch install I had - and I needed to use
+my blog. Given I know nothing of ruby and octopress had left me with
+open questions I doupted I&rsquo;d succed. Well I did - here is how:</p>
+
+<pre><code>[root@mrsd-arch utumno]# pacman -S ruby
+Packages (2) libyaml-0.1.6-1  ruby-2.2.3-1
+##: hmmm - warning below I missed, see below
+The default location of gem installs is $HOME/.gem/ruby
+Add the following line to your PATH if you plan to install using gem
+$(ruby -rubygems -e "puts Gem.user_dir")/bin
+##: ....
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code>[root@mrsd-arch utumno]# gem install bundler
+Fetching: bundler-1.10.6.gem (100%)
+##: hmmm - warning below I missed, see below
+WARNING:  You don't have /root/.gem/ruby/2.2.0/bin in your PATH,
+      gem executables will not run.
+Successfully installed bundler-1.10.6
+##: ....
+[root@mrsd-arch utumno]# exit
+</code></pre>
+
+<p>I did not want to <em>install</em> octopress - just keep using my existing blog:</p>
+
+<pre><code>utumno@mrsd-arch ~ $ cd /mnt/win/Dropbox/Udun/octopress/
+utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake preview
+rake aborted!
+LoadError: cannot load such file -- bundler/setup
+/mnt/win/Dropbox/Udun/octopress/Rakefile:2:in `&lt;top (required)&gt;'
+(See full trace by running task with --trace)
+</code></pre>
+
+<p>Remember the warnings ? <a href="https://wiki.archlinux.org/index.php/Ruby#Setup">Issue</a>:</p>
+
+<pre><code>PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+</code></pre>
+
+<p>Then - below from a fresh install:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/arch_octopress/octopress (master) $ bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies...
+Using rake 10.4.2
+##: ....
+Password:
+
+SystemExit: exit
+An error occurred while installing RedCloth (4.2.9), and Bundler cannot
+continue.
+Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
+</code></pre>
+
+<p>Ooops - back to my own blog:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/arch_octopress/octopress (master) $ cd ../../octopress/
+utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake preview
+You have requested:
+  RedCloth ~&gt; 4.2.9
+
+The bundle currently has RedCloth locked at 4.2.9.
+Try running `bundle update RedCloth`
+Run `bundle install` to install missing gems.
+</code></pre>
+
+<p>No clue what all this means:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle update RedCloth
+Fetching gem metadata from https://rubygems.org/...........
+##: ....
+Password:
+Installing rake 10.3.2
+Installing RedCloth 4.2.9 with native extensions
+Installing blankslate 2.1.2.4
+Installing timers 1.1.0
+Installing celluloid 0.15.2
+Installing chunky_png 1.3.1
+Installing fast-stemmer 1.0.2 with native extensions
+Installing classifier 1.3.4
+Installing coffee-script-source 1.7.1
+Installing execjs 2.2.1
+Installing coffee-script 2.3.0
+Installing colorator 0.1
+Installing fssm 0.2.10
+Installing sass 3.2.19
+Installing compass 0.12.7
+Installing ffi 1.9.3 with native extensions
+Installing tilt 1.4.1
+Installing haml 4.0.5
+Installing jekyll-coffeescript 1.0.0
+Installing jekyll-gist 1.1.0
+Installing jekyll-paginate 1.0.0
+Installing jekyll-sass-converter 1.2.0
+Installing rb-fsevent 0.9.4
+Installing rb-inotify 0.9.5
+Installing listen 2.7.9
+Installing jekyll-watch 1.0.0
+Installing kramdown 1.4.1
+Installing liquid 2.6.1
+Installing mercenary 0.3.4
+Installing posix-spawn 0.3.9 with native extensions
+Installing yajl-ruby 1.1.0 with native extensions
+Installing pygments.rb 0.6.0
+Installing redcarpet 3.1.2 with native extensions
+Installing safe_yaml 1.0.3
+Installing parslet 1.5.0
+Installing toml 0.1.1
+Installing jekyll 2.2.0
+Installing jekyll-date-format 1.0.1
+Installing jekyll-page-hooks 1.3.1
+Installing jekyll-sitemap 0.5.1
+Installing rack 1.5.2
+Installing rack-protection 1.5.3
+Installing rdiscount 2.1.7.1 with native extensions
+Installing rubypants 0.2.0
+Installing sass-globbing 1.0.0
+Installing sinatra 1.4.5
+Installing stringex 1.4.0
+Using bundler 1.10.6
+Bundle updated!
+</code></pre>
+
+<p>Hmm - let&rsquo;s see:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake previewrake aborted!
+Gem::LoadError: You have already activated rake 10.4.2, but your Gemfile requires rake 10.3.2. Prepending `bundle exec` to your command may solve this.
+/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler/runtime.rb:34:in `block in setup'
+/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler/runtime.rb:19:in `setup'
+/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler.rb:127:in `setup'
+/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler/setup.rb:8:in `&lt;top (required)&gt;'
+/mnt/win/Dropbox/Udun/octopress/Rakefile:2:in `&lt;top (required)&gt;'
+LoadError: cannot load such file -- bundler/setup
+/mnt/win/Dropbox/Udun/octopress/Rakefile:2:in `&lt;top (required)&gt;'
+(See full trace by running task with --trace)
+</code></pre>
+
+<p>That&rsquo;s ruby traceback - help - cross fingers:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake preview
+Starting to watch source with Jekyll and Compass. Starting Rack on port 4000
+
+######### YEY
+</code></pre>
+
+<p>Create new post works:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake new_post["Pacman pycharm"]
+mkdir -p source/_posts
+Creating new post: source/_posts/2015-09-15-pacman-pycharm.markdown
+</code></pre>
+
+<p>But&hellip;</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
+## Generating Site with Jekyll
+overwrite source/stylesheets/screen.css
+/usr/lib/ruby/gems/2.2.0/gems/safe_yaml-1.0.3/lib/safe_yaml/load.rb:43:in `&lt;module:SafeYAML&gt;': undefined method `tagged_classes' for Psych:Module (NoMethodError)
+    from /usr/lib/ruby/gems/2.2.0/gems/safe_yaml-1.0.3/lib/safe_yaml/load.rb:26:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/lib/jekyll.rb:26:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/lib/jekyll.rb:26:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/bin/jekyll:6:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/bin/jekyll:6:in `&lt;top (required)&gt;'
+    from /usr/bin/jekyll:23:in `load'
+    from /usr/bin/jekyll:23:in `&lt;main&gt;'
+</code></pre>
+
+<p>Opsie-wopsie - another ruby traceback - <a href="http://stackoverflow.com/a/29245615/281545">happily I wasn&rsquo;t the only one</a> - I had to run update:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle update
+Fetching gem metadata from https://rubygems.org/...........
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies...
+Using rake 10.4.2 (was 10.3.2)
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+##: ....
+Password:
+Installing hitimes 1.2.3 with native extensions
+Installing timers 4.0.4 (was 1.1.0)
+Installing celluloid 0.16.0 (was 0.15.2)
+Installing chunky_png 1.3.4 (was 1.3.1)
+Using fast-stemmer 1.0.2
+Installing classifier-reborn 2.0.3
+Installing coffee-script-source 1.9.1.1 (was 1.7.1)
+Installing execjs 2.6.0 (was 2.2.1)
+Installing coffee-script 2.4.1 (was 2.3.0)
+Using colorator 0.1
+Using fssm 0.2.10
+Using sass 3.2.19
+Using compass 0.12.7
+Installing ffi 1.9.10 (was 1.9.3) with native extensions
+Installing tilt 2.0.1 (was 1.4.1)
+Installing haml 4.0.7 (was 4.0.5)
+Installing jekyll-coffeescript 1.0.1 (was 1.0.0)
+Installing jekyll-gist 1.3.4 (was 1.1.0)
+Installing jekyll-paginate 1.1.0 (was 1.0.0)
+Installing jekyll-sass-converter 1.3.0 (was 1.2.0)
+Installing rb-fsevent 0.9.6 (was 0.9.4)
+Using rb-inotify 0.9.5
+Installing listen 2.10.1 (was 2.7.9)
+Installing jekyll-watch 1.2.1 (was 1.0.0)
+Installing kramdown 1.8.0 (was 1.4.1)
+Installing liquid 2.6.3 (was 2.6.1)
+Installing mercenary 0.3.5 (was 0.3.4)
+Installing posix-spawn 0.3.11 (was 0.3.9) with native extensions
+Installing yajl-ruby 1.2.1 (was 1.1.0) with native extensions
+Installing pygments.rb 0.6.3 (was 0.6.0)
+Installing redcarpet 3.3.2 (was 3.1.2) with native extensions
+Installing safe_yaml 1.0.4 (was 1.0.3)
+Using parslet 1.5.0
+Installing toml 0.1.2 (was 0.1.1)
+Installing jekyll 2.5.3 (was 2.2.0)
+Using jekyll-date-format 1.0.1
+Using jekyll-page-hooks 1.3.1
+Installing jekyll-sitemap 0.8.1 (was 0.5.1)
+Installing rack 1.6.4 (was 1.5.2)
+Using rack-protection 1.5.3
+Installing rdiscount 2.1.8 (was 2.1.7.1) with native extensions
+Using rubypants 0.2.0
+Using sass-globbing 1.0.0
+Installing sinatra 1.4.6 (was 1.4.5)
+Using stringex 1.4.0
+Using bundler 1.10.6
+Bundle updated!
+
+utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
+## Generating Site with Jekyll
+identical source/stylesheets/screen.css
+/usr/lib/ruby/gems/2.2.0/gems/execjs-2.6.0/lib/execjs/runtimes.rb:48:in `autodetect': Could not find a JavaScript runtime. See https://github.com/rails/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
+    from /usr/lib/ruby/gems/2.2.0/gems/execjs-2.6.0/lib/execjs.rb:5:in `&lt;module:ExecJS&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/execjs-2.6.0/lib/execjs.rb:4:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee_script.rb:1:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee_script.rb:1:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee-script.rb:1:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee-script.rb:1:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-coffeescript-1.0.1/lib/jekyll-coffeescript.rb:2:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-coffeescript-1.0.1/lib/jekyll-coffeescript.rb:2:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:46:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:46:in `block in gracefully_require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:44:in `each'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:44:in `gracefully_require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll.rb:166:in `&lt;top (required)&gt;'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/bin/jekyll:6:in `require'
+    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/bin/jekyll:6:in `&lt;top (required)&gt;'
+    from /usr/bin/jekyll:23:in `load'
+    from /usr/bin/jekyll:23:in `&lt;main&gt;'
+utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $
+</code></pre>
+
+<p>Well - clear enough (although I had no idea) - decided to go with nodejs:</p>
+
+<pre><code>[root@mrsd-arch utumno]# pacman -S nodejs
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) nodejs-0.12.7-1
+##: ....
+Optional dependencies for nodejs
+    npm: nodejs package manager
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
+## Generating Site with Jekyll
+identical source/stylesheets/screen.css
+Configuration file: /mnt/win/Dropbox/Udun/octopress/_config.yml
+            Source: source
+       Destination: public
+      Generating...
+     Build Warning: Layout 'nil' requested in blog/categories/octopress/atom.xml does not exist.
+     Build Warning: Layout 'nil' requested in blog/categories/jekyll/atom.xml does not exist.
+     Build Warning: Layout 'nil' requested in blog/categories/python/atom.xml does not exist.
+     Build Warning: Layout 'nil' requested in blog/categories/java/atom.xml does not exist.
+     Build Warning: Layout 'nil' requested in blog/categories/eclipse/atom.xml does not exist.
+     Build Warning: Layout 'nil' requested in blog/categories/maven/atom.xml does not exist.
+     Build Warning: Layout 'nil' requested in blog/categories/git/atom.xml does not exist.
+jekyll 2.5.3 | Error:  undefined method `gsub' for #&lt;Array:0x0000000218c8b8&gt;
+utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $
+</code></pre>
+
+<p>AAARGHH moment - googling for this did not really help - made me start hacking
+and slashing in <a href="https://github.com/imathis/octopress/issues/1669">/plugins/octopress_filters.rb</a>. Ruby tracebacks kept
+shifting and I quited.</p>
+
+<p>Till next day it dawned me - how about updating octopress itself ? NB: <a href="http://stackoverflow.com/q/23438578/281545">I am not
+sure how to go about this</a>, but I do it by</p>
+
+<pre><code>$ git checkout master # in my blog repository, 'source' branch is checked out
+$ git pull # if octopress is set up correctly pulls the latest octopress master
+$ git checkout source # create a backup branch if rebase below fails
+$ git rebase master
+</code></pre>
+
+<p>Unfortunately the last part of the update did not run for me:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake update_style
+removed existing sass.old directory
+rm -r sass.old
+rake aborted!
+ArgumentError: parent directory is world writable, FileUtils#remove_entry_secure does not work; abort: "sass.old" (parent directory mode 40777)
+/mnt/win/Dropbox/Udun/octopress/Rakefile:186:in `block in &lt;top (required)&gt;'
+Tasks: TOP =&gt; update_style
+(See full trace by running task with --trace)
+</code></pre>
+
+<p>Well - no harm I guess (and why being world writable is a problem escapes me) - <em>cause generate worked</em>:</p>
+
+<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
+## Generating Site with Jekyll
+    write source/stylesheets/screen.css
+Configuration file: /mnt/win/Dropbox/Udun/octopress/_config.yml
+            Source: source
+       Destination: public
+      Generating...
+     Build Warning: Layout 'nil' requested in blog/categories/octopress......
+ Auto-regeneration: disabled. Use --watch to enable.
+</code></pre>
+
+<p>YEY!</p>
+
+<p>Edit: to solve the traceback above delete the sass.old by yourself.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Creating an Eclipse Plugin]]></title>
@@ -609,7 +946,7 @@ index 982ad3d..8e85ec6 100644
 <li>Downloaded <del>jboss-eap-6.2.0.zip</del> from <a href="http://jbossas.jboss.org/downloads.">http://jbossas.jboss.org/downloads.</a> A hell of a difficult site to locate. Btw the user friendliness of the JBoss site(s) is minimal - take a peek at the <a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a> it says &ldquo;This guide has move (sic) to <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/</a>&rdquo; - the latter link being broken. Plus the community servers are down.</li>
 <li>Realized that this download is (probably - <strong>EDIT EDIT</strong>: <a href="http://stackoverflow.com/questions/17995281/jboss-7-x-or-jboss-eap-6-x">JBoss 7.x or JBoss EAP 6.x</a>) not what I wanted. The <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> says something about jboss-7.x.x.x - scrolling further down in <a href="http://jbossas.jboss.org/downloads">http://jbossas.jboss.org/downloads</a> I located and downloaded JBoss AS 7.1.1.Final (jboss-as-7.1.1.Final.zip).</li>
 <li>Unzipped jboss-as-7.1.1.Final.zip to my c:\dev</li>
-<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for Luna (installing them via the servers&#8217; view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
+<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for Luna (installing them via the servers' view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
 <li>Servers > New > JBoss AS 7.1 - profile Local (&hellip;), this server requires a runtime Next</li>
 <li>JBoss 7.1 Runtime: download and install runtime, duh. let&rsquo;s see
 
@@ -709,7 +1046,7 @@ index 982ad3d..8e85ec6 100644
 </ul>
 
 
-<p>Producing manually the war (right click on the project then export as war) and then scp&#8217;ing straight from git Bash (msysgit, mingwin):</p>
+<p>Producing manually the war (right click on the project then export as war) and then scp'ing straight from git Bash (msysgit, mingwin):</p>
 
 <pre><code>$ scp "~/ROOT.war" SHA@APP-DOMAIN.rhcloud.com:/var/lib/\
 openshift/SHA/app-root/dependencies/jbossas/deployments
@@ -1172,7 +1509,7 @@ RuntimeError: maximum recursion depth exceeded while calling a Python object
 
 <blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;,
  as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very
- incorrect. Doing so will cause other classes&#8217; <code>__init__</code> methods to not be
+ incorrect. Doing so will cause other classes' <code>__init__</code> methods to not be
  called.</p></blockquote>
 
 <p>But it does not say why (btw

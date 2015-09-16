@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-07-22T19:56:59+03:00</updated>
+  <updated>2015-09-16T20:37:17+03:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -279,7 +279,7 @@ RuntimeError: maximum recursion depth exceeded while calling a Python object
 
 <blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;,
  as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very
- incorrect. Doing so will cause other classes&#8217; <code>__init__</code> methods to not be
+ incorrect. Doing so will cause other classes' <code>__init__</code> methods to not be
  called.</p></blockquote>
 
 <p>But it does not say why (btw
