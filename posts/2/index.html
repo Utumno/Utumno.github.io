@@ -9,8 +9,8 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Remember erasure ? import java.util.ArrayList;
-import java.util.List; public class Main { public static void main(String[] args) { List&lt;String&gt &hellip;">
+  <meta name="description" content="Notes to zelf Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to Build &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,69 @@ import java.util.List; public class Main { public static void main(String[] args
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/03/eclipz/">Eclipz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-05-03T00:01:04+03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>12:01 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h5>Notes to zelf</h5>
+
+<ul>
+<li><p>Red exclamation mark - project won&rsquo;t build - would not say why. Renamed the mains to main1 still no joy.
+Finally went to <em>Build Path > Order and Export</em> and ticked export on the JRE</p>
+
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;classpath&gt;
+       &lt;classpathentry excluding="gr/uoa/di/mde515/engine/HeapFile.java" kind="src" path="src"/&gt;
+   -   &lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+   +   &lt;classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/&gt;
+       &lt;classpathentry kind="output" path="bin"/&gt;
+    &lt;/classpath&gt;
+</code></pre>
+
+<p>Lo and behold -> red <span style="color:red">!</span> became red <span style="color:red">x</span>.<br/>
+Maybe a bug in caching ? (noted this after the <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=433927">Stack Overflows</a>). I then unticked the JRE and still builds ok. <a href="http://www.scottdstrader.com/blog/ether_archives/000921.html">See</a>. <a href="http://stackoverflow.com/questions/3632632/the-project-cannot-be-built-until-the-build-path-errors-are-resolved">Clean</a> did not work and <a href="http://stackoverflow.com/questions/12784078/error-in-eclipse-the-project-cannot-be-built-until-build-path-errors-are-resol">I had no missing libs</a> either.</p></li>
+<li><p>Server update sites:</p>
+
+<pre><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;bookmarks&gt;
+     &lt;site url="http://download.jboss.org/jbosstools/updates/development/luna/" selected="true" name="_jboss_tools"/&gt;
+     &lt;site url="http://download.oracle.com/otn_software/oepe/luna/" selected="true" name="_oracle_glassfish"/&gt;
+  &lt;/bookmarks&gt;
+</code></pre>
+
+<p>Unneeded are the maven ones (m2e-wtp had some uninstalled items though) :</p>
+
+<pre><code>  &lt;site url="http://download.eclipse.org/m2e-wtp/milestones/luna/1.1.0" selected="true" name="_m2e-wtp"/&gt;
+  &lt;site url="http://download.eclipse.org/technology/m2e/releases" selected="true" name="_m2eclipse"/&gt;
+</code></pre></li>
+<li><p>Clean eclipse OSGi cache: Add <code>-clean</code> to eclipse.ini - first line, on its own - cleans mainly folder <code>{eclipse}\configuration\org.eclipse.osgi</code>. See <a href="http://stackoverflow.com/questions/2030064/how-to-run-eclipse-in-clean-mode-and-what-happens-if-we-do-so">How to run eclipse in clean mode? and what happens if we do so?</a>. For workspace leaning see <a href="http://stackoverflow.com/questions/11768106/clean-out-eclipse-workspace-metadata">Clean out Eclipse workspace metadata</a> - apparently -clean cleans the workspace too (?)</p></li>
+<li><p><a href="http://stackoverflow.com/questions/6915849/eclipse-how-to-make-xml-file-always-be-opened-in-text-editor-rather-than-xml-edi">How to make xml file always be opened in text editor rather than xml editor</a></p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

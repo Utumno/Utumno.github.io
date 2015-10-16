@@ -91,7 +91,7 @@ my blog. Given I know nothing of ruby and &hellip;">
 
 <p>Well I started used an ancient arch install I had - and I needed to use
 my blog. Given I know nothing of ruby and octopress had left me with
-open questions I doupted I&rsquo;d succed. Well I did - here is how:</p>
+open questions I doubted I&rsquo;d succed. Well I did - here is how:</p>
 
 <pre><code>[root@mrsd-arch utumno]# pacman -S ruby
 Packages (2) libyaml-0.1.6-1  ruby-2.2.3-1
@@ -147,6 +147,8 @@ Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
 </code></pre>
 
 <p>Ooops - back to my own blog:</p>
+
+<p>&lt;&ndash;! more &ndash;></p>
 
 <pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/arch_octopress/octopress (master) $ cd ../../octopress/
 utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake preview
@@ -388,7 +390,8 @@ $ git checkout source # create a backup branch if rebase below fails
 $ git rebase master
 </code></pre>
 
-<p>Unfortunately the last part of the update did not run for me:</p>
+<p>Unfortunately the last part of the update did not run for me (edit: to solve this
+delete the sass.old by yourself.):</p>
 
 <pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake update_style
 removed existing sass.old directory
@@ -450,6 +453,8 @@ Configuration file: /mnt/win/Dropbox/Udun/octopress/_config.yml
       
         <a class="basic-alignment left" href="/blog/2015/06/06/creating-an-eclipse-plugin/" title="Previous Post: Creating an eclipse plugin">&laquo; Creating an eclipse plugin</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2015/10/17/pacman-pycharm/" title="Next Post: Pacman Pycharm">Pacman Pycharm &raquo;</a>
       
     </p>
   </footer>

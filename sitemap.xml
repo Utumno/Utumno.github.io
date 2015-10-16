@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://Utumno.github.io/blog/2015/10/17/pacman-pycharm/</loc>
+    <lastmod>2015-10-17T00:36:13+03:00</lastmod>
+  </url>
+  <url>
     <loc>http://Utumno.github.io/blog/2015/09/16/set-up-octopress-in-arch-linux/</loc>
     <lastmod>2015-09-16T20:22:31+03:00</lastmod>
   </url>
@@ -98,5 +102,8 @@
   </url>
   <url>
     <loc>http://Utumno.github.io/blog/categories/git/</loc>
+  </url>
+  <url>
+    <loc>http://Utumno.github.io/posts/2/</loc>
   </url>
 </urlset>
