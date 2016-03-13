@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Jekyll | Udun's Labs]]></title>
   <link href="http://Utumno.github.io/blog/categories/jekyll/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2015-10-17T00:39:23+03:00</updated>
+  <updated>2016-03-13T16:54:58+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Set Up Octopress in Windows 7]]></title>
     <link href="http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/"/>
-    <updated>2013-12-21T23:32:47+02:00</updated>
+    <updated>2013-12-21T22:32:47+01:00</updated>
     <id>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7</id>
     <content type="html"><![CDATA[<p>Download ruby from <a href="http://rubyinstaller.org/downloads/">here</a> - I downloaded <code>rubyinstaller-1.9.3-p448.exe</code></p>
 

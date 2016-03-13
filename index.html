@@ -114,7 +114,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/17/pacman-pycharm/">Pacman Pycharm</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/10/16/pacman-pycharm/">Pacman Pycharm</a></h1>
     
     
       <p class="meta">
@@ -123,7 +123,7 @@
 
 
 
-<time class='entry-date' datetime='2015-10-17T00:36:13+03:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:36 am</span></time>
+<time class='entry-date' datetime='2015-10-16T23:36:13+02:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:36 pm</span></time>
         
       </p>
     
@@ -226,385 +226,12 @@
 
 <p>Using AUR:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone https://aur.archlinux.org/pycharm-professional.gitrofessional-4.5.4
-</span><span class='line'>Cloning into 'pycharm-professional'...
-</span><span class='line'>remote: Counting objects: 26, done.
-</span><span class='line'>remote: Compressing objects: 100% (17/17), done.
-</span><span class='line'>remote: Total 26 (delta 11), reused 24 (delta 9)
-</span><span class='line'>Unpacking objects: 100% (26/26), done.
-</span><span class='line'>Checking connectivity... done.
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>$ cd pycharm-professional
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>(master) $ makepkg
-</span><span class='line'>==&gt; Making package: pycharm-professional 4.5.4-1 (Tue Sep 15 01:37:12 EEST 2015)
-</span><span class='line'>==&gt; Checking runtime dependencies...
-</span><span class='line'>==&gt; Missing dependencies:
-</span><span class='line'>  -&gt; python-coverage
-</span><span class='line'>  -&gt; python2-coverage
-</span><span class='line'>  -&gt; ipython
-</span><span class='line'>  -&gt; ipython2
-</span><span class='line'>==&gt; Checking buildtime dependencies...
-</span><span class='line'>==&gt; ERROR: Could not resolve all dependencies.</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ooops - needs python:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># pacman -S python-coverage
-</span><span class='line'>resolving dependencies...
-</span><span class='line'>looking for conflicting packages...
-</span><span class='line'>
-</span><span class='line'>Packages (2) python-3.4.3-2  python-coverage-3.7.1-4
-</span><span class='line'>
-</span><span class='line'>Optional dependencies for python
-</span><span class='line'>    python-setuptools
-</span><span class='line'>    python-pip
-</span><span class='line'>    sqlite [installed]
-</span><span class='line'>    mpdecimal: for decimal
-</span><span class='line'>    xz: for lzma [installed]
-</span><span class='line'>    tk: for tkinter [installed]
-</span><span class='line'># pacman -S python2-coverage
-</span><span class='line'>resolving dependencies...
-</span><span class='line'>looking for conflicting packages...
-</span><span class='line'>
-</span><span class='line'>Packages (1) python2-coverage-3.7.1-
-</span><span class='line'>
-</span><span class='line'># pacman -S ipython
-</span><span class='line'>resolving dependencies...
-</span><span class='line'>looking for conflicting packages...
-</span><span class='line'>
-</span><span class='line'>Packages (5) python-decorator-4.0.2-1  python-packaging-15.3-1
-</span><span class='line'>             python-pexpect-3.3-1  python-setuptools-1:18.3.1-1
-</span><span class='line'>             ipython-4.0.0-2
-</span><span class='line'>
-</span><span class='line'>Optional dependencies for ipython
-</span><span class='line'>    python-nose: for IPython's test suite
-</span><span class='line'>
-</span><span class='line'># pacman -S ipython2
-</span><span class='line'>resolving dependencies...
-</span><span class='line'>looking for conflicting packages...
-</span><span class='line'>
-</span><span class='line'>Packages (3) python2-decorator-4.0.2-1  python2-pexpect-3.3-1  ipython2-4.0.0-2
-</span><span class='line'>
-</span><span class='line'>Optional dependencies for ipython2
-</span><span class='line'>    wxpython: needed for ipython2 --gui=wx
-</span><span class='line'>    python2-nose: for IPython's test suite
-</span><span class='line'>
-</span><span class='line'># exit</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Build:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>utumno@mrsd-arch ~/_/pycharm-professional (master) $ makepkg
-</span><span class='line'>==&gt; Making package: pycharm-professional 4.5.4-1 (Tue Sep 15 01:56:50 EEST 2015)
-</span><span class='line'>==&gt; Checking runtime dependencies...
-</span><span class='line'>==&gt; Checking buildtime dependencies...
-</span><span class='line'>==&gt; Retrieving sources...
-</span><span class='line'>  -&gt; Downloading pycharm-professional-4.5.4.tar.gz...
-</span><span class='line'>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-</span><span class='line'>                                 Dload  Upload   Total   Spent    Left  Speed
-</span><span class='line'>100   154  100   154    0     0   1246      0 --:--:-- --:--:-- --:--:--  1262
-</span><span class='line'>100  153M  100  153M    0     0   852k      0  0:03:04  0:03:04 --:--:--  911k
-</span><span class='line'>  -&gt; Found pycharm-professional.desktop
-</span><span class='line'>  -&gt; Found pycharm-professional.install
-</span><span class='line'>  -&gt; Found pycharm
-</span><span class='line'>==&gt; Validating source files with sha256sums...
-</span><span class='line'>    pycharm-professional-4.5.4.tar.gz ... Passed
-</span><span class='line'>    pycharm-professional.desktop ... Passed
-</span><span class='line'>    pycharm-professional.install ... Passed
-</span><span class='line'>    pycharm ... Passed
-</span><span class='line'>==&gt; Extracting sources...
-</span><span class='line'>  -&gt; Extracting pycharm-professional-4.5.4.tar.gz with bsdtar
-</span><span class='line'>==&gt; Entering fakeroot environment...
-</span><span class='line'>==&gt; Starting package()...
-</span><span class='line'>==&gt; Tidying install...
-</span><span class='line'>  -&gt; Purging unwanted files...
-</span><span class='line'>  -&gt; Removing libtool files...
-</span><span class='line'>  -&gt; Removing static library files...
-</span><span class='line'>  -&gt; Compressing man and info pages...
-</span><span class='line'>==&gt; Creating package "pycharm-professional"...
-</span><span class='line'>  -&gt; Generating .PKGINFO file...
-</span><span class='line'>  -&gt; Adding install file...
-</span><span class='line'>  -&gt; Generating .MTREE file...
-</span><span class='line'>  -&gt; Compressing package...
-</span><span class='line'>==&gt; Leaving fakeroot environment.
-</span><span class='line'>==&gt; Finished making: pycharm-professional 4.5.4-1 (Tue Sep 15 02:02:11 EEST 2015)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Pacman install :</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># cd /home/utumno/_/pycharm-professional
-</span><span class='line'># ls
-</span><span class='line'>PKGBUILD                   pycharm-professional-4.5.4.tar.gz
-</span><span class='line'>pkg                        pycharm-professional.desktop
-</span><span class='line'>pycharm                        pycharm-professional.install
-</span><span class='line'>pycharm-professional-4.5.4-1-any.pkg.tar.xz  src
-</span><span class='line'># pacman -U pycharm-professional-4.5.4-1-any.pkg.tar.xz
-</span><span class='line'>loading packages...
-</span><span class='line'>resolving dependencies...
-</span><span class='line'>looking for conflicting packages...
-</span><span class='line'>
-</span><span class='line'>Packages (1) pycharm-professional-4.5.4-1
-</span><span class='line'>
-</span><span class='line'>Total Installed Size:  318.10 MiB
-</span><span class='line'>
-</span><span class='line'>:: Proceed with installation? [Y/n] y
-</span><span class='line'>(1/1) checking keys in keyring                     [######################] 100%
-</span><span class='line'>(1/1) checking package integrity                   [######################] 100%
-</span><span class='line'>(1/1) loading package files                        [######################] 100%
-</span><span class='line'>(1/1) checking for file conflicts                  [######################] 100%
-</span><span class='line'>(1/1) checking available disk space                [######################] 100%
-</span><span class='line'>(1/1) installing pycharm-professional              [######################] 100%
-</span><span class='line'>
-</span><span class='line'>===&gt;
-</span><span class='line'>===&gt; Please set the Anti-aliasing font settings for Java app
-</span><span class='line'>===&gt; adding the following line to the user's file ~/.bash_profile
-</span><span class='line'>===&gt; (not in ~/.bashrc):
-</span><span class='line'>===&gt;
-</span><span class='line'>===&gt; export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=setting'
-</span><span class='line'>===&gt;
-</span><span class='line'>===&gt; Replace 'setting' with on, lcd, gasp, etc. By default is
-</span><span class='line'>===&gt; configured with lcd.
-</span><span class='line'>===&gt;
-</span><span class='line'>===&gt; Please read the following link for more options:
-</span><span class='line'>===&gt; https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
-</span><span class='line'>===&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Files:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># find / -type d \( -path /mnt/win -o -path /home/utumno/Downloads  \) -prune -o -iname "*Pycharm*"
-</span><span class='line'>/usr/bin/pycharm
-</span><span class='line'>/usr/share/applications/pycharm-professional.desktop
-</span><span class='line'>/usr/share/pixmaps/pycharm.png
-</span><span class='line'>/usr/share/licenses/pycharm-professional
-</span><span class='line'>/usr/share/licenses/pycharm-professional/PyCharm_license.txt
-</span><span class='line'>/opt/pycharm-professional
-</span><span class='line'># /opt/pycharm-professional ...........
-</span><span class='line'>/home/utumno/.PyCharm30
-</span><span class='line'>/home/utumno/.local/share/applications/jetbrains-pycharm.desktop
-</span><span class='line'>/home/utumno/.PyCharm40
-</span><span class='line'>/home/utumno/.PyCharm40/config/eval/PyCharm3.evaluation.key
-</span><span class='line'>/home/utumno/.PyCharm40/config/pycharm30.key
-</span><span class='line'>/home/utumno/.gnome/apps/jetbrains-pycharm.desktop
-</span><span class='line'>/var/lib/pacman/local/pycharm-professional-4.5.4-1
-</span><span class='line'>/mnt/win
-</span><span class='line'>/root/pycharm-4.5.4
-</span><span class='line'># rm /home/utumno/.gnome/apps/jetbrains-pycharm.desktop
-</span><span class='line'># rm /home/utumno/.local/share/applications/jetbrains-pycharm.desktop</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Note - wxpython:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># pacman -S wxpython2.8
-</span><span class='line'>resolving dependencies...
-</span><span class='line'>looking for conflicting packages...
-</span><span class='line'>
-</span><span class='line'>Packages (3) wxgtk-3.0.2-4  wxpython-3.0.2.0-1  wxpython2.8-2.8.12.1-2
-</span><span class='line'>
-</span><span class='line'>Total Download Size:    25.10 MiB
-</span><span class='line'>Total Installed Size:  135.53 MiB
-</span><span class='line'>
-</span><span class='line'>:: Proceed with installation? [Y/n] y
-</span><span class='line'>:: Retrieving packages ...
-</span><span class='line'> wxgtk-3.0.2-4-x86_64               6.6 MiB   807K/s 00:08 [###############################] 100%
-</span><span class='line'> wxpython-3.0.2.0-1-x86_64         10.0 MiB   778K/s 00:13 [###############################] 100%
-</span><span class='line'> wxpython2.8-2.8.12.1-2-x86_64      8.5 MiB   723K/s 00:12 [###############################] 100%
-</span><span class='line'>(3/3) checking keys in keyring                             [###############################] 100%
-</span><span class='line'>(3/3) checking package integrity                           [###############################] 100%
-</span><span class='line'>(3/3) loading package files                                [###############################] 100%
-</span><span class='line'>(3/3) checking for file conflicts                          [###############################] 100%
-</span><span class='line'>(3/3) checking available disk space                        [###############################] 100%
-</span><span class='line'>(1/3) installing wxgtk                                     [###############################] 100%
-</span><span class='line'>Optional dependencies for wxgtk
-</span><span class='line'>    webkitgtk2: for webview support [installed]
-</span><span class='line'>(2/3) installing wxpython                                  [###############################] 100%
-</span><span class='line'>(3/3) installing wxpython2.8                               [###############################] 100%
-</span><span class='line'>#
-</span></code></pre></td></tr></table></div></figure>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/10/16/pacman-pycharm/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -624,7 +251,7 @@
 
 
 
-<time class='entry-date' datetime='2015-09-16T20:22:31+03:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:22 pm</span></time>
+<time class='entry-date' datetime='2015-09-16T19:22:31+02:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:22 pm</span></time>
         
       </p>
     
@@ -692,279 +319,12 @@ Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
 
 <p>Ooops - back to my own blog:</p>
 
-<p>&lt;&ndash;! more &ndash;></p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/arch_octopress/octopress (master) $ cd ../../octopress/
-utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake preview
-You have requested:
-  RedCloth ~&gt; 4.2.9
-
-The bundle currently has RedCloth locked at 4.2.9.
-Try running `bundle update RedCloth`
-Run `bundle install` to install missing gems.
-</code></pre>
-
-<p>No clue what all this means:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle update RedCloth
-Fetching gem metadata from https://rubygems.org/...........
-##: ....
-Password:
-Installing rake 10.3.2
-Installing RedCloth 4.2.9 with native extensions
-Installing blankslate 2.1.2.4
-Installing timers 1.1.0
-Installing celluloid 0.15.2
-Installing chunky_png 1.3.1
-Installing fast-stemmer 1.0.2 with native extensions
-Installing classifier 1.3.4
-Installing coffee-script-source 1.7.1
-Installing execjs 2.2.1
-Installing coffee-script 2.3.0
-Installing colorator 0.1
-Installing fssm 0.2.10
-Installing sass 3.2.19
-Installing compass 0.12.7
-Installing ffi 1.9.3 with native extensions
-Installing tilt 1.4.1
-Installing haml 4.0.5
-Installing jekyll-coffeescript 1.0.0
-Installing jekyll-gist 1.1.0
-Installing jekyll-paginate 1.0.0
-Installing jekyll-sass-converter 1.2.0
-Installing rb-fsevent 0.9.4
-Installing rb-inotify 0.9.5
-Installing listen 2.7.9
-Installing jekyll-watch 1.0.0
-Installing kramdown 1.4.1
-Installing liquid 2.6.1
-Installing mercenary 0.3.4
-Installing posix-spawn 0.3.9 with native extensions
-Installing yajl-ruby 1.1.0 with native extensions
-Installing pygments.rb 0.6.0
-Installing redcarpet 3.1.2 with native extensions
-Installing safe_yaml 1.0.3
-Installing parslet 1.5.0
-Installing toml 0.1.1
-Installing jekyll 2.2.0
-Installing jekyll-date-format 1.0.1
-Installing jekyll-page-hooks 1.3.1
-Installing jekyll-sitemap 0.5.1
-Installing rack 1.5.2
-Installing rack-protection 1.5.3
-Installing rdiscount 2.1.7.1 with native extensions
-Installing rubypants 0.2.0
-Installing sass-globbing 1.0.0
-Installing sinatra 1.4.5
-Installing stringex 1.4.0
-Using bundler 1.10.6
-Bundle updated!
-</code></pre>
-
-<p>Hmm - let&rsquo;s see:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake previewrake aborted!
-Gem::LoadError: You have already activated rake 10.4.2, but your Gemfile requires rake 10.3.2. Prepending `bundle exec` to your command may solve this.
-/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler/runtime.rb:34:in `block in setup'
-/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler/runtime.rb:19:in `setup'
-/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler.rb:127:in `setup'
-/home/utumno/.gem/ruby/2.2.0/gems/bundler-1.10.6/lib/bundler/setup.rb:8:in `&lt;top (required)&gt;'
-/mnt/win/Dropbox/Udun/octopress/Rakefile:2:in `&lt;top (required)&gt;'
-LoadError: cannot load such file -- bundler/setup
-/mnt/win/Dropbox/Udun/octopress/Rakefile:2:in `&lt;top (required)&gt;'
-(See full trace by running task with --trace)
-</code></pre>
-
-<p>That&rsquo;s ruby traceback - help - cross fingers:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake preview
-Starting to watch source with Jekyll and Compass. Starting Rack on port 4000
-
-######### YEY
-</code></pre>
-
-<p>Create new post works:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake new_post["Pacman pycharm"]
-mkdir -p source/_posts
-Creating new post: source/_posts/2015-09-15-pacman-pycharm.markdown
-</code></pre>
-
-<p>But&hellip;</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
-## Generating Site with Jekyll
-overwrite source/stylesheets/screen.css
-/usr/lib/ruby/gems/2.2.0/gems/safe_yaml-1.0.3/lib/safe_yaml/load.rb:43:in `&lt;module:SafeYAML&gt;': undefined method `tagged_classes' for Psych:Module (NoMethodError)
-    from /usr/lib/ruby/gems/2.2.0/gems/safe_yaml-1.0.3/lib/safe_yaml/load.rb:26:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/lib/jekyll.rb:26:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/lib/jekyll.rb:26:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/bin/jekyll:6:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.2.0/bin/jekyll:6:in `&lt;top (required)&gt;'
-    from /usr/bin/jekyll:23:in `load'
-    from /usr/bin/jekyll:23:in `&lt;main&gt;'
-</code></pre>
-
-<p>Opsie-wopsie - another ruby traceback - <a href="http://stackoverflow.com/a/29245615/281545">happily I wasn&rsquo;t the only one</a> - I had to run update:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle update
-Fetching gem metadata from https://rubygems.org/...........
-Fetching version metadata from https://rubygems.org/...
-Fetching dependency metadata from https://rubygems.org/..
-Resolving dependencies...
-Using rake 10.4.2 (was 10.3.2)
-Using RedCloth 4.2.9
-Using blankslate 2.1.2.4
-##: ....
-Password:
-Installing hitimes 1.2.3 with native extensions
-Installing timers 4.0.4 (was 1.1.0)
-Installing celluloid 0.16.0 (was 0.15.2)
-Installing chunky_png 1.3.4 (was 1.3.1)
-Using fast-stemmer 1.0.2
-Installing classifier-reborn 2.0.3
-Installing coffee-script-source 1.9.1.1 (was 1.7.1)
-Installing execjs 2.6.0 (was 2.2.1)
-Installing coffee-script 2.4.1 (was 2.3.0)
-Using colorator 0.1
-Using fssm 0.2.10
-Using sass 3.2.19
-Using compass 0.12.7
-Installing ffi 1.9.10 (was 1.9.3) with native extensions
-Installing tilt 2.0.1 (was 1.4.1)
-Installing haml 4.0.7 (was 4.0.5)
-Installing jekyll-coffeescript 1.0.1 (was 1.0.0)
-Installing jekyll-gist 1.3.4 (was 1.1.0)
-Installing jekyll-paginate 1.1.0 (was 1.0.0)
-Installing jekyll-sass-converter 1.3.0 (was 1.2.0)
-Installing rb-fsevent 0.9.6 (was 0.9.4)
-Using rb-inotify 0.9.5
-Installing listen 2.10.1 (was 2.7.9)
-Installing jekyll-watch 1.2.1 (was 1.0.0)
-Installing kramdown 1.8.0 (was 1.4.1)
-Installing liquid 2.6.3 (was 2.6.1)
-Installing mercenary 0.3.5 (was 0.3.4)
-Installing posix-spawn 0.3.11 (was 0.3.9) with native extensions
-Installing yajl-ruby 1.2.1 (was 1.1.0) with native extensions
-Installing pygments.rb 0.6.3 (was 0.6.0)
-Installing redcarpet 3.3.2 (was 3.1.2) with native extensions
-Installing safe_yaml 1.0.4 (was 1.0.3)
-Using parslet 1.5.0
-Installing toml 0.1.2 (was 0.1.1)
-Installing jekyll 2.5.3 (was 2.2.0)
-Using jekyll-date-format 1.0.1
-Using jekyll-page-hooks 1.3.1
-Installing jekyll-sitemap 0.8.1 (was 0.5.1)
-Installing rack 1.6.4 (was 1.5.2)
-Using rack-protection 1.5.3
-Installing rdiscount 2.1.8 (was 2.1.7.1) with native extensions
-Using rubypants 0.2.0
-Using sass-globbing 1.0.0
-Installing sinatra 1.4.6 (was 1.4.5)
-Using stringex 1.4.0
-Using bundler 1.10.6
-Bundle updated!
-
-utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
-## Generating Site with Jekyll
-identical source/stylesheets/screen.css
-/usr/lib/ruby/gems/2.2.0/gems/execjs-2.6.0/lib/execjs/runtimes.rb:48:in `autodetect': Could not find a JavaScript runtime. See https://github.com/rails/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
-    from /usr/lib/ruby/gems/2.2.0/gems/execjs-2.6.0/lib/execjs.rb:5:in `&lt;module:ExecJS&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/execjs-2.6.0/lib/execjs.rb:4:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee_script.rb:1:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee_script.rb:1:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee-script.rb:1:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee-script.rb:1:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-coffeescript-1.0.1/lib/jekyll-coffeescript.rb:2:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-coffeescript-1.0.1/lib/jekyll-coffeescript.rb:2:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:46:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:46:in `block in gracefully_require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:44:in `each'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll/deprecator.rb:44:in `gracefully_require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/lib/jekyll.rb:166:in `&lt;top (required)&gt;'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/bin/jekyll:6:in `require'
-    from /usr/lib/ruby/gems/2.2.0/gems/jekyll-2.5.3/bin/jekyll:6:in `&lt;top (required)&gt;'
-    from /usr/bin/jekyll:23:in `load'
-    from /usr/bin/jekyll:23:in `&lt;main&gt;'
-utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $
-</code></pre>
-
-<p>Well - clear enough (although I had no idea) - decided to go with nodejs:</p>
-
-<pre><code>[root@mrsd-arch utumno]# pacman -S nodejs
-resolving dependencies...
-looking for conflicting packages...
-
-Packages (1) nodejs-0.12.7-1
-##: ....
-Optional dependencies for nodejs
-    npm: nodejs package manager
-</code></pre>
-
-<p>Then:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
-## Generating Site with Jekyll
-identical source/stylesheets/screen.css
-Configuration file: /mnt/win/Dropbox/Udun/octopress/_config.yml
-            Source: source
-       Destination: public
-      Generating...
-     Build Warning: Layout 'nil' requested in blog/categories/octopress/atom.xml does not exist.
-     Build Warning: Layout 'nil' requested in blog/categories/jekyll/atom.xml does not exist.
-     Build Warning: Layout 'nil' requested in blog/categories/python/atom.xml does not exist.
-     Build Warning: Layout 'nil' requested in blog/categories/java/atom.xml does not exist.
-     Build Warning: Layout 'nil' requested in blog/categories/eclipse/atom.xml does not exist.
-     Build Warning: Layout 'nil' requested in blog/categories/maven/atom.xml does not exist.
-     Build Warning: Layout 'nil' requested in blog/categories/git/atom.xml does not exist.
-jekyll 2.5.3 | Error:  undefined method `gsub' for #&lt;Array:0x0000000218c8b8&gt;
-utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $
-</code></pre>
-
-<p>AAARGHH moment - googling for this did not really help - made me start hacking
-and slashing in <a href="https://github.com/imathis/octopress/issues/1669">/plugins/octopress_filters.rb</a>. Ruby tracebacks kept
-shifting and I quited.</p>
-
-<p>Till next day it dawned me - how about updating octopress itself ? NB: <a href="http://stackoverflow.com/q/23438578/281545">I am not
-sure how to go about this</a>, but I do it by</p>
-
-<pre><code>$ git checkout master # in my blog repository, 'source' branch is checked out
-$ git pull # if octopress is set up correctly pulls the latest octopress master
-$ git checkout source # create a backup branch if rebase below fails
-$ git rebase master
-</code></pre>
-
-<p>Unfortunately the last part of the update did not run for me (edit: to solve this
-delete the sass.old by yourself.):</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake update_style
-removed existing sass.old directory
-rm -r sass.old
-rake aborted!
-ArgumentError: parent directory is world writable, FileUtils#remove_entry_secure does not work; abort: "sass.old" (parent directory mode 40777)
-/mnt/win/Dropbox/Udun/octopress/Rakefile:186:in `block in &lt;top (required)&gt;'
-Tasks: TOP =&gt; update_style
-(See full trace by running task with --trace)
-</code></pre>
-
-<p>Well - no harm I guess (and why being world writable is a problem escapes me) - <em>cause generate worked</em>:</p>
-
-<pre><code>utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ bundle exec rake generate
-## Generating Site with Jekyll
-    write source/stylesheets/screen.css
-Configuration file: /mnt/win/Dropbox/Udun/octopress/_config.yml
-            Source: source
-       Destination: public
-      Generating...
-     Build Warning: Layout 'nil' requested in blog/categories/octopress......
- Auto-regeneration: disabled. Use --watch to enable.
-</code></pre>
-
-<p>YEY!</p>
-
-<p>Edit: to solve the traceback above delete the sass.old by yourself.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/16/set-up-octopress-in-arch-linux/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -984,7 +344,7 @@ Configuration file: /mnt/win/Dropbox/Udun/octopress/_config.yml
 
 
 
-<time class='entry-date' datetime='2015-06-06T01:52:00+03:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:52 am</span></time>
+<time class='entry-date' datetime='2015-06-06T00:52:00+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:52 am</span></time>
         
       </p>
     
@@ -1063,7 +423,7 @@ Choose and template and then - git (TBC)</p>
 
 
 
-<time class='entry-date' datetime='2015-05-17T17:24:03+03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:24 pm</span></time>
+<time class='entry-date' datetime='2015-05-17T16:24:03+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:24 pm</span></time>
         
       </p>
     
@@ -1088,7 +448,7 @@ Choose and template and then - git (TBC)</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/04/29/git-links/">Git Links</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/04/28/git-links/">Git Links</a></h1>
     
     
       <p class="meta">
@@ -1097,7 +457,7 @@ Choose and template and then - git (TBC)</p>
 
 
 
-<time class='entry-date' datetime='2015-04-29T00:09:46+03:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:09 am</span></time>
+<time class='entry-date' datetime='2015-04-28T23:09:46+02:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:09 pm</span></time>
         
       </p>
     
@@ -1147,7 +507,7 @@ Choose and template and then - git (TBC)</p>
 
 
 
-<time class='entry-date' datetime='2014-08-04T17:06:13+03:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:06 pm</span></time>
+<time class='entry-date' datetime='2014-08-04T16:06:13+02:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:06 pm</span></time>
         
       </p>
     
@@ -1218,7 +578,7 @@ to an <code>--assume-unchanged</code> file on pull etc. Also SO questions:</p>
 
 
 
-<time class='entry-date' datetime='2014-07-29T21:04:10+03:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:04 pm</span></time>
+<time class='entry-date' datetime='2014-07-29T20:04:10+02:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:04 pm</span></time>
         
       </p>
     
@@ -1257,7 +617,7 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
 
 
 
-<time class='entry-date' datetime='2014-07-06T19:38:03+03:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:38 pm</span></time>
+<time class='entry-date' datetime='2014-07-06T18:38:03+02:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:38 pm</span></time>
         
       </p>
     
@@ -1460,7 +820,7 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
 
 
 
-<time class='entry-date' datetime='2014-06-11T20:13:15+03:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:13 pm</span></time>
+<time class='entry-date' datetime='2014-06-11T19:13:15+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:13 pm</span></time>
         
       </p>
     
@@ -1502,7 +862,7 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
 
 
 
-<time class='entry-date' datetime='2014-05-25T22:12:58+03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:12 pm</span></time>
+<time class='entry-date' datetime='2014-05-25T21:12:58+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:12 pm</span></time>
         
       </p>
     
@@ -1569,7 +929,7 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Utumno -
+  Copyright &copy; 2016 - Utumno -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
