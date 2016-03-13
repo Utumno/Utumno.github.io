@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2016-03-13T16:54:58+01:00</updated>
+  <updated>2016-03-13T16:56:27+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -506,7 +506,7 @@
     <id>http://Utumno.github.io/blog/2015/09/16/set-up-octopress-in-arch-linux</id>
     <content type="html"><![CDATA[<p>Disclaimer: Hack and slash</p>
 
-<p>Well I started used an ancient arch install I had - and I needed to use
+<p>Well I started using an ancient arch install I had - and I needed to use
 my blog. Given I know nothing of ruby and octopress had left me with
 open questions I doubted I&rsquo;d succed. Well I did - here is how:</p>
 
