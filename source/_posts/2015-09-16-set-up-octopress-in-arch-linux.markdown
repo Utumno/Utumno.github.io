@@ -7,7 +7,7 @@ categories:
 ---
 Disclaimer: Hack and slash
 
-Well I started used an ancient arch install I had - and I needed to use
+Well I started using an ancient arch install I had - and I needed to use
 my blog. Given I know nothing of ruby and octopress had left me with
 open questions I doubted I'd succed. Well I did - here is how:
 
@@ -62,7 +62,7 @@ Then - below from a fresh install:
 
 Ooops - back to my own blog:
 
-<--! more -->
+<!-- more -->
 
     utumno@mrsd-arch /mnt/win/Dropbox/Udun/arch_octopress/octopress (master) $ cd ../../octopress/
     utumno@mrsd-arch /mnt/win/Dropbox/Udun/octopress (source) $ rake preview
@@ -291,8 +291,12 @@ sure how to go about this][4], but I do it by
 
     $ git checkout master # in my blog repository, 'source' branch is checked out
     $ git pull # if octopress is set up correctly pulls the latest octopress master
-    $ git checkout source # create a backup branch if rebase below fails
+    $ git checkout -b source-before-rebase-2016-03-13 source # create a backup branch if rebase below fails
+    $ git checkout source
     $ git rebase master
+    $ bundle update
+    $ rake update_source
+    $ rake update_style
 
 Unfortunately the last part of the update did not run for me (edit: to solve this
 delete the sass.old by yourself.):

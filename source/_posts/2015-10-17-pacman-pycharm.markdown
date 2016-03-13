@@ -62,6 +62,8 @@ Java:
 
 Using AUR:
 
+<!-- more -->
+
 ```
 $ git clone https://aur.archlinux.org/pycharm-professional.gitrofessional-4.5.4
 Cloning into 'pycharm-professional'...
