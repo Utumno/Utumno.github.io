@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2016-03-13T16:56:27+01:00</updated>
+  <updated>2016-03-13T17:32:42+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -804,8 +804,12 @@ sure how to go about this</a>, but I do it by</p>
 
 <pre><code>$ git checkout master # in my blog repository, 'source' branch is checked out
 $ git pull # if octopress is set up correctly pulls the latest octopress master
-$ git checkout source # create a backup branch if rebase below fails
+$ git checkout -b source-before-rebase-2016-03-13 source # create a backup branch if rebase below fails
+$ git checkout source
 $ git rebase master
+$ bundle update
+$ rake update_source
+$ rake update_style
 </code></pre>
 
 <p>Unfortunately the last part of the update did not run for me (edit: to solve this
