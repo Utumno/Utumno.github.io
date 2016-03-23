@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2016-03-13T17:58:32+01:00</updated>
+  <updated>2016-03-23T15:37:45+01:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Premature Comments on Optimization Are the Root of All Frustration]]></title>
+    <link href="http://Utumno.github.io/blog/2016/03/23/premature-comments-on-optimization-are-the-root-of-all-frustration/"/>
+    <updated>2016-03-23T15:29:46+01:00</updated>
+    <id>http://Utumno.github.io/blog/2016/03/23/premature-comments-on-optimization-are-the-root-of-all-frustration</id>
+    <content type="html"><![CDATA[<p>Why whenever I ask a nice performance question just out of curiosity someone Kuhns me ?</p>
+
+<p>See: <a href="http://stackoverflow.com/q/36178330/281545">Does the global keyword inline the global exactly as a local variable declaration in python?</a></p>
+
+<p>Hey guys performance is not a taboo, we are consenting adults here</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pacman Pycharm]]></title>

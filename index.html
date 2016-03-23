@@ -9,48 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Uninstall: 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-# find / -path /mnt/win &hellip;">
+  <meta name="description" content="Why whenever I ask a nice performance question just out of curiosity someone Kuhns me ? See: Does the global keyword inline the global exactly as a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,7 +45,7 @@
 </hgroup>
 
 </header>
-  <nav role="navigation">
+  <nav role="navigation"><!--  -->
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
@@ -105,6 +64,39 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/03/23/premature-comments-on-optimization-are-the-root-of-all-frustration/">Premature Comments on Optimization Are the Root of All Frustration</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-03-23T15:29:46+01:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>3:29 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Why whenever I ask a nice performance question just out of curiosity someone Kuhns me ?</p>
+
+<p>See: <a href="http://stackoverflow.com/q/36178330/281545">Does the global keyword inline the global exactly as a local variable declaration in python?</a></p>
+
+<p>Hey guys performance is not a taboo, we are consenting adults here</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -839,70 +831,6 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
   
     <footer>
       <a rel="full-article" href="/blog/2014/06/11/mavenize-an-eclipse-project/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/05/25/jboss-on-eclipse-luna/">JBoss on Eclipse Luna</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-05-25T21:12:58+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:12 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Windows - the <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> page says I must have both maven and java installed - I really do not get why maven so I decided to proceed at my discretion.</p>
-
-<ul>
-<li>Downloaded <del>jboss-eap-6.2.0.zip</del> from <a href="http://jbossas.jboss.org/downloads.">http://jbossas.jboss.org/downloads.</a> A hell of a difficult site to locate. Btw the user friendliness of the JBoss site(s) is minimal - take a peek at the <a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a> it says &ldquo;This guide has move (sic) to <a href="http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/">http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/Introduction/</a>&rdquo; - the latter link being broken. Plus the community servers are down.</li>
-<li>Realized that this download is (probably - <strong>EDIT EDIT</strong>: <a href="http://stackoverflow.com/questions/17995281/jboss-7-x-or-jboss-eap-6-x">JBoss 7.x or JBoss EAP 6.x</a>) not what I wanted. The <a href="https://docs.jboss.org/author/display/AS7/Installing+and+starting+JBoss+AS+on+Windows">Installing and starting JBoss AS on Windows</a> says something about jboss-7.x.x.x - scrolling further down in <a href="http://jbossas.jboss.org/downloads">http://jbossas.jboss.org/downloads</a> I located and downloaded JBoss AS 7.1.1.Final (jboss-as-7.1.1.Final.zip).</li>
-<li>Unzipped jboss-as-7.1.1.Final.zip to my c:\dev</li>
-<li>Fired eclipse up (Luna M7 Release (4.4.0M7) - EE pack) - located the update site of Jboss tools for Luna (installing them via the servers' view failed with dependency errors) -  <a href="http://download.jboss.org/jbosstools/updates/development/luna/">http://download.jboss.org/jbosstools/updates/development/luna/</a>  - downloaded only JBossAS Tools 3.0.0.Beta1-v20140408-1231-B31, accepted, restarted, and the fun part started</li>
-<li>Servers > New > JBoss AS 7.1 - profile Local (&hellip;), this server requires a runtime Next</li>
-<li>JBoss 7.1 Runtime: download and install runtime, duh. let&rsquo;s see
-
-<ul>
-<li>one of the runtimes (3) it offers to download is the jboss-as-7.1.1.Final.zip - great - go to Browse</li>
-<li>c:\dev\jboss-as-7.1.1.Final, Execution environment JavaSE-1.6 (jdk 1.6.0.45) done</li>
-</ul>
-</li>
-<li>import the project, make a new branch (jbossAS7)</li>
-<li>run - oops:
-
-<blockquote><p>WARN  [org.jboss.modules] (MSC service thread 1-6) Failed to define class x.y.Z in Module &ldquo;deployment.DataCollectionServlet.war:main&rdquo; from Service Module Loader: java.lang.UnsupportedClassVersionError: x/y/Z : Unsupported major.minor version 51.0</p></blockquote></li>
-</ul>
-
-
-<p> yep the project was 1.7 after all</p>
-
-<ul>
-<li>deleted the server, created it anew, pointed the runtime of Jboss server to jdk 7 and <strong>it run</strong> - logging needs to be info though to print anything in eclipse&rsquo;s console.</li>
-<li>yes but I couldn&rsquo;t hit the servlet - found the solution here: <a href="http://stackoverflow.com/questions/6853409/binding-jboss-as-7-to-all-interfaces">Binding JBoss AS 7 to all interfaces</a>. In a nutshell I had to edit the server config at <code>C:\dev\jboss-as-7.1.1.Final\standalone\configuration\standalone.xml</code> - in there is the logging config too&hellip;</li>
-</ul>
-
-
-<p>That was it - so basically zero modifications. Now to open shift&hellip;</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/05/25/jboss-on-eclipse-luna/">Read on &rarr;</a>
     </footer>
   
 
