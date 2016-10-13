@@ -10,6 +10,6 @@ Why whenever I ask a nice performance question just out of curiosity someone Kuh
 
 See: [Does the global keyword inline the global exactly as a local variable declaration in python?][1]
 
-Hey guys performance is not a taboo, we are consenting adults here
+Performance is not a taboo, we are consenting adults here
 
  [1]: http://stackoverflow.com/q/36178330/281545
