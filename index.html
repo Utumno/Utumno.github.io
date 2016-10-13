@@ -9,7 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Why whenever I ask a nice performance question just out of curiosity someone Kuhns me ? See: Does the global keyword inline the global exactly as a &hellip;">
+  <meta name="description" content="Why is it faster to process a sorted array than an unsorted array? And a python quirk: Prints: C:\_\Python27\python.exe C:/Users/MrD/.PyCharm2016.2/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,68 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2016/05/29/sort-before-you-loop/">Sort Before You Loop</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-05-29T17:06:24+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>5:06 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://stackoverflow.com/q/11227809/281545">Why is it faster to process a sorted array than an unsorted array?</a></p>
+
+<p>And a python quirk:</p>
+
+<script src="https://gist.github.com/Utumno/f3d25e0fe4bd0f43ceb9178a60181a53.js"></script>
+
+
+<p>Prints:</p>
+
+<pre><code>C:\_\Python27\python.exe C:/Users/MrD/.PyCharm2016.2/config/scratches/timeit_key_tuple_sorting.py
+***** STRINGS
+0.683437665535
+0.659069905351
+0.578510675866
+***** INTS
+0.116263496833
+0.200527380123
+0.160531444582
+***** OBJECTS
+9.64448849458
+7.22313209823
+6.99353018193
+***** BONUS range vs xrange and inlining length
+3.16139231018
+3.13278352095
+2.18729023897
+2.16974310625
+</code></pre>
+
+<p>For an explanation see
+<a href="http://stackoverflow.com/q/34455594/281545">Why is sorting a python list of tuples faster when I explicitly
+provide the key as the first element?</a>. Note that for int keys the non
+key way is still faster - apparently the overhead of lambda (or even
+itemgetter) compared to int comparison is significant.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2016/03/23/premature-comments-on-optimization-are-the-root-of-all-frustration/">Premature Comments on Optimization Are the Root of All Frustration</a></h1>
     
     
@@ -90,7 +152,7 @@
 
 <p>See: <a href="http://stackoverflow.com/q/36178330/281545">Does the global keyword inline the global exactly as a local variable declaration in python?</a></p>
 
-<p>Hey guys performance is not a taboo, we are consenting adults here</p>
+<p>Performance is not a taboo, we are consenting adults here</p>
 </div>
   
   
@@ -790,48 +852,6 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
 <a href="http://www.rmi.net/~lutz/py33-windows-launcher.html">Gentle introduction</a> and the <a href="http://legacy.python.org/dev/peps/pep-0397/">PEP</a>.</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/11/mavenize-an-eclipse-project/">Mavenize an Eclipse Project</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-06-11T19:13:15+02:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:13 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I had a simple eclipse java SE project and I wanted to start using maven (<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">in 5 Minutes</a>) for dependency management. What I did was (eclipse Luna, JEE pack - comes with m2e plugin [1.5.0.20140524-0005]):</p>
-
-<ul>
-<li><p>RClick on the project > Configure > Convert to Maven project</p></li>
-<li><p><strong>Maven Pom dialogue</strong>: I had to choose group id, artifact id etc. Had a look at <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId and version</a>, <a href="http://stackoverflow.com/questions/3724415/maven-artifact-and-groupid-naming">Maven artifact and groupId naming</a>, <a href="http://stackoverflow.com/questions/23172586/maven-artifact-and-group-naming-conventions?lq=1">Maven artifact and group naming conventions</a>. Ok - pick a groupId (should be unique), an artifact Id (will be the name of your jar minus the version) and a version (have to decide on a scheme for this - must read: <a href="http://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm">Understanding Maven Version Numbers</a>. Have also a look at <a href="http://stackoverflow.com/q/30571/281545">How do I tell Maven to use the latest version of a dependency?</a>). Enter a name and description for your project.</p></li>
-<li><p><strong>Maven dependencies dialogue</strong>: Identify existing project references as Maven dependencies:</p>
-
-<p><img class="center" src="/images/Maven_and_eclipse/Clipboard01.jpg" title="image" alt="images"></p>
-
-<p>well at a loss here&hellip; Glad it found Junit. I left the &ldquo;Delete original references from project&rdquo; unticked. It went on to create the POM. Now I cheated a bit here.
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/06/11/mavenize-an-eclipse-project/">Read on &rarr;</a>
-    </footer>
   
 
 

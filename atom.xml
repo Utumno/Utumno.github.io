@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2016-03-23T15:37:45+01:00</updated>
+  <updated>2016-10-13T12:36:26+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sort Before You Loop]]></title>
+    <link href="http://Utumno.github.io/blog/2016/05/29/sort-before-you-loop/"/>
+    <updated>2016-05-29T17:06:24+02:00</updated>
+    <id>http://Utumno.github.io/blog/2016/05/29/sort-before-you-loop</id>
+    <content type="html"><![CDATA[<p><a href="http://stackoverflow.com/q/11227809/281545">Why is it faster to process a sorted array than an unsorted array?</a></p>
+
+<p>And a python quirk:</p>
+
+<script src="https://gist.github.com/Utumno/f3d25e0fe4bd0f43ceb9178a60181a53.js"></script>
+
+
+<p>Prints:</p>
+
+<pre><code>C:\_\Python27\python.exe C:/Users/MrD/.PyCharm2016.2/config/scratches/timeit_key_tuple_sorting.py
+***** STRINGS
+0.683437665535
+0.659069905351
+0.578510675866
+***** INTS
+0.116263496833
+0.200527380123
+0.160531444582
+***** OBJECTS
+9.64448849458
+7.22313209823
+6.99353018193
+***** BONUS range vs xrange and inlining length
+3.16139231018
+3.13278352095
+2.18729023897
+2.16974310625
+</code></pre>
+
+<p>For an explanation see
+<a href="http://stackoverflow.com/q/34455594/281545">Why is sorting a python list of tuples faster when I explicitly
+provide the key as the first element?</a>. Note that for int keys the non
+key way is still faster - apparently the overhead of lambda (or even
+itemgetter) compared to int comparison is significant.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Premature Comments on Optimization Are the Root of All Frustration]]></title>
@@ -22,7 +64,7 @@
 
 <p>See: <a href="http://stackoverflow.com/q/36178330/281545">Does the global keyword inline the global exactly as a local variable declaration in python?</a></p>
 
-<p>Hey guys performance is not a taboo, we are consenting adults here</p>
+<p>Performance is not a taboo, we are consenting adults here</p>
 ]]></content>
   </entry>
   
@@ -2079,410 +2121,6 @@ Initializing Color
 <li><a href="http://rhettinger.wordpress.com/2011/05/26/super-considered-super/">Python&rsquo;s super() considered super!</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Set Up Octopress in Windows 7]]></title>
-    <link href="http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7/"/>
-    <updated>2013-12-21T22:32:47+01:00</updated>
-    <id>http://Utumno.github.io/blog/2013/12/21/set-up-octopress-in-windows-7</id>
-    <content type="html"><![CDATA[<p>Download ruby from <a href="http://rubyinstaller.org/downloads/">here</a> - I downloaded <code>rubyinstaller-1.9.3-p448.exe</code></p>
-
-<p>Install it, add it to path then create a folder to host octopress and your blog (in DB naturlich) and fire up git bash.</p>
-
-<pre><code>Welcome to Git (version 1.8.4-preview20130916) # how are you ?
-
-MrD@MRSD /c/dropbox/Udun
-$ ruby --version
-ruby 1.9.3p448 (2013-06-27) [i386-mingw32]
-
-MrD@MRSD /c/dropbox/Udun
-$ git clone git://github.com/imathis/octopress.git
-Cloning into 'octopress'...
-remote: Counting objects: 10967, done.
-remote: Compressing objects: 100% (5107/5107), done.
-remote: Total 10967 (delta 5807), reused 9843 (delta 4984)
-Receiving objects: 100% (10967/10967), 2.46 MiB | 82.00 KiB/s, done.
-Resolving deltas: 100% (5807/5807), done.
-Checking connectivity... done
-
-MrD@MRSD /c/dropbox/Udun
-$ cd octopress/
-
-MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ gem install bundler
-Fetching: bundler-1.3.5.gem (100%)
-Successfully installed bundler-1.3.5
-1 gem installed
-Installing ri documentation for bundler-1.3.5...
-Installing RDoc documentation for bundler-1.3.5...
-
-MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ bundle install
-Fetching gem metadata from https://rubygems.org/.......
-Fetching gem metadata from https://rubygems.org/..
-Resolving dependencies...
-Using rake (0.9.2.2)
-Installing RedCloth (4.2.9)
-Installing chunky_png (1.2.5)
-Installing fast-stemmer (1.0.1)
-Gem::InstallError: The 'fast-stemmer' native gem requires installed build tools.
-
-
-Please update your PATH to include build tools or download the DevKit
-from 'http://rubyinstaller.org/downloads' and follow the instructions
-at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
-An error occurred while installing fast-stemmer (1.0.1), and Bundler cannot
-continue.
-Make sure that `gem install fast-stemmer -v '1.0.1'` succeeds before bundling.
-</code></pre>
-
-<p>Oops. Install<sup>1</sup> <a href="http://rubyinstaller.org/downloads/">RubyDevKit</a> - I downloaded <code>DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe</code>. Install means unzip - I unzipped into C:\_\Ruby. Then</p>
-
-<!-- more -->
-
-
-<pre><code>MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ cd C:/_/Ruby
-
-MrD@MRSD /c/_/Ruby
-$ ruby dk.rb init
-[INFO] found RubyInstaller v1.9.3 at C:/_/Ruby193
-
-Initialization complete! Please review and modify the auto-generated
-'config.yml' file to ensure it contains the root directories to all
-of the installed Rubies you want enhanced by the DevKit.
-
-MrD@MRSD /c/_/Ruby
-$ ruby dk.rb install
-[INFO] Updating convenience notice gem override for 'C:/_/Ruby193'
-[INFO] Installing 'C:/_/Ruby193/lib/ruby/site_ruby/devkit.rb'
-
-MrD@MRSD /c/_/Ruby
-$ cd /c/dropbox/Udun/octopress
-
-MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ bundle install
-Fetching gem metadata from https://rubygems.org/.......
-Fetching gem metadata from https://rubygems.org/..
-Resolving dependencies...
-Using rake (0.9.2.2)
-Using RedCloth (4.2.9)
-Using chunky_png (1.2.5)
-Installing fast-stemmer (1.0.1)
-Installing classifier (1.3.3)
-Installing fssm (0.2.9)
-Installing sass (3.2.9)
-Installing compass (0.12.2)
-Installing directory_watcher (1.4.1)
-Installing haml (3.1.7)
-Installing kramdown (0.13.8)
-Installing liquid (2.3.0)
-Installing syntax (1.0.0)
-Installing maruku (0.6.1)
-Installing posix-spawn (0.3.6)
-Installing yajl-ruby (1.1.0)
-Installing pygments.rb (0.3.4)
-Installing jekyll (0.12.0)
-Installing rack (1.5.2)
-Installing rack-protection (1.5.0)
-Installing rb-fsevent (0.9.1)
-Installing rdiscount (2.0.7.3)
-Installing rubypants (0.2.0)
-Installing sass-globbing (1.0.0)
-Installing tilt (1.3.7)
-Installing sinatra (1.4.2)
-Installing stringex (1.4.0)
-Using bundler (1.3.5)
-Your bundle is complete!
-Use `bundle show [gemname]` to see where a bundled gem is installed.
-
-MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ rake install
-## Copying classic theme into ./source and ./sass
-mkdir -p source
-cp -r .themes/classic/source/. source
-mkdir -p sass
-cp -r .themes/classic/sass/. sass
-mkdir -p source/_posts
-mkdir -p public
-</code></pre>
-
-<p>This has created a host of untracked files in <code>sass/</code> and <code>source/</code></p>
-
-<pre><code>MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ git status
-# On branch master
-# Changes not staged for commit:
-#   (use "git add &lt;file&gt;..." to update what will be committed)
-#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
-#
-#       modified:   Gemfile.lock
-#
-# Untracked files:
-#   (use "git add &lt;file&gt;..." to include in what will be committed)
-#
-#       sass/
-#       source/
-no changes added to commit (use "git add" and/or "git commit -a")
-</code></pre>
-
-<p>And here is the diff for <code>Gemfile.lock</code></p>
-
-<pre><code> GEM
-   remote: https://rubygems.org/
-   specs:
-     RedCloth (4.2.9)
-+    RedCloth (4.2.9-x86-mingw32)
-     chunky_png (1.2.5)
-     classifier (1.3.3)
-       fast-stemmer (&gt;= 1.0.0)
-     compass (0.12.2)
-       chunky_png (~&gt; 1.2)
-@@ -44,13 +45,15 @@ GEM
-       tilt (~&gt; 1.3, &gt;= 1.3.4)
-     stringex (1.4.0)
-     syntax (1.0.0)
-     tilt (1.3.7)
-     yajl-ruby (1.1.0)
-+    yajl-ruby (1.1.0-x86-mingw32)
-
- PLATFORMS
-   ruby
-+  x86-mingw32
-
- DEPENDENCIES
-   RedCloth (~&gt; 4.2.9)
-   compass (~&gt; 0.12.2)
-   directory_watcher (= 1.4.1)
-</code></pre>
-
-<p>I know as much ruby as Sanskrit but it&rsquo;s up and running.</p>
-
-<h3>Github Pages</h3>
-
-<pre><code>MrD@MRSD /c/dropbox/Udun/octopress (master)
-$ rake setup_github_pages
-Enter the read/write url for your repository
-(For example, 'git@github.com:your_username/your_username.github.io.git)
-           or 'https://github.com/your_username/your_username.github.io')
-Repository url: https://github.com/Utumno/Utumno.github.io
-Added remote https://github.com/Utumno/Utumno.github.io as origin
-Set origin as default remote
-Master branch renamed to 'source' for committing your blog source files
-rm -rf _deploy
-mkdir _deploy
-cd _deploy
-Initialized empty Git repository in c:/dropbox/Udun/octopress/_deploy/.git/
-'My Octopress Page is coming soon
-'hellip' is not recognized as an internal or external command,
-operable program or batch file.
-[master (root-commit) 792f51e] Octopress init
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 index.html
-cd -
-
----
-## Now you can deploy to https://github.com/Utumno/Utumno.github.io with `rake d
-eploy` ##
-
-MrD@MRSD /c/dropbox/Udun/octopress (source)
-$ git status
-# On branch source
-# Changes not staged for commit:
-#   (use "git add &lt;file&gt;..." to update what will be committed)
-#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
-#
-#       modified:   Gemfile.lock
-#       modified:   Rakefile
-#       modified:   _config.yml
-#
-# Untracked files:
-#   (use "git add &lt;file&gt;..." to include in what will be committed)
-#
-#       sass/
-#       source/
-no changes added to commit (use "git add" and/or "git commit -a")
-</code></pre>
-
-<p>Diffs - Rakefile:</p>
-
-<pre><code>@@ -7,14 +7,14 @@ require "stringex"
- ssh_user       = "user@domain.com"
- ssh_port       = "22"
- document_root  = "~/website.com/"
- rsync_delete   = false
- rsync_args     = ""  # Any extra arguments to pass to rsync
--deploy_default = "rsync"
-+deploy_default = "push"
-
- # This will be configured for you when you run config_deploy
--deploy_branch  = "gh-pages"
-+deploy_branch  = "master"
-</code></pre>
-
-<p>_config.yml:</p>
-
-<pre><code> ## -- Misc Configs -- ##
-
- public_dir      = "public"    # compiled site directory
- source_dir      = "source"    # source file directory
-
-@@ -1,10 +1,10 @@
- # ----------------------- #
- #      Main Configs       #
- # ----------------------- #
-
--url: http://yoursite.com
-+url: http://Utumno.github.io
- title: My Octopress Blog
- subtitle: A blogging framework for hackers.
- author: Your Name
- simple_search: http://google.com/search
- description:
-</code></pre>
-
-<p>What all this means is that you are now on branch <code>source</code></p>
-
-<pre><code>MrD@MRSD /c/dropbox/Udun/octopress (source)
-$  git branch -a
-* source
-  remotes/octopress/2.5
-  remotes/octopress/2.5-simplify-rakefile
-  remotes/octopress/3.0
-  remotes/octopress/HEAD -&gt; octopress/master
-  remotes/octopress/commander
-  remotes/octopress/gh-pages
-  remotes/octopress/guard
-  remotes/octopress/jekyll-1-3
-  remotes/octopress/linklog
-  remotes/octopress/master
-  remotes/octopress/migrator
-  remotes/octopress/refactor_with_tests
-  remotes/octopress/rubygemcli
-  remotes/octopress/site
-  remotes/octopress/site-2.
-</code></pre>
-
-<p>Huh ? Where is master ? It&rsquo;s in the <code>_deploy</code> folder. You can push/pull via git but better use the supplied rake commands (see below).</p>
-
-<h3>Blogging</h3>
-
-<p>First, commit all fluff so far</p>
-
-<pre><code>MrD@MRSD /c/dropbox/Udun/octopress (source)
-$ git add .
-
-MrD@MRSD /c/dropbox/Udun/octopress (source)
-$ git commit -m"Octopress autogenerated files"
-[source 8794e51] Octopress autogenerated files
- 120 files changed, 2787 insertions(+), 3 deletions(-)
-# yada yada
-</code></pre>
-
-<p>Now we can start blogging finally:</p>
-
-<pre><code>MrD@MRSD /c/dropbox/Udun/octopress (source)
-$ rake new_post["Set up octopress in windows 7"]
-mkdir -p source/_posts
-Creating new post: source/_posts/2013-12-21-set-up-octopress-in-windows-7.markdo
-wn
-
-
-MrD@MRSD /c/dropbox/Udun/octopress (source)
-$ rake preview
-Starting to watch source with Jekyll and Compass. Starting Rack on port 4000
-directory source/stylesheets/
-   create source/stylesheets/screen.css
-Configuration from c:/dropbox/Udun/octopress/_config.yml
-&gt;&gt;&gt; Change detected at 23:44:18 to: screen.scss
-Auto-regenerating enabled: source -&gt; public
-[2013-12-21 23:44:18] regeneration: 94 files changed
-identical public/stylesheets/screen.css
-
-Dear developers making use of FSSM in your projects,
-FSSM is essentially dead at this point. Further development will
-be taking place in the new shared guard/listen project. Please
-let us know if you need help transitioning! ^_^b
-- Travis Tilley
-</code></pre>
-
-<p>I dunno what this last piece of laurem ipsum is. Anyway - go ahead, edit your post, change things in the layout (more on this later) and commit your changes as per healthy git practices (you are on the source branch). Your customizations should go to <code>source/_includes/custom</code>. When ready do :</p>
-
-<pre><code>MrD@MRSD /c/Dropbox/Udun/octopress (source)
-$ rake generate
-## Generating Site with Jekyll
-identical source/stylesheets/screen.css
-Configuration from C:/Dropbox/Udun/octopress/_config.yml
-Building site: source -&gt; public
-Successfully generated site: source -&gt; public
-
-MrD@MRSD /c/Dropbox/Udun/octopress (source)
-$ rake deploy
-## Found posts in preview mode, regenerating files ...
-## Generating Site with Jekyll
-identical source/stylesheets/screen.css
-Configuration from C:/Dropbox/Udun/octopress/_config.yml
-Building site: source -&gt; public
-Successfully generated site: source -&gt; public
-## Deploying branch to Github Pages
-## Pulling any updates from Github Pages
-cd _deploy
-There is no tracking information for the current branch.
-Please specify which branch you want to merge with.
-See git-pull(1) for details
-
-    git pull &lt;remote&gt; &lt;branch&gt;
-
-If you wish to set tracking information for this branch you can do so with:
-
-    git branch --set-upstream-to=origin/&lt;branch&gt; master
-
-cd -
-rm -rf _deploy/index.html
-
-## Copying public to _deploy
-cp -r public/. _deploy
-cd _deploy
-
-## Committing: Site updated at 2013-12-23 21:04:31 UTC
-[master 9857750] Site updated at 2013-12-23 21:04:31 UTC
- 69 files changed, 3044 insertions(+)
- # yada yada
-
-## Pushing generated _deploy website
-Username for 'https://github.com':
-## Github Pages deploy complete
-cd -
-</code></pre>
-
-<p>Then (and only then) commit your source (only then for github to set your default branch as master)</p>
-
-<pre><code>MrD@MRSD /c/Dropbox/Udun/octopress (source)
-$ git push origin source
-Username for 'https://github.com': Utumno
-Password for 'https://Utumno@github.com':
-Counting objects: 4752, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (2056/2056), done.
-Writing objects: 100% (4752/4752), 1.20 MiB | 1.14 MiB/s, done.
-Total 4752 (delta 2476), reused 4520 (delta 2320)
-To https://github.com/Utumno/Utumno.github.io
-* [new branch]      source -&gt; source
-</code></pre>
-
-<p>If you want to update octopress itself <a href="http://octopress.org/docs/updating/">you should run</a> :</p>
-
-<pre><code>git pull octopress master # Get the latest Octopress
-bundle install # Keep gems updated
-rake update_source # update the template's source
-rake update_style # update the template's style
-</code></pre>
-
-<p>(but read the link above)</p>
-
-<p><sup>1</sup>: got the commands from <a href="http://www.techelex.org/setup-octopress-on-windows7/">here</a>. I don&rsquo;t have a clue what they do - but will come back to it.</p>
 ]]></content>
   </entry>
   
