@@ -9,7 +9,7 @@
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content="Why is it faster to process a sorted array than an unsorted array? And a python quirk: Prints: C:\_\Python27\python.exe C:/Users/MrD/.PyCharm2016.2/ &hellip;">
+  <meta name="description" content="Bookmarks overflow Setting all negative values of a tensor to zero (in tensorflow) X_with_negatives_set_to_zero = tf.nn.relu(X) X = tf.cast(X &gt; 0 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,59 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/05/14/tensorflow-links/">Tensorflow Links</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-05-14T16:27:49+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>4:27 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Bookmarks overflow</h3>
+
+<ul>
+<li><p><a href="http://stackoverflow.com/a/41045825/281545">Setting all negative values of a tensor to zero (in tensorflow)</a></p>
+
+<pre><code>  X_with_negatives_set_to_zero = tf.nn.relu(X)
+  X = tf.cast(X &gt; 0, X.dtype) * X # X &gt; 0 returns a boolean tensor
+</code></pre></li>
+<li>Queue code: <a href="http://stackoverflow.com/a/33904534/281545">How to filter tensor from queue based on some predicate in tensorflow?</a></li>
+<li><p><a href="http://stackoverflow.com/a/43830200/281545">rmse cost function</a></p>
+
+<pre><code>  tf.sqrt(tf.reduce_mean(tf.squared_difference(Y1, Y2)))
+</code></pre>
+
+<p>but see comments in that answer</p></li>
+<li><a href="http://stackoverflow.com/q/37896853/281545">MNIST Tensorflow vs code from Michael Nielsen</a> - a mess</li>
+<li><a href="http://stackoverflow.com/q/38286717/281545">regularization</a> - <a href="http://stackoverflow.com/questions/38286717/tensorflow-regularization-with-l2-loss-how-to-apply-to-all-weights-not-just#comment69573180_38287616">notes on biases</a></li>
+<li><a href="http://stackoverflow.com/a/41893288/281545">TensorFlow - numpy-like tensor indexing</a> - <code>tf.gather_nd</code> example</li>
+<li><a href="http://stackoverflow.com/a/39010125/281545">How can I run a loop with a tensor as its range? (in tensorflow)</a> - <code>tf.while_loop</code></li>
+<li><a href="http://stackoverflow.com/a/35847836/281545">TensorFlow: using a tensor to index another tensor</a> - <code>tf.gather</code> example - is it a special case of <code>gather_nd</code> ?</li>
+<li><a href="http://stackoverflow.com/a/34686952/281545"><code>scatter_nd</code></a> - needs answer, as <a href="http://stackoverflow.com/a/39218426/281545">this one</a></li>
+<li><a href="http://stackoverflow.com/a/39047066/281545">Conditional assignment of tensor values in TensorFlow</a> - <code>tf.where</code> and co</li>
+<li><a href="http://stackoverflow.com/q/37593960/281545">Set k-largest elements of a tensor to zero in TensorFlow</a> - some C++ code too</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -654,209 +707,6 @@ I got the Ctrl+Shift+Alt+F7 shortcut - untick &ldquo;Search for text occurrences
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/06/python-notes/">Python Notes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-07-06T18:38:03+02:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:38 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h5>Random</h5>
-
-<p><a href="http://stackoverflow.com/a/5445983/281545"><code>   mylist = ['x', 3, 'b']
-   print '[%s]' % ', '.join(map(str, mylist))
-</code></a></p>
-
-<p><a href="http://stackoverflow.com/a/5739258/281545">Infinite generator</a>: <code>iter(int, 1)</code> - try <code>li=filter(None, iter(int, 1))</code></p>
-
-<pre><code>&gt;&gt;&gt; def ii(): yield filter(None, iter(int, 1))
-&gt;&gt;&gt; ii
-&lt;function ii at 0x025FBA70&gt;
-&gt;&gt;&gt; ii()
-&lt;generator object ii at 0x0262B788&gt;
-&gt;&gt;&gt; ii()
-&lt;generator object ii at 0x0262BFD0&gt;
-&gt;&gt;&gt; ii()[0]
-Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in &lt;module&gt;
-TypeError: 'generator' object has no attribute '__getitem__'
-&gt;&gt;&gt; ii().next()
-# Infinite loop
-</code></pre>
-
-<p><a href="http://stackoverflow.com/questions/1306631/python-add-list-to-set">I want to have a set of lists</a> (as opposed to adding the list items to
-the set: <a href="http://stackoverflow.com/a/1306663/281545"><code>s |= set(li)</code></a>)</p>
-
-<p>Random refactoring puzzle:</p>
-
-<pre><code># before - indexes better be some set (although just _micro_ optimization)
-def SetChecked(self, indexes):
-    for i in indexes:
-        assert 0 &lt;= i &lt; self.Count, "Index (%s) out of range" % i
-    for i in range(self.Count):
-        self.Check(i, i in indexes)
-# after ?
-def SetChecked(self, indexes):
-    for i in indexes: # will pick a random index from the set - may check
-    # some items before assertion as opposed to before - important ?
-        assert 0 &lt;= i &lt; self.Count, "Index (%s) out of range" % i
-        self.Check(i, True)
-</code></pre>
-
-<p><a href="https://unspecified.wordpress.com/2009/02/12/thou-shalt-not-modify-a-list-during-iteration/">Thou Shalt Not Modify A List During Iteration</a> - <a href="http://stackoverflow.com/q/16551334/281545">for sets just use pop</a></p>
-
-<ul>
-<li><p>Scopes:</p>
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/1765677/python-nested-classes-scope">Python nested classes scope</a></li>
-<li><a href="http://stackoverflow.com/q/6391645/281545">Nested Python class needs to access variable in enclosing class</a></li>
-</ul>
-</li>
-</ul>
-
-
-<p> My deleted: <a href="http://stackoverflow.com/q/28685679/281545">Override python list operators dynamically</a> - see
-<a href="https://wiki.python.org/moin/FromFunctionToMethod">https://wiki.python.org/moin/FromFunctionToMethod</a> - and non deleted
-<a href="http://stackoverflow.com/q/29858405/281545">Override list&rsquo;s builtins dynamically in class scope</a> and
-<a href="http://stackoverflow.com/q/28734919/281545">Access base class attribute in derived class - in &lsquo;class scope&rsquo;</a></p>
-
-<ul>
-<li><p>Regexes:</p>
-
-<ul>
-<li><a href="https://docs.python.org/2/howto/regex.html">Regular Expression HOWTO - Python 2.7.10rc1 documentation</a></li>
-<li><a href="http://www.regular-expressions.info/python.html">Python re Module - Use Regular Expressions with Python - Regex Support</a></li>
-</ul>
-</li>
-</ul>
-
-
-<p> To be expanded:</p>
-
-<ul>
-<li><a href="http://stackoverflow.com/a/1611572/281545">Can I get to the exception from the finally block ?</a></li>
-<li><a href="http://gerg.ca/blog/post/2012/python-comparison/">Python 2: should I implement <strong>cmp</strong>() or <strong>eq</strong>()?</a></li>
-</ul>
-
-
-<h5>Interpreter facts</h5>
-
-<pre><code>&gt;&gt;&gt; def thatsSoUnlikeJava():
-...     try:
-...         raise Exception
-...     finally:return True
-...     
-&gt;&gt;&gt; print thatsSoUnlikeJava()
-True
-&gt;&gt;&gt; class C(object):
-...     def __m(self): return 0
-...     def m(self): return self.__m()
-...
-&gt;&gt;&gt; class D(C):
-...     def __m(self): return 1
-...
-&gt;&gt;&gt; D().__m()
-Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in &lt;module&gt;
-AttributeError: 'D' object has no attribute '__m'
-&gt;&gt;&gt; D().m()
-0
-&gt;&gt;&gt; def wrap():
-...     m=0
-...     def wrapped():
-...         m+=1
-...         return m
-...     return wrapped
-...
-&gt;&gt;&gt; print wrap()()
-Traceback (most recent call last):
-  File "&lt;input&gt;", line 1, in &lt;module&gt;
-  File "&lt;input&gt;", line 4, in wrapped
-UnboundLocalError: local variable 'm' referenced before assignment
-</code></pre>
-
-<h5>Links</h5>
-
-<ul>
-<li><p>Basics:</p>
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/3394835/args-and-kwargs">*args and **kwargs</a> - pythonisms too</li>
-<li><a href="http://stackoverflow.com/questions/1455602/printing-tuple-with-string-formatting-in-python">Printing tuple with string formatting in Python</a></li>
-<li><a href="http://stackoverflow.com/questions/19112735/python-print-tuple-elements-with-no-brackets#comment38914099_19112784">Python - print tuple elements with no brackets</a>
-<code>', ,'.join([str(i[0]) for i in mytuple])</code></li>
-<li><a href="http://stackoverflow.com/questions/24973284/why-calling-file-read-in-python-fills-my-file-with-garbage">Why calling file.read in python fills my file with garbage?</a></li>
-<li><a href="http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python">Yield</a></li>
-</ul>
-</li>
-</ul>
-
-
-<p>argparse:</p>
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/8259001/python-argparse-command-line-flags-without-arguments">Python argparse command line flags without arguments</a></li>
-</ul>
-
-
-<p>Import never ceases to surprise me. For instance in the code I have:</p>
-
-<pre><code>try:
-    from win32com.shell import shell, shellcon
-</code></pre>
-
-<p>In <code>Python27\Lib\site-packages\win32com</code> there was no shell to be seen - then I
-noticed in <code>Python27\Lib\site-packages\win32com\__init__.py</code>:</p>
-
-<pre><code>__path__.append( win32api.GetFullPathName( __path__[0] + "\\..\\win32comext") )
-</code></pre>
-
-<p>And <code>Python27\Lib\site-packages\win32comext\shell\__init__.py</code>:</p>
-
-<pre><code>import win32com
-win32com.__PackageSupportBuildPath__(__path__)
-</code></pre>
-
-<p>And sure enough <code>C:\_\Python27\Lib\site-packages\win32comext\shell\shell.pyd</code>.
-What&rsquo;s in there ? Centipydes probably.
-There&rsquo;s shecllcon.py too. One can read there:</p>
-
-<pre><code>FO_MOVE = 1
-FO_COPY = 2
-FO_DELETE = 3
-FO_RENAME = 4
-</code></pre>
-
-<p>almost <a href="https://github.com/wrye-bash/wrye-bash/blob/aaa90f4f14f1879bb1c1bcb3c4e59bfe1424ea9f/Mopy/bash/balt.py#L912-L915">as</a>
- in the program I am maintaining.</p>
-
-<h5>Python launcher for windows</h5>
-
-<p>Double click on a script will open with specified (by shebang) python version.
-Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a/13297878/281545">this</a> for installer options).
-<a href="http://www.rmi.net/~lutz/py33-windows-launcher.html">Gentle introduction</a> and the <a href="http://legacy.python.org/dev/peps/pep-0397/">PEP</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -874,7 +724,7 @@ Easiest to install: install python 3.3+ (see <a href="http://stackoverflow.com/a
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - Utumno -
+  Copyright &copy; 2017 - Utumno -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

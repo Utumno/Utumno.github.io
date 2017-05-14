@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>If Yes and No - Udun's Labs</title>
+  <title>Tensorflow Links - Udun's Labs</title>
   <meta name="author" content="Utumno">
 
   
-  <meta name="description" content=" Extra sortings (mine): Raise Abstract (mine): Git art: Bonus: ">
+  <meta name="description" content="Bookmarks overflow Setting all negative values of a tensor to zero (in tensorflow) X_with_negatives_set_to_zero = tf.nn.relu(X) X = tf.cast(X &gt; 0 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/">
+  <link rel="canonical" href="http://Utumno.github.io/blog/2017/05/14/tensorflow-links/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Udun's Labs" type="application/atom+xml">
@@ -67,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">If Yes and No</h1>
+      <h1 class="entry-title">Tensorflow Links</h1>
     
     
       <p class="meta">
@@ -76,33 +76,38 @@
 
 
 
-<time class='entry-date' datetime='2015-05-17T16:24:03+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:24 pm</span></time>
+<time class='entry-date' datetime='2017-05-14T16:27:49+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>4:27 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img class="center" src="/images/ifYesAndNo/ifYesAndNo.jpg" title="image" alt="images"></p>
+<div class="entry-content"><h3>Bookmarks overflow</h3>
 
-<!-- more -->
+<ul>
+<li><p><a href="http://stackoverflow.com/a/41045825/281545">Setting all negative values of a tensor to zero (in tensorflow)</a></p>
 
+<pre><code>  X_with_negatives_set_to_zero = tf.nn.relu(X)
+  X = tf.cast(X &gt; 0, X.dtype) * X # X &gt; 0 returns a boolean tensor
+</code></pre></li>
+<li>Queue code: <a href="http://stackoverflow.com/a/33904534/281545">How to filter tensor from queue based on some predicate in tensorflow?</a></li>
+<li><p><a href="http://stackoverflow.com/a/43830200/281545">rmse cost function</a></p>
 
-<p>Extra sortings (mine):</p>
+<pre><code>  tf.sqrt(tf.reduce_mean(tf.squared_difference(Y1, Y2)))
+</code></pre>
 
-<p><img class="center" src="/images/ifYesAndNo/SortItems.jpg" title="image" alt="images"></p>
+<p>but see comments in that answer</p></li>
+<li><a href="http://stackoverflow.com/q/37896853/281545">MNIST Tensorflow vs code from Michael Nielsen</a> - a mess</li>
+<li><a href="http://stackoverflow.com/q/38286717/281545">regularization</a> - <a href="http://stackoverflow.com/questions/38286717/tensorflow-regularization-with-l2-loss-how-to-apply-to-all-weights-not-just#comment69573180_38287616">notes on biases</a></li>
+<li><a href="http://stackoverflow.com/a/41893288/281545">TensorFlow - numpy-like tensor indexing</a> - <code>tf.gather_nd</code> example</li>
+<li><a href="http://stackoverflow.com/a/39010125/281545">How can I run a loop with a tensor as its range? (in tensorflow)</a> - <code>tf.while_loop</code></li>
+<li><a href="http://stackoverflow.com/a/35847836/281545">TensorFlow: using a tensor to index another tensor</a> - <code>tf.gather</code> example - is it a special case of <code>gather_nd</code> ?</li>
+<li><a href="http://stackoverflow.com/a/34686952/281545"><code>scatter_nd</code></a> - needs answer, as <a href="http://stackoverflow.com/a/39218426/281545">this one</a></li>
+<li><a href="http://stackoverflow.com/a/39047066/281545">Conditional assignment of tensor values in TensorFlow</a> - <code>tf.where</code> and co</li>
+<li><a href="http://stackoverflow.com/q/37593960/281545">Set k-largest elements of a tensor to zero in TensorFlow</a> - some C++ code too</li>
+</ul>
 
-<p>Raise Abstract (mine):</p>
-
-<p><img class="center" src="/images/ifYesAndNo/transLink.jpg" title="image" alt="images"></p>
-
-<p>Git art:</p>
-
-<p><img class="center" src="/images/ifYesAndNo/gitart01.jpg" title="image" alt="images"></p>
-
-<p>Bonus:</p>
-
-<p><img class="center" src="/images/ifYesAndNo/estimation.png" title="image" alt="images"></p>
 </div>
 
 
@@ -118,15 +123,21 @@
 
 
 
-<time class='entry-date' datetime='2015-05-17T16:24:03+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:24 pm</span></time>
+<time class='entry-date' datetime='2017-05-14T16:27:49+02:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>4:27 pm</span></time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/tensorflow/'>tensorflow</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/" data-via="" data-counturl="http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Utumno.github.io/blog/2017/05/14/tensorflow-links/" data-via="" data-counturl="http://Utumno.github.io/blog/2017/05/14/tensorflow-links/" >Tweet</a>
   
   
   
@@ -135,10 +146,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/04/28/git-links/" title="Previous Post: Git Links">&laquo; Git Links</a>
+        <a class="basic-alignment left" href="/blog/2016/05/29/sort-before-you-loop/" title="Previous Post: Sort before you loop">&laquo; Sort before you loop</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/06/06/creating-an-eclipse-plugin/" title="Next Post: Creating an eclipse plugin">Creating an eclipse plugin &raquo;</a>
       
     </p>
   </footer>
@@ -187,8 +196,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/';
-        var disqus_url = 'http://Utumno.github.io/blog/2015/05/17/if-yes-and-no/';
+        var disqus_identifier = 'http://Utumno.github.io/blog/2017/05/14/tensorflow-links/';
+        var disqus_url = 'http://Utumno.github.io/blog/2017/05/14/tensorflow-links/';
         var disqus_script = 'embed.js';
       
     (function () {

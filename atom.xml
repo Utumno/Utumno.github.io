@@ -4,7 +4,7 @@
   <title><![CDATA[Udun's Labs]]></title>
   <link href="http://Utumno.github.io/atom.xml" rel="self"/>
   <link href="http://Utumno.github.io/"/>
-  <updated>2016-10-13T12:36:26+02:00</updated>
+  <updated>2017-05-14T22:33:04+02:00</updated>
   <id>http://Utumno.github.io/</id>
   <author>
     <name><![CDATA[Utumno]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tensorflow Links]]></title>
+    <link href="http://Utumno.github.io/blog/2017/05/14/tensorflow-links/"/>
+    <updated>2017-05-14T16:27:49+02:00</updated>
+    <id>http://Utumno.github.io/blog/2017/05/14/tensorflow-links</id>
+    <content type="html"><![CDATA[<h3>Bookmarks overflow</h3>
+
+<ul>
+<li><p><a href="http://stackoverflow.com/a/41045825/281545">Setting all negative values of a tensor to zero (in tensorflow)</a></p>
+
+<pre><code>  X_with_negatives_set_to_zero = tf.nn.relu(X)
+  X = tf.cast(X &gt; 0, X.dtype) * X # X &gt; 0 returns a boolean tensor
+</code></pre></li>
+<li>Queue code: <a href="http://stackoverflow.com/a/33904534/281545">How to filter tensor from queue based on some predicate in tensorflow?</a></li>
+<li><p><a href="http://stackoverflow.com/a/43830200/281545">rmse cost function</a></p>
+
+<pre><code>  tf.sqrt(tf.reduce_mean(tf.squared_difference(Y1, Y2)))
+</code></pre>
+
+<p>but see comments in that answer</p></li>
+<li><a href="http://stackoverflow.com/q/37896853/281545">MNIST Tensorflow vs code from Michael Nielsen</a> - a mess</li>
+<li><a href="http://stackoverflow.com/q/38286717/281545">regularization</a> - <a href="http://stackoverflow.com/questions/38286717/tensorflow-regularization-with-l2-loss-how-to-apply-to-all-weights-not-just#comment69573180_38287616">notes on biases</a></li>
+<li><a href="http://stackoverflow.com/a/41893288/281545">TensorFlow - numpy-like tensor indexing</a> - <code>tf.gather_nd</code> example</li>
+<li><a href="http://stackoverflow.com/a/39010125/281545">How can I run a loop with a tensor as its range? (in tensorflow)</a> - <code>tf.while_loop</code></li>
+<li><a href="http://stackoverflow.com/a/35847836/281545">TensorFlow: using a tensor to index another tensor</a> - <code>tf.gather</code> example - is it a special case of <code>gather_nd</code> ?</li>
+<li><a href="http://stackoverflow.com/a/34686952/281545"><code>scatter_nd</code></a> - needs answer, as <a href="http://stackoverflow.com/a/39218426/281545">this one</a></li>
+<li><a href="http://stackoverflow.com/a/39047066/281545">Conditional assignment of tensor values in TensorFlow</a> - <code>tf.where</code> and co</li>
+<li><a href="http://stackoverflow.com/q/37593960/281545">Set k-largest elements of a tensor to zero in TensorFlow</a> - some C++ code too</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sort Before You Loop]]></title>
@@ -2004,123 +2037,6 @@ and <code>git clone git@github.com:myusername/foobar.wiki.git</code> would be th
 <p>See also:</p>
 
 <p><a href="http://stackoverflow.com/questions/18339081/java-ee-7-glassfish-4-0-restful-webservices-using-and-netbean-and-deploying-on-g/18340894#18340894">Java EE 7 GlassFish 4.0 Restful Webservices using and Netbean and deploying on Glassfish 4.0</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Python's Super]]></title>
-    <link href="http://Utumno.github.io/blog/2014/01/05/pythons-super/"/>
-    <updated>2014-01-05T15:45:20+01:00</updated>
-    <id>http://Utumno.github.io/blog/2014/01/05/pythons-super</id>
-    <content type="html"><![CDATA[<p>First thing that comes to mind : why do I need to name the superclass
-explicitly, instead of passing in <code>self.__class__</code> (or better still,
-<code>type(self)</code>)  ?
-<a href="http://stackoverflow.com/questions/18208683/when-calling-super-in-a-derived-class-can-i-pass-in-self-class/18208725#18208725">Because</a>:</p>
-
-<!--``` linenos:false-->
-
-
-<pre><code>class Base(object):
-    def method(self):
-        print 'original'
-
-class Derived(Base):
-    def method(self):
-        print 'derived'
-        super(type(self), self).method()
-
-class Subclass(Derived):
-    def method(self):
-        print 'subclass of derived'
-        super(Subclass, self).method()
-</code></pre>
-
-<!-- ``` -->
-
-
-<p>leads to:</p>
-
-<pre><code>&gt;&gt;&gt; Subclass().method()
-subclass of derived
-derived
-derived
-derived
-&lt;...&gt;
-  File "&lt;stdin&gt;", line 4, in method
-  File "&lt;stdin&gt;", line 4, in method
-  File "&lt;stdin&gt;", line 4, in method
-RuntimeError: maximum recursion depth exceeded while calling a Python object
-</code></pre>
-
-<p>And this pretty much explains the second question I had. <!-- more --> In
-<a href="https://fuhm.net/super-harmful/">Python&rsquo;s Super is nifty, but you can&rsquo;t use it</a>
-(Previously: Python&rsquo;s Super Considered Harmful) we read:</p>
-
-<blockquote><p>People omit calls to <code>super(...).__init__</code> if the only superclass is &lsquo;object&rsquo;,
- as, after all, <code>object.__init__</code> doesn&rsquo;t do anything! However, this is very
- incorrect. Doing so will cause other classes' <code>__init__</code> methods to not be
- called.</p></blockquote>
-
-<p>But it does not say why (btw
-<a href="http://stackoverflow.com/questions/8972866/correct-way-to-use-super-argument-passing">not all of the examples compile</a> -
-see this link also for a nice hack when you need to have arguments passed
-in the init method, and can&rsquo;t pop them one by one).</p>
-
-<p>The why <em>is multiple inheritance</em>.
-Calling <code>super(...).__init__</code> in a class whose only superclass is &lsquo;object&rsquo; is
-useless. But when we have a MI hierarchy, and our &ldquo;penultimate&rdquo; base class
-(that is the one that inherits directly from object)
-is used as a superclass in an unrelated MI class the call <code>super(...).__init__</code>
-will not delegate to object init but in the next class in the MRO.
-<a href="http://stackoverflow.com/a/8613067/281545">Example</a>:</p>
-
-<pre><code>class Service(object):
-    def __init__(self, host, binary, topic, manager, report_interval=None,
-             periodic_interval=None, *args, **kwargs):
-        print 'Initializing Service'
-        super(Service, self).__init__(*args, **kwargs)
-
-class Color(object):
-    def __init__(self, color='red', **kwargs):
-        print 'Initializing Color'
-        self.color = color
-        super(Color, self).__init__(**kwargs)
-
-class ColoredService(Service, Color):
-    def __init__(self, *args, **kwds):
-        print 'Initializing Colored Service'
-        super(ColoredService, self).__init__(*args, **kwds)
-
-c = ColoredService('host', 'bin', 'top', 'mgr', 'ivl', color='blue')
-</code></pre>
-
-<p>gives:</p>
-
-<pre><code>Initializing Colored Service
-Initializing Service
-Initializing Color
-</code></pre>
-
-<p>Why ? The call <code>super(Service, self).__init__(*args, **kwargs)</code> calls the next method in <em>self</em>&rsquo;s MRO - <em>self</em> being an instance of ColoredService. So the MRO is derived from the instance passed into super&rsquo;s <em>second argument</em> (you may also pass a type, haven&rsquo;t gone into this) while <em>the starting point in the MRO</em> is derived from super&rsquo;s first argument.</p>
-
-<pre><code>super(startFromThisType, getTheMROFromThisInstance)
-</code></pre>
-
-<p>And that explains why one must always call super in a method meant to be overridden in a MI setting but when we need also the super class implementation.</p>
-
-<p>Btw for Java people - <a href="http://stackoverflow.com/questions/2399307/python-invoke-super-constructor/2399332#2399332">there is no automatic constructor call in  Python</a>.
- You must call <code>super.__init__</code> manually and that&rsquo;s where this post comes from.</p>
-
-<p>References:</p>
-
-<ul>
-<li>Things to Know About Python Super <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=236275">[1 of 3]</a>, <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=236278">[2 of 3]</a>, <a href="http://www.artima.com/weblogs/viewpost.jsp?thread=237121">[3 of 3]</a></li>
-<li><a href="http://www.python.org/download/releases/2.3/mro/">The Python 2.3 Method Resolution Order</a></li>
-<li><a href="http://docs.python.org/2/library/functions.html#super">super(type[, object-or-type])</a></li>
-<li><a href="http://users.rcn.com/python/download/Descriptor.htm">Descriptors</a> (in my toread)</li>
-<li><a href="http://rhettinger.wordpress.com/2011/05/26/super-considered-super/">Python&rsquo;s super() considered super!</a></li>
-</ul>
-
 ]]></content>
   </entry>
   

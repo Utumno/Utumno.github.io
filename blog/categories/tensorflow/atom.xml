@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tensorflow | Udun's Labs]]></title>
+  <link href="http://Utumno.github.io/blog/categories/tensorflow/atom.xml" rel="self"/>
+  <link href="http://Utumno.github.io/"/>
+  <updated>2017-05-14T22:33:04+02:00</updated>
+  <id>http://Utumno.github.io/</id>
+  <author>
+    <name><![CDATA[Utumno]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tensorflow Links]]></title>
+    <link href="http://Utumno.github.io/blog/2017/05/14/tensorflow-links/"/>
+    <updated>2017-05-14T16:27:49+02:00</updated>
+    <id>http://Utumno.github.io/blog/2017/05/14/tensorflow-links</id>
+    <content type="html"><![CDATA[<h3>Bookmarks overflow</h3>
+
+<ul>
+<li><p><a href="http://stackoverflow.com/a/41045825/281545">Setting all negative values of a tensor to zero (in tensorflow)</a></p>
+
+<pre><code>  X_with_negatives_set_to_zero = tf.nn.relu(X)
+  X = tf.cast(X &gt; 0, X.dtype) * X # X &gt; 0 returns a boolean tensor
+</code></pre></li>
+<li>Queue code: <a href="http://stackoverflow.com/a/33904534/281545">How to filter tensor from queue based on some predicate in tensorflow?</a></li>
+<li><p><a href="http://stackoverflow.com/a/43830200/281545">rmse cost function</a></p>
+
+<pre><code>  tf.sqrt(tf.reduce_mean(tf.squared_difference(Y1, Y2)))
+</code></pre>
+
+<p>but see comments in that answer</p></li>
+<li><a href="http://stackoverflow.com/q/37896853/281545">MNIST Tensorflow vs code from Michael Nielsen</a> - a mess</li>
+<li><a href="http://stackoverflow.com/q/38286717/281545">regularization</a> - <a href="http://stackoverflow.com/questions/38286717/tensorflow-regularization-with-l2-loss-how-to-apply-to-all-weights-not-just#comment69573180_38287616">notes on biases</a></li>
+<li><a href="http://stackoverflow.com/a/41893288/281545">TensorFlow - numpy-like tensor indexing</a> - <code>tf.gather_nd</code> example</li>
+<li><a href="http://stackoverflow.com/a/39010125/281545">How can I run a loop with a tensor as its range? (in tensorflow)</a> - <code>tf.while_loop</code></li>
+<li><a href="http://stackoverflow.com/a/35847836/281545">TensorFlow: using a tensor to index another tensor</a> - <code>tf.gather</code> example - is it a special case of <code>gather_nd</code> ?</li>
+<li><a href="http://stackoverflow.com/a/34686952/281545"><code>scatter_nd</code></a> - needs answer, as <a href="http://stackoverflow.com/a/39218426/281545">this one</a></li>
+<li><a href="http://stackoverflow.com/a/39047066/281545">Conditional assignment of tensor values in TensorFlow</a> - <code>tf.where</code> and co</li>
+<li><a href="http://stackoverflow.com/q/37593960/281545">Set k-largest elements of a tensor to zero in TensorFlow</a> - some C++ code too</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
